@@ -5,14 +5,30 @@
     
     <entry>
       
-        <title>No Title</title>
+        <title>test</title>
       
       <link href="/2024/12/29/test/"/>
       <url>/2024/12/29/test/</url>
       
-        <content type="html"><![CDATA[<hr><h2 id="title-testcover-https-tse3-mm-cn-bing-net-th-id-OIP-C-itnAvsUx2mzlmt5x6ekHkwHaFj-rs-1-pid-ImgDetMain"><a href="#title-testcover-https-tse3-mm-cn-bing-net-th-id-OIP-C-itnAvsUx2mzlmt5x6ekHkwHaFj-rs-1-pid-ImgDetMain" class="headerlink" title="title:testcover:https://tse3-mm.cn.bing.net/th/id/OIP-C.itnAvsUx2mzlmt5x6ekHkwHaFj?rs=1&amp;pid=ImgDetMain"></a>title:test<br>cover:<a href="https://tse3-mm.cn.bing.net/th/id/OIP-C.itnAvsUx2mzlmt5x6ekHkwHaFj?rs=1&pid=ImgDetMain">https://tse3-mm.cn.bing.net/th/id/OIP-C.itnAvsUx2mzlmt5x6ekHkwHaFj?rs=1&amp;pid=ImgDetMain</a></h2><p>hello</p>]]></content>
+        <content type="html"><![CDATA[<p>hello</p>]]></content>
       
       
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+            <tag> 散列 </tag>
+            
+            <tag> hash </tag>
+            
+        </tags>
       
     </entry>
     
