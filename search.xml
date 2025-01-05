@@ -5,7 +5,7 @@
     
     <entry>
       
-        <title>No Title</title>
+        <title>数据结构-线性表</title>
       
       <link href="/2025/01/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%BA%BF%E6%80%A7%E8%A1%A8/"/>
       <url>/2025/01/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%BA%BF%E6%80%A7%E8%A1%A8/</url>
@@ -13,6 +13,28 @@
         <content type="html"><![CDATA[<h1 id="数据结构-线性表"><a href="#数据结构-线性表" class="headerlink" title="数据结构-线性表"></a>数据结构-线性表</h1><blockquote><p>本文仅对线性表进行简单叙述，具体实现会专门出教程，并在具体的数据结构后面给出链接。</p></blockquote><p><strong>定义：</strong>线性表是具有<strong>相同</strong>数据类型的n个元素的<b>有限</b>序列</p><p><strong>基本操作：</strong> 初始化、取值、查找、插入、删除、判空、销毁</p><h2 id="线性表的顺序表示-顺序表"><a href="#线性表的顺序表示-顺序表" class="headerlink" title="线性表的顺序表示-顺序表"></a>线性表的顺序表示-顺序表</h2><p>我们可以这样定义顺序表</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MAXSIZE 100</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="type">int</span> data[MAXSIZE];  <span class="comment">//顺序表的元素(假设类型为int，本文元素均以int为例)</span></span><br><span class="line">    <span class="type">int</span> lenth; <span class="comment">//顺序表的当前长度</span></span><br><span class="line">&#125;SqList;</span><br></pre></td></tr></table></figure><p>当然，如果我们想要通过动态分配的顺序表，只需要让data成为一个指针，并且结构体中存在MaxSize描述当前最大容量即可。</p><p>特点：逻辑位置与其存储的物理顺序相同</p><p>优点：</p><ul><li>可随机访问（取值的时间复杂度为O(1)）</li><li>存储密度高</li></ul><p>缺点：</p><ul><li>插入和删除的时间花费较大</li></ul><h2 id="线性表的存储表示-链表"><a href="#线性表的存储表示-链表" class="headerlink" title="线性表的存储表示-链表"></a>线性表的存储表示-链表</h2><blockquote><p>为了避免顺序表插入和删除的线性开销，我们可以允许表不连续存储，于是链表应运而生</p></blockquote><blockquote><p>我们常常使用头节点head置于链表最前端，其data域无任何东西，优点如下</p><p>1.第一个节点存放在头节点的指针域中，与其他节点一样，无需特殊处理</p><p>2.对空表和非空表的处理有了统一的标准(head-&gt;next是否为空)</p></blockquote><p><strong>单链表</strong></p><p>我们可以这样定义一个简单的单链表</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>&#123;</span> <span class="comment">//LNode为链表节点</span></span><br><span class="line">    <span class="type">int</span> data;<span class="comment">//链表节点对应的元素</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> *<span class="title">next</span>;</span><span class="comment">//指向下一个链表节点的指针</span></span><br><span class="line">&#125;*LinkedList; </span><br></pre></td></tr></table></figure><p>我们使得*LNode， 即LinkedList来代表链表。</p><p>通过结构体指针next, 我们就可以遍历链表的所有元素。</p><p><strong>双向链表</strong></p><p>我们可以这样定义一个简单的双向链表</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>&#123;</span></span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> *<span class="title">pre</span>;</span> <span class="comment">//指向该节点的前驱</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> *<span class="title">next</span> //指向该节点的后继</span></span><br><span class="line"><span class="class">&#125;</span></span><br></pre></td></tr></table></figure><p><strong>循环链表</strong></p><p>  单链表和双向链表都有其循环形式，结构体形式不需要做出任何改变，我们只需要它最后一个节点的后继是第一个节点即可，这样链表就形成了一个环。</p><h2 id="受限线性表-栈、队列"><a href="#受限线性表-栈、队列" class="headerlink" title="受限线性表: 栈、队列"></a>受限线性表: 栈、队列</h2><p>  它们都是一种线性表，只不过对于它们的功能都进行了限制，只能进行线性表的某些功能，这使得它们的特点和用途更加鲜明，功能更简洁。</p><p><b>栈</b></p><p>栈是一种只能在一端进行插入和删除的数据结构。就像我们整齐地放书本一样，我们只允许最后放的书可以被拿走或用新的书放在其上面。这种操作特性被称为”<strong>后进先出</strong>“</p><p>其中，栈的最后一个元素被称作栈顶元素。</p><p>栈实现的功能主要有两个：</p><p>pop: 弹出栈顶元素</p><p>push: 将元素压入栈顶</p><p>有时也会实现get top功能，即返回栈顶元素的值，而不弹出。</p><p><strong>队列</strong></p><p>队列是一种只能在一端进行删除，在另一端进行插入的数据结构。词如其名，正如我们排队一样，存在着”<strong>先进先出</strong>“的操作特性</p><p>队尾：进行插入的一端</p><p>队头(队首)：进行删除的一端</p><p>enQueue: 入队, 将元素放在队尾</p><p>deQueue: 出队, 删除队头元素</p><p><mark>栈和队列都是一种逻辑结构，都可以通过顺序存储和链式存储实现。</mark></p><h2 id="线性表的推广-数组"><a href="#线性表的推广-数组" class="headerlink" title="线性表的推广: 数组"></a>线性表的推广: 数组</h2><p>  数组是由n个相同类型的数据元素构成的有限序列，每个元素在n个线性关系中的序号称为该元素的下标，下标的取值范围称为数组的维界。</p><p>  数组是线性表的推广。一维数组可视为一个线性表，二位数组可视为其元素是定长数组的线性表，以此类推。</p><p>​数组一旦被定义，其维界就会确定，只能在该维界内存取元素和修改元素。</p><p>对于一维数组，其存储结构关系为:</p><center>LOC(a<sub>i</sub>) = LOC(a<sub>0</sub>) + i * L</center> <p>二维数组(i为高维，j为低维):</p><center>LOC(a<sub>ij</sub>) = LOC(a<sub>0</sub>) + i * row + j</center> <p>多维数组以此类推。</p>]]></content>
       
       
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+            <tag> 教程 </tag>
+            
+            <tag> 线性表 </tag>
+            
+            <tag> 链表 </tag>
+            
+            <tag> 栈 </tag>
+            
+            <tag> 队列 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -20,7 +42,7 @@
     
     <entry>
       
-        <title>No Title</title>
+        <title>数据结构绪论</title>
       
       <link href="/2025/01/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/"/>
       <url>/2025/01/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/</url>
@@ -28,6 +50,20 @@
         <content type="html"><![CDATA[<h1 id="数据结构绪论"><a href="#数据结构绪论" class="headerlink" title="数据结构绪论"></a>数据结构绪论</h1><p>由于几天后数据结构要期末考试，最近几天会出数据结构相关的教程，以作复习。</p><blockquote><p>参考资料：</p><p>数据结构(C语言版)  –严蔚敏，吴伟民</p><p>数据结构与算法分析  –Mark Allen Weiss</p><p>2025年数据结构考研复习指导–王道论坛</p></blockquote><h2 id="数据结构的基本概念"><a href="#数据结构的基本概念" class="headerlink" title="数据结构的基本概念"></a>数据结构的基本概念</h2><h3 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h3><p><b>数据元素</b>：数据的基本单位，由若干数据项组成</p><p><b>数据对象</b>：具有相同性质的数据元素的集合</p><p><b>抽象数据类型：</b>一组操作的集合</p><p>​<strong>数据结构</strong>是相互之间存在一种或多种特定关系的数据元素的集合。在任何问题中，数据元素都不是孤立存在的，它们之间存在某种关系，这种数据元素之间的关系称为<strong>结构</strong>。数据结构包括三方面内容：<em>逻辑结构、存储结构和数据的运算</em></p><h3 id="数据结构三要素"><a href="#数据结构三要素" class="headerlink" title="数据结构三要素"></a>数据结构三要素</h3><p><mark>1.数据的逻辑结构</mark></p><p>​逻辑结构是指数据元素之间的逻辑关系，与数据的存储无关，分为线性结构和非线性结构</p><p><img src="/images/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%9A%84%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84.png"></p><p><em>集合</em>：结构中的数据元素除“同属一个集合”外，别无其他关系。</p><p><em>线性结构</em>：结构中的数据存在一对一的关系</p><p><em>树形结构</em>：结构中的数据存在一对多的关系</p><p><em>图状结构</em>：结构中的数据存在多对多的关系</p><p>2.数据的存储结构</p><p>​存储结构是指数据结构在计算机中表示(又称映像)，也称物理结构。</p><ul><li>顺序存储：逻辑上相邻的元素存储在物理位置也相邻的存储单元中</li><li>链式存储：借助指示元素存储地址的指针来表示元素之间的逻辑关系</li><li>索引存储：建立附加的索引表</li><li>散列存储：根据元素的关键字直接计算出该元素的存储地址</li></ul><h2 id="算法效率的度量"><a href="#算法效率的度量" class="headerlink" title="算法效率的度量"></a>算法效率的度量</h2><p>一般情况下，算法中基本操作重复执行的次数是关于<strong>n</strong>的某个函数<strong>f(n)</strong>, 算法的时间量度记作</p><center>T(n) = O(f(n))</center><blockquote><p>O的含义是T(n)的数量级，如果存在正常数c和n<sup>0</sup>，使得当n &gt;&#x3D; n<sub>0</sub>时,T(n) &lt;&#x3D; c f(n),则记为T(n) &#x3D; O(f(n))</p></blockquote><p> 我们通过这样的方式表示了算法执行时间的增长率，它主要是由O(f(n))决定的。</p><p>例如，若存在f(n) &#x3D; 2<sup>n</sup> + n<sup>2</sup> , 则 O(f(n)) &#x3D; 2<sup>n</sup> 。显然，当n很大时，相比于2<sup>n</sup> ,n<sup>2</sup>无足轻重了。</p><p>像这样，我们称O(f(n))为<strong>渐进时间复杂度</strong>，简称时间复杂度</p><p>同理，空间复杂度S(n) &#x3D; O(g(n))</p><blockquote><p>使用g(n)是为了区别于f(n)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </p></blockquote>]]></content>
       
       
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+            <tag> 教程 </tag>
+            
+        </tags>
       
     </entry>
     
