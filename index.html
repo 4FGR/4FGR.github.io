@@ -60,7 +60,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-04-16 20:20:26',
+  postUpdate: '2025-04-16 23:42:09',
   postMainColor: '',
 }</script><noscript><style type="text/css">
   #nav {
@@ -231,26 +231,26 @@ if (true) {
         生活
       </a>
     </div>
-    </div><div class="category-bar-next" id="category-bar-next" onclick="anzhiyu.scrollCategoryBarToRight()"><i class="anzhiyufont anzhiyu-icon-angle-double-right"></i></div><a class="catalog-more" href="/categories/">更多</a></div></div></div><div class="recent-post-item lastestpost-item" onclick="pjax.loadUrl('/2025/04/15/%E8%83%8C%E5%8C%85DP/')"><div class="post_cover left"><a href="/2025/04/15/%E8%83%8C%E5%8C%85DP/" title="算法-背包DP" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2025/04/15/OcOlsq.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法-背包DP" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">算法</div><span class="newPost">最新</span><a class="unvisited-post" href="/2025/04/15/%E8%83%8C%E5%8C%85DP/" title="算法-背包DP">未读</a></div><a class="article-title" href="/2025/04/15/%E8%83%8C%E5%8C%85DP/" title="算法-背包DP">算法-背包DP</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2025-04-14T16:00:00.000Z" title="发表于 2025-04-15 00:00:00" time="2025-04-15 00:00:00">2025-04-15</time><time class="time_hidden" datetime="2025-04-16T12:15:58.362Z" title="更新于 2025-04-16 20:15:58" time="2025-04-16 20:15:58">2025-04-16</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>动态规划</span></a><a class="article-meta__tags" href="/tags/%E8%83%8C%E5%8C%85DP/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>背包DP</span></a></span><span class="article-meta"><span class="article-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-comments"></i><a class="twikoo-count" href="/2025/04/15/%E8%83%8C%E5%8C%85DP/#post-comment" tabindex="-1"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">背包DP
-引入
-在具体讲何为背包dp前，先来看如下的例题：
-
-题意概要：有 \(n\)
-个物品和一个容量为 \(W\)
-的背包，每个物品有重量 \(w_i\) 和价值
-\(v_i\)
-两种属性，要求选若干物品放入背包使得背包中的物品的总价格
-
-在上述例题中，由于每个物体只有两种可能的状态（取与不取），对应二进制中的0和1，这类问题便被称作0-1背包问题。
-0-1背包
-解释
-例题中已知条件有第i个物品的重量\(w_i\) ，价值\(v_i\) 以及背包的总重量 \(W\)。
-设DP状态 \(f_{i,j}\) 为在只能放前
-\(i\) 个物品的情况下，容量为 \(j\) 的背包所能达到的最大总价值。
-考虑转移。假设当前已经处理好了前 \(i-1\) 个物品的情况下，那么对于第 \(i\)
-个物品当其不放入背包时，背包的剩余容量不变，背包中物品的总价值也不变，故这种情况的最大价值为
-\(f_{i-1,j}\)
-；当其放入背包时，背包的剩余容量会减小 \(w_i\) 背包中物品的总价值会增大 \(v_i\) ，故这种情况的最大价值为 \(f_{i-1,j ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2025/04/14/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/')"><div class="post_cover left"><a href="/2025/04/14/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/" title="算法-动态规划初步" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2025/04/15/OcOfyv.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法-动态规划初步" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">算法</div><a class="unvisited-post" href="/2025/04/14/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/" title="算法-动态规划初步">未读</a></div><a class="article-title" href="/2025/04/14/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/" title="算法-动态规划初步">算法-动态规划初步</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2025-04-13T16:00:00.000Z" title="发表于 2025-04-14 00:00:00" time="2025-04-14 00:00:00">2025-04-14</time><time class="time_hidden" datetime="2025-04-16T12:20:13.302Z" title="更新于 2025-04-16 20:20:13" time="2025-04-16 20:20:13">2025-04-16</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>动态规划</span></a></span><span class="article-meta"><span class="article-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-comments"></i><a class="twikoo-count" href="/2025/04/14/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/#post-comment" tabindex="-1"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+    </div><div class="category-bar-next" id="category-bar-next" onclick="anzhiyu.scrollCategoryBarToRight()"><i class="anzhiyufont anzhiyu-icon-angle-double-right"></i></div><a class="catalog-more" href="/categories/">更多</a></div></div></div><div class="recent-post-item lastestpost-item" onclick="pjax.loadUrl('/2025/04/15/%E8%83%8C%E5%8C%85DP/')"><div class="post_cover left"><a href="/2025/04/15/%E8%83%8C%E5%8C%85DP/" title="算法-背包DP" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2025/04/15/OcOlsq.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法-背包DP" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">算法</div><span class="newPost">最新</span><a class="unvisited-post" href="/2025/04/15/%E8%83%8C%E5%8C%85DP/" title="算法-背包DP">未读</a></div><a class="article-title" href="/2025/04/15/%E8%83%8C%E5%8C%85DP/" title="算法-背包DP">算法-背包DP</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2025-04-14T16:00:00.000Z" title="发表于 2025-04-15 00:00:00" time="2025-04-15 00:00:00">2025-04-15</time><time class="time_hidden" datetime="2025-04-16T15:41:07.173Z" title="更新于 2025-04-16 23:41:07" time="2025-04-16 23:41:07">2025-04-16</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>动态规划</span></a><a class="article-meta__tags" href="/tags/%E8%83%8C%E5%8C%85DP/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>背包DP</span></a></span><span class="article-meta"><span class="article-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-comments"></i><a class="twikoo-count" href="/2025/04/15/%E8%83%8C%E5%8C%85DP/#post-comment" tabindex="-1"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+    .red{
+        color:red;
+            font-weight:600; //bold为700，normal为400
+        }
+    .lbold{
+            font-weight:bold;
+            font-size:24px; //默认16px
+        }
+        .bold{
+            font-weight: bold;
+        }
+    details {
+        border: 1px solid #ccc;
+            background-color: #f0f8ff; /* 浅蓝，适合白天 */
+            border-radius: 6px;
+            padding: 0.5em;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+     ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2025/04/14/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/')"><div class="post_cover left"><a href="/2025/04/14/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/" title="算法-动态规划初步" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2025/04/15/OcOfyv.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法-动态规划初步" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">算法</div><a class="unvisited-post" href="/2025/04/14/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/" title="算法-动态规划初步">未读</a></div><a class="article-title" href="/2025/04/14/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/" title="算法-动态规划初步">算法-动态规划初步</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2025-04-13T16:00:00.000Z" title="发表于 2025-04-14 00:00:00" time="2025-04-14 00:00:00">2025-04-14</time><time class="time_hidden" datetime="2025-04-16T15:41:31.966Z" title="更新于 2025-04-16 23:41:31" time="2025-04-16 23:41:31">2025-04-16</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>动态规划</span></a></span><span class="article-meta"><span class="article-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-comments"></i><a class="twikoo-count" href="/2025/04/14/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/#post-comment" tabindex="-1"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
 参考资料：动态规划基础 - OI
 Wiki
 目前绝大多数内容摘自OI-Wiki,个人理解重构等后续更新
