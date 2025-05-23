@@ -5,6 +5,37 @@
     
     <entry>
       
+        <title>OJ选题集</title>
+      
+      <link href="/2025/05/23/OJ%E9%80%89%E9%A2%98%E9%9B%86/"/>
+      <url>/2025/05/23/OJ%E9%80%89%E9%A2%98%E9%9B%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="oj选题集">OJ选题集</h1><blockquote><p>下列OJ平台仅代表题目信息的一个出处，不一定为OJ平台原创</p></blockquote><blockquote><p>很少会出现需要数据结构来做的题。基本和数学相关。</p><p>每道题下面的均为其中关键的解题思路，题目大意并非完整题目，只出现解题思路中需要的变量。</p><p>（因此，基于测试用例t等无关变量将不会出现）</p></blockquote><h2 id="codeforces">Codeforces</h2><blockquote><p>Codeforces round 1020 div.3 C. Cherry Bomb <ahref="https://codeforces.com/contest/2106/problem/C">Problem - C -Codeforces</a></p><p>tags: greedy math sortings *1000</p></blockquote><details>    <summary>题目大意</summary>    <p>两个非负整数数组a与b，当我们称其互补时，当且仅当对于每个编号i，均有a<sub>i</sub>=b<sub>i</sub>。我们希望数组a,b的每个元素均非负且不大于k,并且a与b是互补的。接下来，会给出n和k、完整的数组a，以及不完整的数组b，不完整的地方用-1补齐，请问有多少种填充b的办法满足我们的需要。</p></details>​   我们假设 $a_i+b_i$ 互补时的结果为 $x$<p>​ 显而易见，由于 <span class="math inline">\(b\)</span>是不完整的，我们所做的其中一点就是保证不完整的地方非负且不大于 <spanclass="math inline">\(k\)</span> 。当 <spanclass="math inline">\(x\)</span> 一定时，显然我们就确定了 <spanclass="math inline">\(b\)</span> 的范围，若 <spanclass="math inline">\(a\)</span> 的范围为 <spanclass="math inline">\([mina,maxa]\)</span>，则b的范围就为 <spanclass="math inline">\([x-maxa,x-mina]\)</span>，我们显然不用担心 <spanclass="math inline">\(x-maxa\)</span> 为负数，我们唯一担心的就是 <spanclass="math inline">\(x-mina\)</span> 的结果超过了 <spanclass="math inline">\(k\)</span>。</p><p>​ 注意到 <span class="math inline">\(x&gt;=maxa+minb\)</span>。显然，如果 <span class="math inline">\(x\)</span> 的下界<spanclass="math inline">\(-mina\)</span> 大于 <spanclass="math inline">\(k\)</span> ，则 <spanclass="math inline">\(x\)</span> 的个数为 <spanclass="math inline">\(0\)</span> 。</p><p>​ 如果 <span class="math inline">\(x\)</span> 确定，则 <spanclass="math inline">\(minb=x-maxa\)</span> ，我们于是知道当数组 <spanclass="math inline">\(a\)</span> 确定时，一个 <spanclass="math inline">\(x\)</span> 唯一确定 <spanclass="math inline">\(minb\)</span> 。</p><p>​ 到了这里，相信你已经知道如何算出 <spanclass="math inline">\(x\)</span> 的个数了，即 <spanclass="math inline">\(minb\)</span> 可取的值域大小 <spanclass="math inline">\([0,k-(maxa-mina)]\)</span>（ <spanclass="math inline">\(minb\)</span> 上界要照顾到 <spanclass="math inline">\(mina\)</span> 或者说 <spanclass="math inline">\(maxb\)</span> ）</p><p>​ 上界的得出有两种想法：</p><ul><li>一种想法是不能使 <span class="math inline">\(x-mina&gt;k\)</span> ,<span class="math inline">\(x\)</span> 对应 <spanclass="math inline">\(maxa+minb\)</span>，带入即可得出其上界，同时注意到 <spanclass="math inline">\(minb\)</span>为整数，因此可以化开区间为闭区间</li><li>另一种想法是 <span class="math inline">\(maxa-mina =maxb-minb\)</span> , 因为 <span class="math inline">\(maxb\)</span>上界为 <span class="math inline">\(k\)</span> （事实上，基准值 <spanclass="math inline">\(x\)</span> 绝不会超过 <spanclass="math inline">\(k+mina\)</span> ，因此所有元素 <spanclass="math inline">\(b_i\)</span> 一定能通过加上一个比 <spanclass="math inline">\(k\)</span> 小的值得到基准值)，所以 <spanclass="math inline">\(minb\)</span> 的上界应该是 <spanclass="math inline">\(k-(maxb-minb)\)</span> ，即 <spanclass="math inline">\(k-(maxa-mina)\)</span></li></ul><p>​ 当然你也可直接通过 <span class="math inline">\(x\)</span> 的值域<span class="math inline">\([maxb,k+mina]\)</span> 来得到(如果你知道上述 <span class="math inline">\(minb\)</span>区间的由来，这里你应该就能理解了)</p><p>​ 因此，<span class="math inline">\(x\)</span> 的个数为 <spanclass="math inline">\(k-(maxa-mina)+1\)</span> 。</p><p>​同时注意对个数为0的判断(如果存在至少完整的一个b元素，结果要么为0，要么为1)：</p><pre><code>1.  多个完整的b中元素存在，但与a中对应元素相加的结果不一致1.  相加结果x一致，但依据x得出的其他b的元素大于k或者小于01.  maxa-mina==k+1</code></pre><p>注意到题中 0&lt;=a&lt;=k，故条件三无需判断。</p><h2 id="洛谷">洛谷</h2><blockquote><p>[P3870 <a href="https://www.luogu.com.cn/problem/P3870">TJOI2009]开关 - 洛谷</a></p><p>tags: 线段树 分块</p></blockquote><details><summary>题目大意</summary>    <p>有n盏灯排一排，能做两种操作,指定一个区间[a,b]，即可以要求输出区间打开的灯数，也可以改变该区间灯的状态（开的关，关的开），灯泡在初始时是关着的。</p>    <p>n,m 表示灯数与操作数</p><p>c表示操作种类（c=0为第一种，c=2为第二种）,a,b,表示指定区间    </p></details><p>​ 这是一个线段树的问题，线段树如何实现这里不做叙述，可见<ahref="https://blog.4fgr.xyz/2025/04/03/数据结构-线段树/">数据结构-线段树| 4FGR の Blog</a></p><p>​ 关键是如何处理操作1，即如何改变灯泡状态。</p><p>​考虑到灯泡只有两种状态，要么开，要么关，由于我们要求开着的灯泡数量，于是置开为1，关为0，对区间做操作1，实际上是对区间每个编号的值异或1的结果(1异或1为0，由开为观；0异或1为1，由关为开)，注意更新lazy标记的办法也是自异或1(lazy初始为0，01表示是否区间需要翻转)。</p><h2 id="力扣">力扣</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数学 </tag>
+            
+            <tag> 数据结构 </tag>
+            
+            <tag> OJ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      
         <title>《硅谷之火》部分简述</title>
       
       <link href="/2025/05/16/%E7%A1%85%E8%B0%B7%E4%B9%8B%E7%81%AB%E7%AE%80%E8%BF%B0/"/>
