@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RestMath - 欧拉函数计算器 (MathJax)</title>
+    
+    <script>
+        // 配置 MathJax，确保它使用标准的 LaTeX 定界符
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // 支持 $...$ 和 \(...\)
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // 支持 $$...$$ 和 \[...\]
+            },
+            options: {
+                renderActions: {
+                    // 禁用默认的 typeset 行为，由 Vue 手动触发
+                    assistiveMml: [],
+                    'add-attrs': [],
+                    'sort-weights': [
+                        [10, (a, b) => a.weight - b.weight],
+                        10
+                    ]
+                }
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        /* 基础重置和布局样式保持不变 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body, #app {
+            height: 100vh;
+            font-family: sans-serif;
+        }
+
+        /* ------------------ 布局样式 ------------------ */
+        .container {
+            display: flex; 
+            height: calc(100vh - 60px); /* 减去网站名字栏的高度 */
+        }
+
+        /* 侧边栏样式 */
+        .sidebar {
+            width: 250px; 
+            background-color: #f4f4f4;
+            padding: 20px 0;
+            border-right: 1px solid #ddd;
+            overflow-y: auto; 
+            flex-shrink: 0; 
+        }
+
+        /* 侧边栏菜单样式 */
+        .sidebar ul {
+            list-style: none;
+            padding: 0 10px;
+        }
+
+        /* 所有列表项基础样式 */
+        .sidebar li {
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.2s;
+        }
+        .sidebar li:hover {
+            background-color: #eaeaea;
+        }
+        
+        /* 父级菜单样式 */
+        .sidebar li.parent-item {
+            font-weight: bold;
+            background-color: #e9e9e9;
+            border-radius: 4px 4px 0 0;
+            margin-top: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        /* 子级菜单样式 */
+        .sidebar li.child-item {
+            padding-left: 35px;
+            font-weight: normal;
+            background-color: #fcfcfc;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        /* 子级被激活的样式 */
+        .sidebar li.child-item.active {
+            font-weight: bold;
+            color: white;
+            background-color: #42b983; /* Vue 绿 */
+        }
+        .expand-icon {
+            font-size: 10px;
+            color: #888;
+        }
+
+        /* 网站名字栏样式 */
+        .site-header {
+            background-color: #90EE90;
+            text-align: center;
+            padding: 15px 0;
+            margin-bottom: 0;
+            width: 100%;
+        }
+
+        .site-header h2 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        /* 主内容区样式 */
+        .main-content {
+            flex-grow: 1; 
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .sidebar h2 {
+            padding: 0 20px 10px;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        
+        /* 欧拉函数计算器样式 */
+        .euler-calculator h2 {
+            margin-bottom: 15px;
+        }
+        .euler-result {
+            margin-top: 20px; 
+            padding: 15px; 
+            border: 1px solid #ddd; 
+            background-color: #f9f9f9;
+        }
+        .euler-result p {
+            margin: 5px 0;
+        }
+        
+        /* 加载动画 */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+    </style>
+    
+</head>
+<body>
+    <div id="app">
+        <!-- 网站名字栏 -->
+        <div class="site-header">
+            <h2>RestMath 数学计算平台</h2>
+        </div>
+        
+        <div class="container">
+        <aside class="sidebar">
+            <h2>RestMath</h2>
+            <ul>
+                <template v-for="item in menuItems" :key="item.id">
+                    
+                    <li 
+                        v-if="item.isParent"
+                        :class="{ 'parent-item': true }"
+                        @click="toggleExpand(item.id)"
+                    >
+                        {{ item.name }}
+                        <span class="expand-icon">{{ expandedParentId === item.id ? '▼' : '▶' }}</span>
+                    </li>
+
+                    <li 
+                        v-else
+                        v-show="item.parentId === expandedParentId" 
+                        :class="{ 'child-item': true, active: item.id === activeMenuId }"
+                        @click="setActiveMenu(item.id)"
+                    >
+                        {{ item.name }}
+                    </li>
+                </template>
+            </ul>
+        </aside>
+
+        <main class="main-content" id="main-content">
+            <h1>{{ message }}</h1>
+            <p>当前选中的是菜单ID: <strong>{{ activeMenuId }}</strong></p>
+
+            <div v-if="activeMenuId === 33" class="euler-calculator">
+                <h2>欧拉函数 \(\phi(n)\) 计算器</h2> 
+                <p>输入一个正整数 \(n\):</p>
+                
+                <input 
+                    type="number" 
+                    v-model.number="eulerInputN" 
+                    placeholder="输入正整数"
+                    min="1"
+                    style="padding: 8px; font-size: 16px; margin-right: 10px;"
+                >
+                
+                <button @click="calculateEuler" style="padding: 8px 15px; font-size: 16px;">
+                    计算 \(\phi(n)\)
+                </button>
+                
+                <div v-if="eulerResult !== null" class="euler-result">
+                    <p style="font-weight: bold;">计算结果:</p>
+                    <p v-html="eulerResultHtml" style="font-size: 1.2em;"></p>
+                    <p v-if="eulerError" style="color: red; font-weight: normal;">错误: {{ eulerError }}</p>
+                </div>
+
+                <hr style="margin: 30px 0; border: 1px solid #ddd;">
+                
+                <h3>线性筛法批量计算</h3>
+                <p>输入一个正整数 \(n\)，计算 \(\phi(1)\) 到 \(\phi(n)\) 的所有值:</p>
+                
+                <input 
+                    type="number" 
+                    v-model.number="eulerBatchInputN" 
+                    placeholder="输入正整数"
+                    min="1"
+                    max="1000"
+                    style="padding: 8px; font-size: 16px; margin-right: 10px;"
+                >
+                
+                <button @click="calculateEulerBatch" :disabled="eulerBatchLoading" style="padding: 8px 15px; font-size: 16px;">
+                    <span v-if="!eulerBatchLoading">批量计算 \(\phi(1)\) 到 \(\phi(n)\)</span>
+                    <span v-else>计算中...</span>
+                </button>
+                
+                
+                <!-- 加载状态显示 -->
+                <div v-if="eulerBatchLoading" class="euler-result" style="margin-top: 20px; text-align: center;">
+                    <div style="display: inline-block; padding: 20px;">
+                        <div style="display: inline-block; width: 20px; height: 20px; border: 3px solid #f3f3f3; border-top: 3px solid #007bff; border-radius: 50%; animation: spin 1s linear infinite; margin-right: 10px;"></div>
+                        <span style="font-size: 16px; color: #666;">正在计算中，请稍候...</span>
+                    </div>
+                </div>
+                
+                <div v-if="eulerBatchResults.length > 0" class="euler-result" style="margin-top: 20px;">
+                    <p style="font-weight: bold;">批量计算结果 (共 {{ eulerBatchResults.length }} 个):</p>
+                    <div style="max-height: 300px; overflow-y: auto; border: 1px solid #ddd; padding: 10px; background-color: #fafafa;">
+                        <div v-for="(result, index) in eulerBatchResults" :key="index" style="margin: 2px 0; font-family: monospace;">
+                            φ({{ index + 1 }}) = {{ result }}
+                        </div>
+                    </div>
+                    <p v-if="eulerBatchError" style="color: red; font-weight: normal;">错误: {{ eulerBatchError }}</p>
+                </div>
+
+            </div>
+            
+            <!-- 基础运算 - 加减乘除 -->
+            <div v-else-if="activeMenuId === 11" class="calculator-section">
+                <h2>基础运算 - 加减乘除</h2>
+                <div style="margin: 20px 0;">
+                    <input type="number" v-model.number="basicOps.num1" placeholder="第一个数" style="padding: 8px; margin: 5px;">
+                    <select v-model="basicOps.operation" style="padding: 8px; margin: 5px;">
+                        <option value="+">+</option>
+                        <option value="-">-</option>
+                        <option value="*">×</option>
+                        <option value="/">÷</option>
+                    </select>
+                    <input type="number" v-model.number="basicOps.num2" placeholder="第二个数" style="padding: 8px; margin: 5px;">
+                    <button @click="calculateBasicOps" style="padding: 8px 15px; margin: 5px;">计算</button>
+                </div>
+                <div v-if="basicOps.result !== null" class="euler-result">
+                    <p><strong>结果:</strong> {{ basicOps.num1 }} {{ basicOps.operation }} {{ basicOps.num2 }} = {{ basicOps.result }}</p>
+                </div>
+                <div v-if="basicOps.error" class="euler-result" style="color: red;">
+                    <p><strong>错误:</strong> {{ basicOps.error }}</p>
+                </div>
+            </div>
+
+            <!-- 基础运算 - 分数运算 -->
+            <div v-else-if="activeMenuId === 12" class="calculator-section">
+                <h2>分数运算</h2>
+                <div style="margin: 20px 0;">
+                    <div style="margin: 10px 0;">
+                        <label>分数1:</label>
+                        <input type="number" v-model.number="fractionOps.frac1.numerator" placeholder="分子" style="padding: 8px; margin: 5px; width: 80px;">
+                        <span>/</span>
+                        <input type="number" v-model.number="fractionOps.frac1.denominator" placeholder="分母" style="padding: 8px; margin: 5px; width: 80px;">
+                    </div>
+                    <select v-model="fractionOps.operation" style="padding: 8px; margin: 5px;">
+                        <option value="+">+</option>
+                        <option value="-">-</option>
+                        <option value="*">×</option>
+                        <option value="/">÷</option>
+                    </select>
+                    <div style="margin: 10px 0;">
+                        <label>分数2:</label>
+                        <input type="number" v-model.number="fractionOps.frac2.numerator" placeholder="分子" style="padding: 8px; margin: 5px; width: 80px;">
+                        <span>/</span>
+                        <input type="number" v-model.number="fractionOps.frac2.denominator" placeholder="分母" style="padding: 8px; margin: 5px; width: 80px;">
+                    </div>
+                    <button @click="calculateFractionOps" style="padding: 8px 15px; margin: 5px;">计算</button>
+                </div>
+                <div v-if="fractionOps.result !== null" class="euler-result">
+                    <p><strong>结果:</strong> {{ fractionOps.result }}</p>
+                </div>
+                <div v-if="fractionOps.error" class="euler-result" style="color: red;">
+                    <p><strong>错误:</strong> {{ fractionOps.error }}</p>
+                </div>
+            </div>
+
+            <!-- 线性代数 - 矩阵乘法 -->
+            <div v-else-if="activeMenuId === 21" class="calculator-section">
+                <h2>矩阵乘法 (2×2)</h2>
+                <div style="margin: 20px 0;">
+                    <div style="display: inline-block; margin: 10px;">
+                        <h4>矩阵A:</h4>
+                        <div v-for="(row, i) in matrixOps.matrix1" :key="i" style="margin: 5px 0;">
+                            <input v-for="(cell, j) in row" :key="j" type="number" v-model.number="matrixOps.matrix1[i][j]" 
+                                   style="width: 60px; padding: 5px; margin: 2px;" placeholder="0">
+                        </div>
+                    </div>
+                    <div style="display: inline-block; margin: 10px; font-size: 24px; vertical-align: middle;">×</div>
+                    <div style="display: inline-block; margin: 10px;">
+                        <h4>矩阵B:</h4>
+                        <div v-for="(row, i) in matrixOps.matrix2" :key="i" style="margin: 5px 0;">
+                            <input v-for="(cell, j) in row" :key="j" type="number" v-model.number="matrixOps.matrix2[i][j]" 
+                                   style="width: 60px; padding: 5px; margin: 2px;" placeholder="0">
+                        </div>
+                    </div>
+                    <button @click="calculateMatrixMultiplication" style="padding: 8px 15px; margin: 10px;">计算</button>
+                </div>
+                <div v-if="matrixOps.result !== null" class="euler-result">
+                    <p><strong>结果矩阵:</strong></p>
+                    <div style="font-family: monospace; font-size: 18px;">
+                        [{{ matrixOps.result[0][0] }}, {{ matrixOps.result[0][1] }}]<br>
+                        [{{ matrixOps.result[1][0] }}, {{ matrixOps.result[1][1] }}]
+                    </div>
+                </div>
+                <div v-if="matrixOps.error" class="euler-result" style="color: red;">
+                    <p><strong>错误:</strong> {{ matrixOps.error }}</p>
+                </div>
+            </div>
+
+            <!-- 线性代数 - 行列式计算 -->
+            <div v-else-if="activeMenuId === 22" class="calculator-section">
+                <h2>行列式计算 (2×2)</h2>
+                <div style="margin: 20px 0;">
+                    <div style="display: inline-block; margin: 10px;">
+                        <h4>矩阵:</h4>
+                        <div v-for="(row, i) in determinant.matrix" :key="i" style="margin: 5px 0;">
+                            <input v-for="(cell, j) in row" :key="j" type="number" v-model.number="determinant.matrix[i][j]" 
+                                   style="width: 60px; padding: 5px; margin: 2px;" placeholder="0">
+                        </div>
+                    </div>
+                    <button @click="calculateDeterminant" style="padding: 8px 15px; margin: 10px;">计算行列式</button>
+                </div>
+                <div v-if="determinant.result !== null" class="euler-result">
+                    <p><strong>行列式值:</strong> {{ determinant.result }}</p>
+                </div>
+                <div v-if="determinant.error" class="euler-result" style="color: red;">
+                    <p><strong>错误:</strong> {{ determinant.error }}</p>
+                </div>
+            </div>
+
+            <!-- 数论 - GCD&LCM -->
+            <div v-else-if="activeMenuId === 31" class="calculator-section">
+                <h2>最大公约数 (GCD) 和最小公倍数 (LCM)</h2>
+                <div style="margin: 20px 0;">
+                    <input type="number" v-model.number="gcdLcm.num1" placeholder="第一个数" style="padding: 8px; margin: 5px;">
+                    <input type="number" v-model.number="gcdLcm.num2" placeholder="第二个数" style="padding: 8px; margin: 5px;">
+                    <button @click="calculateGcdLcm" style="padding: 8px 15px; margin: 5px;">计算</button>
+                </div>
+                <div v-if="gcdLcm.gcd !== null" class="euler-result">
+                    <p><strong>GCD({{ gcdLcm.num1 }}, {{ gcdLcm.num2 }}) = {{ gcdLcm.gcd }}</strong></p>
+                    <p><strong>LCM({{ gcdLcm.num1 }}, {{ gcdLcm.num2 }}) = {{ gcdLcm.lcm }}</strong></p>
+                </div>
+                <div v-if="gcdLcm.error" class="euler-result" style="color: red;">
+                    <p><strong>错误:</strong> {{ gcdLcm.error }}</p>
+                </div>
+            </div>
+
+            <!-- 数论 - 模逆元 -->
+            <div v-else-if="activeMenuId === 32" class="calculator-section">
+                <h2>模逆元计算</h2>
+                <p>计算 \(a^{-1} \bmod m\)，即找到 \(x\) 使得 \(ax \equiv 1 \pmod{m}\)</p>
+                <p style="font-size: 14px; color: #666; margin: 10px 0;">
+                    示例: 3^{-1} mod 7 = 5，因为 3 × 5 = 15 ≡ 1 (mod 7)
+                </p>
+                <div style="margin: 20px 0;">
+                    <input type="number" v-model.number="modularInverse.a" placeholder="a" style="padding: 8px; margin: 5px;">
+                    <span>mod</span>
+                    <input type="number" v-model.number="modularInverse.m" placeholder="m" style="padding: 8px; margin: 5px;">
+                    <button @click="calculateModularInverse" style="padding: 8px 15px; margin: 5px;">计算</button>
+                </div>
+                <div v-if="modularInverse.result !== null" class="euler-result">
+                    <p><strong>结果:</strong></p>
+                    <p v-html="modularInverseResultHtml"></p>
+                    <p style="margin-top: 10px; font-size: 14px; color: #666;">
+                        验证: {{ modularInverseVerification }}
+                    </p>
+                </div>
+                <div v-if="modularInverse.error" class="euler-result" style="color: red;">
+                    <p><strong>错误:</strong> {{ modularInverse.error }}</p>
+                </div>
+            </div>
+
+            <!-- 生成函数 -->
+            <div v-else-if="activeMenuId === 4" class="calculator-section">
+                <h2>生成函数</h2>
+                <p>输入系数序列，生成对应的生成函数</p>
+                <div style="margin: 20px 0;">
+                    <label>系数序列 (用逗号分隔):</label><br>
+                    <input type="text" v-model="generatingFunction.coefficients" placeholder="例如: 1,2,3,4" 
+                           style="padding: 8px; margin: 5px; width: 200px;">
+                    <button @click="calculateGeneratingFunction" style="padding: 8px 15px; margin: 5px;">生成</button>
+                </div>
+                <div v-if="generatingFunction.result !== null" class="euler-result">
+                    <p><strong>生成函数:</strong></p>
+                    <p v-html="generatingFunction.result" style="font-size: 1.2em;"></p>
+                </div>
+                <div v-if="generatingFunction.error" class="euler-result" style="color: red;">
+                    <p><strong>错误:</strong> {{ generatingFunction.error }}</p>
+                </div>
+            </div>
+
+            <!-- 狄利克雷卷积 -->
+            <div v-else-if="activeMenuId === 41" class="calculator-section">
+                <h2>狄利克雷卷积</h2>
+                <p>计算两个数论函数的狄利克雷卷积 \((f * g)(n) = \sum_{d|n} f(d)g(n/d)\)</p>
+                <div style="margin: 20px 0;">
+                    <div>
+                        <label>函数 f 的前几项 (用逗号分隔):</label><br>
+                        <input type="text" v-model="dirichletConvolution.f" placeholder="例如: 1,1,1,1" 
+                               style="padding: 8px; margin: 5px; width: 200px;">
+                    </div>
+                    <div>
+                        <label>函数 g 的前几项 (用逗号分隔):</label><br>
+                        <input type="text" v-model="dirichletConvolution.g" placeholder="例如: 1,2,3,4" 
+                               style="padding: 8px; margin: 5px; width: 200px;">
+                    </div>
+                    <button @click="calculateDirichletConvolution" style="padding: 8px 15px; margin: 5px;">计算卷积</button>
+                </div>
+                <div v-if="dirichletConvolution.result.length > 0" class="euler-result">
+                    <p><strong>卷积结果:</strong></p>
+                    <p>(f * g)(n) = [{{ dirichletConvolution.result.join(', ') }}]</p>
+                </div>
+                <div v-if="dirichletConvolution.error" class="euler-result" style="color: red;">
+                    <p><strong>错误:</strong> {{ dirichletConvolution.error }}</p>
+                </div>
+            </div>
+            
+            <p v-else-if="activeMenuId !== null" style="margin-top: 20px;">
+                功能 ID: {{ activeMenuId }} 的计算界面待开发中...
+            </p>
+            <p v-else style="margin-top: 20px;">
+                请在左侧选择一个功能开始。
+            </p>
+
+        </main>
+        </div>
+
+    </div>
+    
+    <script type="module">
+        // 1. 从 CDN 导入 Vue 的 createApp 函数
+        import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+        
+        /**
+         * 封装 MathJax 渲染函数，用于重新排版动态内容
+         */
+        function typesetMathJax() {
+            // 检查 MathJax 是否已加载并可用
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                // MathJax.typesetPromise 异步执行渲染，并返回一个 Promise
+                // 我们只对包含动态内容的 main-content 区域进行排版
+                const targetElement = document.getElementById('main-content');
+                if (targetElement) {
+                    MathJax.typesetPromise([targetElement]).catch((err) => console.error("MathJax typeset failed:", err));
+                }
+            } else {
+                // 如果 MathJax 尚未加载，则延迟执行
+                setTimeout(typesetMathJax, 100);
+            }
+        }
+
+
+        // 2. 创建并配置 Vue 应用
+        const app = createApp({
+            data() {
+                return {
+                    message: '欢迎使用 RestMath 应用', 
+                    activeMenuId: null, 
+                    expandedParentId: 3, 
+                    // --- 欧拉函数相关数据 ---
+                    eulerInputN: null, 
+                    eulerResult: null, 
+                    eulerError: null,  
+                    // --- 批量欧拉函数相关数据 ---
+                    eulerBatchInputN: null,
+                    eulerBatchResults: [],
+                    eulerBatchError: null,
+                    eulerBatchLoading: false,
+                    // --- 基础运算相关数据 ---
+                    basicOps: {
+                        num1: null,
+                        num2: null,
+                        operation: '+',
+                        result: null,
+                        error: null
+                    },
+                    // --- 分数运算相关数据 ---
+                    fractionOps: {
+                        frac1: { numerator: null, denominator: null },
+                        frac2: { numerator: null, denominator: null },
+                        operation: '+',
+                        result: null,
+                        error: null
+                    },
+                    // --- 矩阵乘法相关数据 ---
+                    matrixOps: {
+                        matrix1: [[null, null], [null, null]],
+                        matrix2: [[null, null], [null, null]],
+                        result: null,
+                        error: null
+                    },
+                    // --- 行列式计算相关数据 ---
+                    determinant: {
+                        matrix: [[null, null], [null, null]],
+                        result: null,
+                        error: null
+                    },
+                    // --- GCD&LCM相关数据 ---
+                    gcdLcm: {
+                        num1: null,
+                        num2: null,
+                        gcd: null,
+                        lcm: null,
+                        error: null
+                    },
+                    // --- 模逆元相关数据 ---
+                    modularInverse: {
+                        a: null,
+                        m: null,
+                        result: null,
+                        error: null
+                    },
+                    // --- 生成函数相关数据 ---
+                    generatingFunction: {
+                        coefficients: [],
+                        result: null,
+                        error: null
+                    },
+                    // --- 狄利克雷卷积相关数据 ---
+                    dirichletConvolution: {
+                        f: [],
+                        g: [],
+                        result: [],
+                        error: null
+                    },
+                    // -------------------------
+                    menuItems: [ 
+                        { id: 1, name: '基础运算', isParent: true },
+                        { id: 11, name: '加减乘除', parentId: 1 },
+                        { id: 12, name: '分数运算', parentId: 1 },
+                        { id: 2, name: '线性代数', isParent: true },
+                        { id: 21, name: '矩阵乘法', parentId: 2 },
+                        { id: 22, name: '行列式计算', parentId: 2 },
+                        { id: 3, name: '数论', isParent: true },
+                        { id: 31, name: 'gcd&lcm', parentId: 3 },
+                        { id: 32, name: '模逆元', parentId: 3 },
+                        { id: 33, name: '欧拉函数', parentId: 3}, 
+                        { id: 4, name: '生成函数', isParent: true },
+                        { id:41,name:'狄利克雷卷积',parentId:4}
+                    ]
+                }
+            },
+            computed: {
+                // 用于 v-html 渲染动态结果公式
+                eulerResultHtml() {
+                    if (this.eulerInputN === null || this.eulerResult === null) return '';
+                    // 格式: \(\phi(n) = \mathbf{result}\)
+                    return `\\(\\phi(${this.eulerInputN}) = \\mathbf{${this.eulerResult}}\\)`
+                },
+                // 模逆元结果HTML
+                modularInverseResultHtml() {
+                    if (this.modularInverse.result === null || this.modularInverse.m === null) return '';
+                    
+                    const a = this.modularInverse.a;
+                    const result = this.modularInverse.result;
+                    const m = this.modularInverse.m;
+                    
+                    return `\\(${a}^{-1} \\equiv ${result} \\pmod{${m}}\\)`;
+                },
+                // 模逆元验证计算
+                modularInverseVerification() {
+                    if (this.modularInverse.result === null || this.modularInverse.m === null) return '';
+                    
+                    const a = Number(((this.modularInverse.a % this.modularInverse.m) + this.modularInverse.m) % this.modularInverse.m);
+                    const result = Number(this.modularInverse.result);
+                    const m = Number(this.modularInverse.m);
+                    const product = a * result;
+                    const remainder = Number(((product % m) + m) % m); // 确保余数为正
+                    
+                    return a + ' × ' + result + ' = ' + product + ' ≡ ' + remainder + ' (mod ' + m + ')';
+                }
+            },
+            methods: {
+                setActiveMenu(id) {
+                    const selectedItem = this.menuItems.find(item => item.id === id);
+                    if (selectedItem && !selectedItem.isParent) {
+                         this.activeMenuId = id;
+                         this.message = `您选择了功能：${selectedItem.name}`;
+                         
+                         this.eulerResult = null;
+                         this.eulerError = null;
+                         this.eulerBatchResults = [];
+                         this.eulerBatchError = null;
+                         this.eulerBatchLoading = false;
+                         
+                         // 清空所有功能的数据
+                         this.basicOps = { num1: null, num2: null, operation: '+', result: null, error: null };
+                         this.fractionOps = { frac1: { numerator: null, denominator: null }, frac2: { numerator: null, denominator: null }, operation: '+', result: null, error: null };
+                         this.matrixOps = { matrix1: [[null, null], [null, null]], matrix2: [[null, null], [null, null]], result: null, error: null };
+                         this.determinant = { matrix: [[null, null], [null, null]], result: null, error: null };
+                         this.gcdLcm = { num1: null, num2: null, gcd: null, lcm: null, error: null };
+                         this.modularInverse = { a: null, m: null, result: null, error: null };
+                         this.generatingFunction = { coefficients: '', result: null, error: null };
+                         this.dirichletConvolution = { f: '', g: '', result: [], error: null };
+                         
+                         // 菜单切换后，重新排版整个主内容区
+                         this.$nextTick(typesetMathJax);
+                    }
+                },
+                
+                toggleExpand(id) {
+                    if (this.expandedParentId === id) {
+                        this.expandedParentId = null; 
+                    } else {
+                        this.expandedParentId = id; 
+                    }
+                    // 展开/收起后，重新排版，以确保箭头旁的公式正确
+                    this.$nextTick(typesetMathJax);
+                },
+
+                calculateEuler() {
+                    let n = this.eulerInputN;
+                    this.eulerResult = null;
+                    this.eulerError = null;
+                    
+                    if (!Number.isInteger(n) || n <= 0) {
+                        this.eulerError = '请输入一个大于零的整数。';
+                        this.$nextTick(typesetMathJax); 
+                        return;
+                    }
+                    if (n > 10000000) { 
+                        this.eulerError = '为保证速度，请输入小于 10,000,000 的整数。';
+                        this.$nextTick(typesetMathJax);
+                        return;
+                    }
+
+                    if (n === 1) {
+                        this.eulerResult = 1;
+                    } else {
+                        let currentN = n;
+                        let result = n;
+                        let p = 2; 
+
+                        if (currentN % p === 0) {
+                            result = result - result / p; 
+                            while (currentN % p === 0) {
+                                currentN /= p;
+                            }
+                        }
+
+                        for (p = 3; p * p <= currentN; p += 2) {
+                            if (currentN % p === 0) {
+                                result = result - result / p;
+                                while (currentN % p === 0) {
+                                    currentN /= p;
+                                }
+                            }
+                        }
+
+                        if (currentN > 1) {
+                            result = result - result / currentN;
+                        }
+
+                        this.eulerResult = Math.round(result); 
+                    }
+                    
+                    // 结果更新后，重新排版主内容区
+                    this.$nextTick(typesetMathJax);
+                },
+
+                calculateEulerBatch() {
+                    let n = this.eulerBatchInputN;
+                    this.eulerBatchResults = [];
+                    this.eulerBatchError = null;
+                    this.eulerBatchLoading = true;
+                    
+                    console.log('开始批量计算，输入值:', n);
+                    
+                    if (!Number.isInteger(n) || n <= 0) {
+                        this.eulerBatchError = '请输入一个大于零的整数。';
+                        this.eulerBatchLoading = false;
+                        this.$nextTick(typesetMathJax);
+                        return;
+                    }
+                    if (n > 1000) {
+                        this.eulerBatchError = '为保证性能，请输入小于等于 1000 的整数。';
+                        this.eulerBatchLoading = false;
+                        this.$nextTick(typesetMathJax);
+                        return;
+                    }
+
+                    // 使用setTimeout让加载效果更明显
+                    setTimeout(() => {
+                        // 使用线性筛法计算欧拉函数
+                        const phi = new Array(n + 1);
+                        const isPrime = new Array(n + 1).fill(true);
+                        const primes = [];
+
+                        // 初始化
+                        for (let i = 0; i <= n; i++) {
+                            phi[i] = i;
+                        }
+
+                        // 线性筛法
+                        for (let i = 2; i <= n; i++) {
+                            if (isPrime[i]) {
+                                primes.push(i);
+                                phi[i] = i - 1; // 质数的欧拉函数值为 i-1
+                            }
+
+                            for (let j = 0; j < primes.length && i * primes[j] <= n; j++) {
+                                isPrime[i * primes[j]] = false;
+                                
+                                if (i % primes[j] === 0) {
+                                    // i 和 primes[j] 不互质
+                                    phi[i * primes[j]] = phi[i] * primes[j];
+                                    break;
+                                } else {
+                                    // i 和 primes[j] 互质
+                                    phi[i * primes[j]] = phi[i] * (primes[j] - 1);
+                                }
+                            }
+                        }
+
+                        // 存储结果，从索引1开始到n
+                        this.eulerBatchResults = [];
+                        for (let i = 1; i <= n; i++) {
+                            this.eulerBatchResults.push(phi[i]);
+                        }
+                        
+                        console.log('批量计算结果:', this.eulerBatchResults);
+                        console.log('结果数组长度:', this.eulerBatchResults.length);
+                        
+                        // 计算完成，关闭加载状态
+                        this.eulerBatchLoading = false;
+                        
+                        // 结果更新后，重新排版主内容区
+                        this.$nextTick(typesetMathJax);
+                    }, 500); // 延迟500毫秒显示加载效果
+                },
+
+                // 基础运算 - 加减乘除
+                calculateBasicOps() {
+                    this.basicOps.result = null;
+                    this.basicOps.error = null;
+                    
+                    if (this.basicOps.num1 === null || this.basicOps.num2 === null) {
+                        this.basicOps.error = '请输入两个数字';
+                        return;
+                    }
+                    
+                    const { num1, num2, operation } = this.basicOps;
+                    
+                    switch (operation) {
+                        case '+':
+                            this.basicOps.result = num1 + num2;
+                            break;
+                        case '-':
+                            this.basicOps.result = num1 - num2;
+                            break;
+                        case '*':
+                            this.basicOps.result = num1 * num2;
+                            break;
+                        case '/':
+                            if (num2 === 0) {
+                                this.basicOps.error = '除数不能为零';
+                                return;
+                            }
+                            this.basicOps.result = num1 / num2;
+                            break;
+                    }
+                },
+
+                // 分数运算
+                calculateFractionOps() {
+                    this.fractionOps.result = null;
+                    this.fractionOps.error = null;
+                    
+                    const { frac1, frac2, operation } = this.fractionOps;
+                    
+                    if (!frac1.numerator || !frac1.denominator || !frac2.numerator || !frac2.denominator) {
+                        this.fractionOps.error = '请输入完整的分数';
+                        return;
+                    }
+                    
+                    if (frac1.denominator === 0 || frac2.denominator === 0) {
+                        this.fractionOps.error = '分母不能为零';
+                        return;
+                    }
+                    
+                    // 计算分数运算
+                    let resultNum, resultDen;
+                    
+                    switch (operation) {
+                        case '+':
+                            resultNum = frac1.numerator * frac2.denominator + frac2.numerator * frac1.denominator;
+                            resultDen = frac1.denominator * frac2.denominator;
+                            break;
+                        case '-':
+                            resultNum = frac1.numerator * frac2.denominator - frac2.numerator * frac1.denominator;
+                            resultDen = frac1.denominator * frac2.denominator;
+                            break;
+                        case '*':
+                            resultNum = frac1.numerator * frac2.numerator;
+                            resultDen = frac1.denominator * frac2.denominator;
+                            break;
+                        case '/':
+                            if (frac2.numerator === 0) {
+                                this.fractionOps.error = '除数不能为零';
+                                return;
+                            }
+                            resultNum = frac1.numerator * frac2.denominator;
+                            resultDen = frac1.denominator * frac2.numerator;
+                            break;
+                    }
+                    
+                    // 约分
+                    const gcd = this.gcd(Math.abs(resultNum), Math.abs(resultDen));
+                    resultNum /= gcd;
+                    resultDen /= gcd;
+                    
+                    if (resultDen === 1) {
+                        this.fractionOps.result = resultNum.toString();
+                    } else {
+                        this.fractionOps.result = `${resultNum}/${resultDen}`;
+                    }
+                },
+
+                // 矩阵乘法
+                calculateMatrixMultiplication() {
+                    this.matrixOps.result = null;
+                    this.matrixOps.error = null;
+                    
+                    const { matrix1, matrix2 } = this.matrixOps;
+                    
+                    // 检查输入
+                    for (let i = 0; i < 2; i++) {
+                        for (let j = 0; j < 2; j++) {
+                            if (matrix1[i][j] === null || matrix2[i][j] === null) {
+                                this.matrixOps.error = '请填写完整的矩阵';
+                                return;
+                            }
+                        }
+                    }
+                    
+                    // 计算矩阵乘法
+                    const result = [[0, 0], [0, 0]];
+                    for (let i = 0; i < 2; i++) {
+                        for (let j = 0; j < 2; j++) {
+                            for (let k = 0; k < 2; k++) {
+                                result[i][j] += matrix1[i][k] * matrix2[k][j];
+                            }
+                        }
+                    }
+                    
+                    this.matrixOps.result = result;
+                },
+
+                // 行列式计算
+                calculateDeterminant() {
+                    this.determinant.result = null;
+                    this.determinant.error = null;
+                    
+                    const { matrix } = this.determinant;
+                    
+                    // 检查输入
+                    for (let i = 0; i < 2; i++) {
+                        for (let j = 0; j < 2; j++) {
+                            if (matrix[i][j] === null) {
+                                this.determinant.error = '请填写完整的矩阵';
+                                return;
+                            }
+                        }
+                    }
+                    
+                    // 计算2x2行列式: ad - bc
+                    const result = matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+                    this.determinant.result = result;
+                },
+
+                // GCD和LCM计算
+                calculateGcdLcm() {
+                    this.gcdLcm.gcd = null;
+                    this.gcdLcm.lcm = null;
+                    this.gcdLcm.error = null;
+                    
+                    if (this.gcdLcm.num1 === null || this.gcdLcm.num2 === null) {
+                        this.gcdLcm.error = '请输入两个数字';
+                        return;
+                    }
+                    
+                    const { num1, num2 } = this.gcdLcm;
+                    const gcd = this.gcd(Math.abs(num1), Math.abs(num2));
+                    const lcm = Math.abs(num1 * num2) / gcd;
+                    
+                    this.gcdLcm.gcd = gcd;
+                    this.gcdLcm.lcm = lcm;
+                },
+
+                // 模逆元计算
+                calculateModularInverse() {
+                    this.modularInverse.result = null;
+                    this.modularInverse.error = null;
+                    
+                    if (this.modularInverse.a === null || this.modularInverse.m === null) {
+                        this.modularInverse.error = '请输入a和m的值';
+                        return;
+                    }
+                    
+                    let { a, m } = this.modularInverse;
+                    
+                    if (m <= 0) {
+                        this.modularInverse.error = '模数m必须大于0';
+                        return;
+                    }
+                    
+                    // 处理负数情况
+                    a = ((a % m) + m) % m;
+                    
+                    // 使用扩展欧几里得算法
+                    const result = this.extendedGcd(a, m);
+                    if (result.gcd !== 1) {
+                        this.modularInverse.error = `gcd(${a}, ${m}) = ${result.gcd} ≠ 1，模逆元不存在`;
+                        return;
+                    }
+                    
+                    // 确保结果为正数
+                    let inverse = result.x % m;
+                    if (inverse < 0) {
+                        inverse += m;
+                    }
+                    
+                    console.log('模逆元计算:', { a, m, result, inverse });
+                    this.modularInverse.result = inverse;
+                    
+                    // 结果更新后，重新排版主内容区
+                    this.$nextTick(typesetMathJax);
+                },
+
+                // 生成函数
+                calculateGeneratingFunction() {
+                    this.generatingFunction.result = null;
+                    this.generatingFunction.error = null;
+                    
+                    if (!this.generatingFunction.coefficients.trim()) {
+                        this.generatingFunction.error = '请输入系数序列';
+                        return;
+                    }
+                    
+                    try {
+                        const coeffs = this.generatingFunction.coefficients.split(',').map(x => parseFloat(x.trim()));
+                        
+                        if (coeffs.some(isNaN)) {
+                            this.generatingFunction.error = '系数序列包含无效数字';
+                            return;
+                        }
+                        
+                        let result = '';
+                        for (let i = 0; i < coeffs.length; i++) {
+                            if (coeffs[i] === 0) continue;
+                            
+                            if (result) result += ' + ';
+                            
+                            if (i === 0) {
+                                result += coeffs[i];
+                            } else if (i === 1) {
+                                result += coeffs[i] + 'x';
+                            } else {
+                                result += coeffs[i] + 'x^' + i;
+                            }
+                        }
+                        
+                        this.generatingFunction.result = result || '0';
+                    } catch (e) {
+                        this.generatingFunction.error = '解析系数序列时出错';
+                    }
+                },
+
+                // 狄利克雷卷积
+                calculateDirichletConvolution() {
+                    this.dirichletConvolution.result = [];
+                    this.dirichletConvolution.error = null;
+                    
+                    if (!this.dirichletConvolution.f.trim() || !this.dirichletConvolution.g.trim()) {
+                        this.dirichletConvolution.error = '请输入两个函数序列';
+                        return;
+                    }
+                    
+                    try {
+                        const f = this.dirichletConvolution.f.split(',').map(x => parseFloat(x.trim()));
+                        const g = this.dirichletConvolution.g.split(',').map(x => parseFloat(x.trim()));
+                        
+                        if (f.some(isNaN) || g.some(isNaN)) {
+                            this.dirichletConvolution.error = '函数序列包含无效数字';
+                            return;
+                        }
+                        
+                        const n = Math.min(f.length, g.length);
+                        const result = [];
+                        
+                        for (let i = 0; i < n; i++) {
+                            let sum = 0;
+                            for (let d = 1; d <= i + 1; d++) {
+                                if ((i + 1) % d === 0) {
+                                    const fIndex = d - 1;
+                                    const gIndex = (i + 1) / d - 1;
+                                    if (fIndex < f.length && gIndex < g.length) {
+                                        sum += f[fIndex] * g[gIndex];
+                                    }
+                                }
+                            }
+                            result.push(sum);
+                        }
+                        
+                        this.dirichletConvolution.result = result;
+                    } catch (e) {
+                        this.dirichletConvolution.error = '计算卷积时出错';
+                    }
+                },
+
+                // 辅助函数：计算最大公约数
+                gcd(a, b) {
+                    if (b === 0) return a;
+                    return this.gcd(b, a % b);
+                },
+
+                // 辅助函数：扩展欧几里得算法
+                extendedGcd(a, b) {
+                    if (b === 0) {
+                        return { gcd: a, x: 1, y: 0 };
+                    }
+                    
+                    const result = this.extendedGcd(b, a % b);
+                    return {
+                        gcd: result.gcd,
+                        x: result.y,
+                        y: result.x - Math.floor(a / b) * result.y
+                    };
+                }
+
+            },
+            mounted() {
+                // 默认选中 "欧拉函数" (ID 33)
+                this.setActiveMenu(33);
+
+                // 首次加载时，延迟执行 MathJax 渲染
+                setTimeout(typesetMathJax, 500); 
+            }
+        });
+
+        // 3. 挂载应用到 #app 元素
+        app.mount('#app');
+    </script>
+</body>
+</html>
