@@ -13,8 +13,12 @@
                 displayMath: [['$$', '$$'], ['\\[', '\\]']] // 支持 $$...$$ 和 \[...\]
             },
             options: {
+                // 移动端优化配置
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process',
                 renderActions: {
-                    // 禁用默认的 typeset 行为，由 Vue 手动触发
+                    // 保留默认行为，但添加移动端优化
                     assistiveMml: [],
                     'add-attrs': [],
                     'sort-weights': [
@@ -22,6 +26,25 @@
                         10
                     ]
                 }
+            },
+            // 移动端性能优化
+            startup: {
+                ready: function () {
+                    MathJax.startup.defaultReady();
+                    // 移动端优化：减少渲染延迟
+                    if (window.innerWidth <= 768) {
+                        MathJax.startup.document.state(0);
+                    }
+                }
+            },
+            // 移动端渲染优化
+            chtml: {
+                // 移动端字体大小调整
+                scale: window.innerWidth <= 768 ? 0.9 : 1,
+                // 移动端渲染优化
+                adaptiveCSS: true,
+                // 移动端性能优化
+                matchFontHeight: false
             }
         };
     </script>
@@ -299,6 +322,25 @@
             .euler-result p[style*="font-size: 14px"] {
                 font-size: 13px !important;
                 line-height: 1.4;
+            }
+
+            /* MathJax 移动端优化 */
+            .MathJax {
+                font-size: 1.1em !important;
+            }
+
+            .MathJax_Display {
+                margin: 0.5em 0 !important;
+            }
+
+            /* 确保数学公式在移动端正确显示 */
+            mjx-container {
+                display: inline-block !important;
+                margin: 0 !important;
+            }
+
+            mjx-math {
+                font-size: inherit !important;
             }
         }
 
@@ -672,6 +714,30 @@
         import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
         
         /**
+         * 检测是否为移动设备
+         */
+        function isMobileDevice() {
+            return window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        /**
+         * 移动端 MathJax 初始化优化
+         */
+        function initMobileMathJax() {
+            if (isMobileDevice() && window.MathJax) {
+                // 移动端特殊配置
+                MathJax.config.chtml.scale = 0.9;
+                MathJax.config.chtml.adaptiveCSS = true;
+                MathJax.config.chtml.matchFontHeight = false;
+                
+                // 移动端性能优化
+                MathJax.config.options.skipHtmlTags = ['script', 'noscript', 'style', 'textarea', 'pre'];
+                MathJax.config.options.ignoreHtmlClass = 'tex2jax_ignore';
+                MathJax.config.options.processHtmlClass = 'tex2jax_process';
+            }
+        }
+
+        /**
          * 封装 MathJax 渲染函数，用于重新排版动态内容
          */
         function typesetMathJax() {
@@ -681,7 +747,23 @@
                 // 我们只对包含动态内容的 main-content 区域进行排版
                 const targetElement = document.getElementById('main-content');
                 if (targetElement) {
-                    MathJax.typesetPromise([targetElement]).catch((err) => console.error("MathJax typeset failed:", err));
+                    // 移动端优化：增加延迟确保DOM完全更新
+                    const delay = window.innerWidth <= 768 ? 200 : 100;
+                    setTimeout(() => {
+                        MathJax.typesetPromise([targetElement])
+                            .then(() => {
+                                console.log('MathJax rendering completed');
+                            })
+                            .catch((err) => {
+                                console.error("MathJax typeset failed:", err);
+                                // 移动端备用方案：尝试重新渲染整个页面
+                                if (window.innerWidth <= 768) {
+                                    setTimeout(() => {
+                                        MathJax.typesetPromise().catch(e => console.error("Fallback rendering failed:", e));
+                                    }, 500);
+                                }
+                            });
+                    }, delay);
                 }
             } else {
                 // 如果 MathJax 尚未加载，则延迟执行
@@ -1273,8 +1355,21 @@
                 // 默认选中 "欧拉函数" (ID 33)
                 this.setActiveMenu(33);
 
+                // 移动端 MathJax 初始化
+                if (isMobileDevice()) {
+                    initMobileMathJax();
+                }
+
                 // 首次加载时，延迟执行 MathJax 渲染
-                setTimeout(typesetMathJax, 500); 
+                // 移动端需要更长的延迟
+                const delay = isMobileDevice() ? 1000 : 500;
+                setTimeout(() => {
+                    typesetMathJax();
+                    // 移动端额外渲染确保
+                    if (isMobileDevice()) {
+                        setTimeout(typesetMathJax, 500);
+                    }
+                }, delay); 
             }
         });
 
