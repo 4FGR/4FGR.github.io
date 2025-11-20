@@ -1,0 +1,22 @@
+details {
+    border: 1px solid #ccc;
+        border-radius: 6px;
+        padding: 0.5em;
+}
+summary {
+        border-bottom: 1px solid #aaa;
+        cursor: pointer;
+        font-weight: bold;
+}
+@media (prefers-color-scheme: dark) {
+    details {
+        background-color: #1e2a38; /* 深蓝灰，护眼又有层次 */
+        border: 1px solid #444;
+    }
+    summary {
+        font-weight: bold; /*粗体*/
+        font-size:20px; /*比一般的大*/
+        border-bottom: 1px solid #666;
+        color: #e0e0e0;
+    }
+}
