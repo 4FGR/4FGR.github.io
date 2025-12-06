@@ -1,0 +1,650 @@
+<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>C2Ladder之旅-1200 | 4FGR の Blog</title><meta name="keywords" content="codeforces"><meta name="author" content="4FGR"><meta name="copyright" content="4FGR"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="C2Ladder之旅-1200"><meta name="application-name" content="C2Ladder之旅-1200"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="C2Ladder之旅-1200"><meta property="og:url" content="http://example.com/2025/12/04/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/C2Ladder%E4%B9%8B%E6%97%85/C2Ladder-1200/index.html"><meta property="og:site_name" content="4FGR の Blog"><meta property="og:description" content="C2Ladder C2Ladder之旅-1200 1      Same Differences     You are given an array $a$ of $n$ integers. Count the number of pairs of indices $(i, j)$ su"><meta property="og:locale" content="zh-cn"><meta property="og:image" content="http://example.com/images/c2ladder"><meta property="article:author" content="4FGR"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="http://example.com/images/c2ladder"><meta name="description" content="C2Ladder C2Ladder之旅-1200 1      Same Differences     You are given an array $a$ of $n$ integers. Count the number of pairs of indices $(i, j)$ su"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://example.com/2025/12/04/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/C2Ladder%E4%B9%8B%E6%97%85/C2Ladder-1200/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: 'https://towikoo.4fgr.xyz',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: 4FGR","link":"链接: ","source":"来源: 4FGR の Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: {"enable":true,"delay":100,"shiftDelay":200},
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '4FGR の Blog',
+  title: 'C2Ladder之旅-1200',
+  postAI: '',
+  pageFillDescription: 'C2Ladder之旅-1200, 1, 2, 3, 4, 5, 6, 7之旅注意到用哈希记录值为的个数假设共有组则有显然得先找到峰距最小的两座峰若有多组它们的高度也应该是最小的小的放第一位大的放第二位想要让最大就要尽量爬山那么凡是高度大于峰先升序放最后高度小于峰再升序放显然一开始就升序排序能轻松解决上述两个子问题和很像但这道题是暴力注意到对于对于正整数可能的应该有多少种呢应该为种由于元素互不相同对于一组元素最坏情况有由于调和级数可近似为因此这个暴力也就即每次直接找的数是否存在并且下标且满足题干条件也可以排完序其中一维存原始下标后在暴力搜满足的个数没有平局存在唯一的赢面当且仅当在的个数非的情况下的长度为奇数且最中心位置上为使得不能之后进行反转操作否则由于初始为回文串不得不执行操作随后只要在对应方放置使得仍为回文串就不得不一直执行操作而总能找到恰当的时机反转比如当轮到操作时若的个数为就反转此时轮到操作时的个数不可能为偶数否则说明一开始有奇数个由于对称性只能在中间为上述情况显然先排序保证每对相邻元素的间距为原排列最小若每个间距大于就不得不为贡献用记录若填充这个间距需要的最少人员数可证明为间距差最后因此遍历在充足的情况下优先补足小间距直至用尽或遍历结束由于对于间距邀请个学生能产生个间隔每个间隔最大为因此因此考虑精度问题等价于用整数运算转换为很简单想要判断是否仅一次遍历完所有村庄只用判断三个条件号村庄能被号村庄到达存在路号村庄能到达号村庄存在相邻的村庄前者能到而号村庄能到若条件成立根据条件输出即可否则输出',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-12-04 14:41:17',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://ooo.0x0.ooo/2024/11/22/OHsKLD.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://blog.4fgr.xyz/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">4FGR の Blog</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="/%5Cimages%5Creward%5Cimage.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/%5Cimages%5Creward%5Cimage.jpg"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://ooo.0x0.ooo/2024/11/25/OH2LqP.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/11/25/OH2LqP.jpg"/></a><div class="post-qr-code-desc">微信</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/OJ/" style="font-size: 1.05rem;">OJ<sup>1</sup></a><a href="/tags/ST%E8%A1%A8/" style="font-size: 1.05rem;">ST表<sup>1</sup></a><a href="/tags/bfs/" style="font-size: 1.05rem;">bfs<sup>1</sup></a><a href="/tags/c/" style="font-size: 1.05rem;">c++<sup>1</sup></a><a href="/tags/codeforces/" style="font-size: 1.05rem;">codeforces<sup>3</sup></a><a href="/tags/csp/" style="font-size: 1.05rem;">csp<sup>1</sup></a><a href="/tags/css/" style="font-size: 1.05rem;">css<sup>1</sup></a><a href="/tags/dfs/" style="font-size: 1.05rem;">dfs<sup>1</sup></a><a href="/tags/hash/" style="font-size: 1.05rem;">hash<sup>1</sup></a><a href="/tags/html/" style="font-size: 1.05rem;">html<sup>1</sup></a><a href="/tags/%E2%80%98%E6%A0%91%E5%BD%A2%E6%95%B0%E7%BB%84%E2%80%99/" style="font-size: 1.05rem;">‘树形数组’<sup>1</sup></a><a href="/tags/%E5%80%8D%E5%A2%9E/" style="font-size: 1.05rem;">倍增<sup>2</sup></a><a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 1.05rem;">分享<sup>4</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.05rem;">前端<sup>1</sup></a><a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 1.05rem;">前缀和<sup>1</sup></a><a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 1.05rem;">动态规划<sup>5</sup></a><a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 1.05rem;">双指针<sup>1</sup></a><a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 1.05rem;">图论<sup>1</sup></a><a href="/tags/%E5%B7%AE%E5%88%86/" style="font-size: 1.05rem;">差分<sup>1</sup></a><a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 1.05rem;">并查集<sup>1</sup></a><a href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" style="font-size: 1.05rem;">归并排序<sup>1</sup></a><a href="/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/" style="font-size: 1.05rem;">快速幂<sup>1</sup></a><a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 1.05rem;">排序<sup>1</sup></a><a href="/tags/%E6%95%A3%E5%88%97/" style="font-size: 1.05rem;">散列<sup>1</sup></a><a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.05rem;">数学<sup>2</sup></a><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.05rem;">数据结构<sup>10</sup></a><a href="/tags/%E6%96%90%E6%B3%A2%E6%8B%89%E5%A5%91/" style="font-size: 1.05rem;">斐波拉契<sup>1</sup></a><a href="/tags/%E6%A0%88/" style="font-size: 1.05rem;">栈<sup>2</sup></a><a href="/tags/%E6%A0%91%E5%BD%A2DP/" style="font-size: 1.05rem;">树形DP<sup>1</sup></a><a href="/tags/%E6%A0%91%E5%BD%A2%E6%95%B0%E7%BB%84/" style="font-size: 1.05rem;">树形数组<sup>1</sup></a><a href="/tags/%E7%8F%82%E6%9C%B5%E8%8E%89%E6%A0%91/" style="font-size: 1.05rem;">珂朵莉树<sup>1</sup></a><a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96/" style="font-size: 1.05rem;">离散化<sup>1</sup></a><a href="/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/" style="font-size: 1.05rem;">线性表<sup>1</sup></a><a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 1.05rem;">线段树<sup>1</sup></a><a href="/tags/%E8%83%8C%E5%8C%85DP/" style="font-size: 1.05rem;">背包DP<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8F%B2/" style="font-size: 1.05rem;">计算机史<sup>1</sup></a><a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 1.05rem;">链表<sup>2</sup></a><a href="/tags/%E9%98%9F%E5%88%97/" style="font-size: 1.05rem;">队列<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">十二月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">十一月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">十月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">九月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">八月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">五月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">四月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">4</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">三月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div><div class="console-btn-item" id="consoleKeyboard" onclick="anzhiyu.keyboardToggle()" title="快捷键开关"><a class="keyboard-switch"><i class="anzhiyufont anzhiyu-icon-keyboard"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url">题解</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/codeforces/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>codeforces</span></a></span></div></div><h1 class="post-title" itemprop="name headline">C2Ladder之旅-1200</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2025-12-04T06:40:49.594Z" title="发表于 2025-12-04 14:40:49">2025-12-04</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2025-12-04T06:41:17.112Z" title="更新于 2025-12-04 14:41:17">2025-12-04</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="C2Ladder之旅-1200"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator"></span><span class="post-meta-commentcount"><i class="anzhiyufont anzhiyu-icon-comments post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2025/12/04/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/C2Ladder%E4%B9%8B%E6%97%85/C2Ladder-1200/#post-comment" tabindex="-1"><span id="twikoo-count"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></a></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="/./images/c2ladder"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://example.com/2025/12/04/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/C2Ladder%E4%B9%8B%E6%97%85/C2Ladder-1200/"><header><a class="post-meta-categories" href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url">题解</a><a href="/tags/codeforces/" tabindex="-1" itemprop="url">codeforces</a><h1 id="CrawlerTitle" itemprop="name headline">C2Ladder之旅-1200</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">4FGR</span><time itemprop="dateCreated datePublished" datetime="2025-12-04T06:40:49.594Z" title="发表于 2025-12-04 14:40:49">2025-12-04</time><time itemprop="dateCreated datePublished" datetime="2025-12-04T06:41:17.112Z" title="更新于 2025-12-04 14:41:17">2025-12-04</time></header><p><a target="_blank" rel="noopener" href="https://c2-ladders-juol.onrender.com/">C2Ladder</a></p>
+<h1 id="c2ladder之旅-1200">C2Ladder之旅-1200</h1>
+<h2 id="1">1</h2>
+<details>
+    <summary><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1520/D">Same Differences</a></summary>
+    You are given an array $a$ of $n$ integers. Count the number of pairs of indices $(i, j)$ such that $i < j$ and $a_j - a_i = j - i$.
+</details>
+
+<p>注意到， <span class="math inline">\(a_j-a_i=j-i \Rightarrow a_j-j =
+a_i-i\)</span> ，用哈希记录值为 <span
+class="math inline">\(a_i-i\)</span> 的个数 <span
+class="math inline">\(n_i\)</span> ，假设共有 <span
+class="math inline">\(m\)</span> 组，则有： <span
+class="math display">\[
+ans = \sum\limits_{i=1}^m C_{n_i}^2
+\]</span></p>
+<h2 id="2">2</h2>
+<details>
+    <summary><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1537/C">Challenging Cliffs</a></summary>
+    <p>
+    You are a game designer and want to make an obstacle course. The player will walk from left to right. You have $n$ heights of mountains already selected and want to arrange them so that the absolute difference of the heights of the first and last mountains is as small as possible.</p>
+    <p>In addition, you want to make the game difficult, and since walking uphill or flat is harder than walking downhill, the difficulty of the level will be the number of mountains $i$ ($1 \leq i < n$) such that $h_i \leq h_{i+1}$ where $h_i$ is the height of the $i$\-th mountain. You don't want to waste any of the mountains you modelled, so you have to use all of them.</p>
+    <p>From all the arrangements that minimize $|h_1-h_n|$, find one that is the most difficult. If there are multiple orders that satisfy these requirements, you may find any.</p>
+    </details>
+
+<p>显然，得先找到峰距最小的两座峰 <span
+class="math inline">\(l,r\)</span>（若有多组，它们的高度也应该是最小的），小的放第一位，大的放第二位。想要让
+difficulty 最大，就要尽量爬山，那么凡是高度大于峰 <span
+class="math inline">\(r\)</span> 先升序放，最后高度小于峰<span
+class="math inline">\(l\)</span>
+再升序放。显然，一开始就升序排序，能轻松解决上述两个子问题。</p>
+<h2 id="3">3</h2>
+<details>
+    <summary><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1541/problem/B">Pleasant Pairs</a></summary>
+    You are given an array $a_1, a_2, \dots, a_n$ consisting of $n$ **distinct** integers. Count the number of pairs of indices $(i, j)$ such that $i < j$ and $a_i \cdot a_j = i + j$.
+</details>
+
+<p>和 <span class="math inline">\(1\)</span>
+<a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1520/D">Same
+Differences</a> 很像，但这道题是暴力，注意到对于 <span
+class="math inline">\(x\times y \leq 2n\)</span> ，对于正整数 <span
+class="math inline">\(x\)</span> ，可能的 <span
+class="math inline">\(y\)</span> 应该有多少种呢？应该为 <span
+class="math inline">\(\frac{2n}{x}\)</span>
+种，由于元素互不相同，对于一组元素，最坏情况有 <span
+class="math inline">\(\frac{2n}{1}+\frac{2n}{2}+\cdots+\frac{2n}{n}=2n*(1+\frac{1}{2}+\cdots+\frac{1}{n})\)</span>
+，由于调和级数 <span class="math inline">\(\sum \frac{1}{n}\)</span>
+可近似为 <span class="math inline">\(\ln n\)</span> ，因此这个暴力也就
+<span class="math inline">\(O(nlogn)\)</span> ，即每次直接找 <span
+class="math inline">\(1\cdots \lfloor\frac{2n}{x} \rfloor\)</span>
+的数是否存在并且下标 <span class="math inline">\(j&gt;i\)</span>
+且满足题干条件。也可以排完序（其中一维存原始下标）后在 <span
+class="math inline">\(a_i\times a_j\leq 2n\)</span> ，暴力搜满足 <span
+class="math inline">\(a_{i.v}\times a_{j.v} == a_{i.p}+a_{j.p}\)</span>
+的个数。</p>
+<h2 id="4">4</h2>
+<details>
+    <summary><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1527/B1"> Palindrome Game (easy version)</a></summary>
+    <div> A palindrome is a string that reads the same left to right and right to left. For example, "101101" is a palindrome, while "0101" is not. </div>
+    <div>Alice and Bob are playing a game on a string $s$ **(which is initially a palindrome in this version)** of length $n$ consisting of the characters '0' and '1'. Both players take alternate turns with Alice going first.</div>
+    <div>In each turn, the player can perform one of the following operations:</div>
+    <div>1.  Choose any $i$ ($1 \le i \le n$), where $s[i] =$ '0' and change $s[i]$ to '1'. Pay 1 dollar.</div><div>
+    </div>2.  Reverse the whole string, pay 0 dollars. This operation is only allowed if the string is currently **not** a palindrome, and the last operation was not reverse. That is, if Alice reverses the string, then Bob can't reverse in the next move, and vice versa.</div>
+    <div>Reversing a string means reordering its letters from the last to the first. For example, "01001" becomes "10010" after reversing.</div>
+    <div>The game ends when every character of string becomes '1'. The player who spends minimum dollars till this point wins the game and it is a draw if both spend equal dollars. If both players play optimally, output whether Alice wins, Bob wins, or if it is a draw.</div>
+</details>
+
+<p>没有平局存在。</p>
+<p>Alice唯一的赢面，当且仅当在 <span class="math inline">\(0\)</span>
+的个数非 <span class="math inline">\(1\)</span> 的情况下，<span
+class="math inline">\(s\)</span> 的长度 <span
+class="math inline">\(|s|\)</span> 为奇数，且最中心位置上为 <span
+class="math inline">\(0\)</span> ，使得 Bob 不能之后进行反转操作。</p>
+<p>否则，由于 <span class="math inline">\(s\)</span> 初始为回文串，Alice
+不得不执行操作 <span class="math inline">\(1\)</span>，随后 Bob
+只要在对应方放置，使得 <span class="math inline">\(s\)</span>
+仍为回文串，Alice 就不得不一直执行操作 <span
+class="math inline">\(1\)</span> ，而 Bob
+总能找到恰当的时机反转，比如当轮到 Bob 操作时，若 <span
+class="math inline">\(0\)</span> 的个数为 <span
+class="math inline">\(1\)</span> ，就反转。此时，轮到 Bob 操作时，<span
+class="math inline">\(0\)</span>
+的个数不可能为偶数，否则说明一开始有奇数个 <span
+class="math inline">\(0\)</span> 。由于对称性，<span
+class="math inline">\(0\)</span> 只能在中间，为上述情况。</p>
+<h2 id="5">5</h2>
+<details>
+    <summary><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1539/C">Stable Groups</a></summary>
+    <div>There are $n$ students numerated from $1$ to $n$. The level of the $i$\-th student is $a_i$. You need to split the students into stable groups. A group of students is called stable, if in the sorted array of their levels no two neighboring elements differ by more than $x$.</div>
+    <div>For example, if $x = 4$, then the group with levels $[1, 10, 8, 4, 4]$ is stable (because $4 - 1 \le x$, $4 - 4 \le x$, $8 - 4 \le x$, $10 - 8 \le x$), while the group with levels $[2, 10, 10, 7]$ is not stable ($7 - 2 = 5 > x$).</div>
+    <div>Apart from the $n$ given students, teachers can invite at most $k$ additional students with **arbitrary** levels (at teachers' choice). Find the minimum number of stable groups teachers can form from all students (including the newly invited).</div>
+    <div>For example, if there are two students with levels $1$ and $5$; $x = 2$; and $k \ge 1$, then you can invite a new student with level $3$ and put all the students in one stable group.</div>
+    </details>
+
+<p>显然，先排序，保证每对相邻元素的间距为原排列最小。若每个间距大于
+<span class="math inline">\(x\)</span> 就不得不为 ans 贡献 <span
+class="math inline">\(1\)</span> ，用 <span
+class="math inline">\(map\)</span> 记录若填充这个间距需要的最少人员数
+<span class="math inline">\(t\)</span> ，可证明 <span
+class="math inline">\(t\)</span> 为间距差 <span
+class="math inline">\(\lfloor \frac{d-1}{x} \rfloor\)</span>
+。最后因此遍历 <span class="math inline">\(map\)</span> ，在 <span
+class="math inline">\(k\)</span> 充足的情况下优先补足小间距，直至 <span
+class="math inline">\(k\)</span> 用尽或遍历结束。</p>
+<blockquote>
+<p>由于对于间距 <span class="math inline">\(d\)</span> ， 邀请 <span
+class="math inline">\(k\)</span> 个学生，能产生 <span
+class="math inline">\(k+1\)</span> 个间隔，每个间隔最大为 <span
+class="math inline">\(x\)</span> ，因此 <span
+class="math inline">\(d\leq (k+1)\times x\)</span> ,因此 <span
+class="math inline">\(k = \lceil \frac{d}{x} \rceil -1\)</span>
+，考虑精度问题，<span class="math inline">\(\lceil \frac{a}{b}
+\rceil\)</span> 等价于 <span class="math inline">\(\lfloor \frac{a + b -
+1}{b}\rfloor\)</span> ，用整数运算转换为 <span class="math inline">\(k =
+\lfloor \frac{d-1}{x} \rfloor\)</span></p>
+</blockquote>
+<h2 id="6">6</h2>
+<details>
+    <summary><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1559/C">Mocha and Hiking</a></summary>The city where Mocha lives in is called Zhijiang. There are $n+1$ villages and $2n-1$ directed roads in this city.
+    <div>There are two kinds of roads:</div>
+    <ul>
+        <li>$n-1$ roads are from village $i$ to village $i+1$, for all $1\leq i \leq n-1$.</li>
+        <li>$n$ roads can be described by a sequence $a_1,\ldots,a_n$. If $a_i=0$, the $i$\-th of these roads goes from village $i$ to village $n+1$, otherwise it goes from village $n+1$ to village $i$, for all $1\leq i\leq n$.</li>
+    </ul>
+    Mocha plans to go hiking with Taki this weekend. To avoid the trip being boring, they plan to go through every village **exactly once**. They can start and finish at any villages. Can you help them to draw up a plan?
+</details>
+
+<p>很简单，想要判断是否仅一次遍历完所有村庄，只用判断三个条件:</p>
+<ul>
+<li><span class="math inline">\(1\)</span> 号村庄能被 <span
+class="math inline">\(n+1\)</span> 号村庄到达 （存在路 <span
+class="math inline">\(a[0]=1\)</span> ）</li>
+<li><span class="math inline">\(n\)</span> 号村庄能到达 <span
+class="math inline">\(n+1\)</span> 号村庄</li>
+<li>存在相邻的村庄 <span class="math inline">\(i、i+1\)</span>
+，前者能到 <span class="math inline">\(n+1\)</span> ，而 <span
+class="math inline">\(n+1\)</span> 号村庄能到 <span
+class="math inline">\(i+1\)</span></li>
+</ul>
+<p>若条件成立，根据条件输出即可。否则，输出 <span
+class="math inline">\(-1\)</span> 。</p>
+<h2 id="7">7</h2>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/./images/avator.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/./images/avator.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">4FGR</div><div class="post-copyright__author_desc">爱智慧(..＞◡＜..)</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://example.com/2025/12/04/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/C2Ladder%E4%B9%8B%E6%97%85/C2Ladder-1200/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://example.com/2025/12/04/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/C2Ladder%E4%B9%8B%E6%97%85/C2Ladder-1200/')">C2Ladder之旅-1200</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="/%5Cimages%5Creward%5Cimage.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/%5Cimages%5Creward%5Cimage.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://ooo.0x0.ooo/2024/11/25/OH2LqP.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/11/25/OH2LqP.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li></ul></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://example.com/2025/12/04/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/C2Ladder%E4%B9%8B%E6%97%85/C2Ladder-1200/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=C2Ladder之旅-1200&amp;url=http://example.com/2025/12/04/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/C2Ladder%E4%B9%8B%E6%97%85/C2Ladder-1200/&amp;pic=/./images/c2ladder" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">4FGR の Blog</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/codeforces/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>codeforces<span class="tagsPageCount">3</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="/./images/codeforces/1200.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/12/04/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/C2Ladder%E4%B9%8B%E6%97%85/C2Ladder%E4%B9%8B%E6%97%85%E2%80%94%E2%80%94%E5%BA%8F%E7%AB%A0/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/./images/c2ladder" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">C2Ladder之旅——序章</div></div></a></div><div class="next-post pull-right"><a href="/2025/12/06/%E7%94%9F%E6%B4%BB/codeforces-rating%E7%BA%AA%E5%BF%B5/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/./images/codeforces/1200.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Codeforces等级分突破1200分纪念</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/2025/12/04/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/C2Ladder%E4%B9%8B%E6%97%85/C2Ladder%E4%B9%8B%E6%97%85%E2%80%94%E2%80%94%E5%BA%8F%E7%AB%A0/" title="C2Ladder之旅——序章"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/./images/c2ladder" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2025-12-04</div><div class="title">C2Ladder之旅——序章</div></div></a></div><div><a href="/2025/12/06/%E7%94%9F%E6%B4%BB/codeforces-rating%E7%BA%AA%E5%BF%B5/" title="Codeforces等级分突破1200分纪念"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/./images/codeforces/1200.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2025-12-06</div><div class="title">Codeforces等级分突破1200分纪念</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div><div class="comment-tips" id="comment-tips"><span>✅ 你无需删除空行，直接评论以获取最佳展示效果</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/./images/avator.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description">这是我的个人博客</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">4FGR</h1><div class="author-info__desc">爱智慧(..＞◡＜..)</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/4FGR" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/383167539?spm_id_from=333.1007.0.0" target="_blank" title="BiliBili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a></div></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来看我的博客鸭~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#c2ladder%E4%B9%8B%E6%97%85-1200"><span class="toc-number">1.</span> <span class="toc-text">C2Ladder之旅-1200</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1"><span class="toc-number">1.1.</span> <span class="toc-text">1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2"><span class="toc-number">1.2.</span> <span class="toc-text">2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3"><span class="toc-number">1.3.</span> <span class="toc-text">3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4"><span class="toc-number">1.4.</span> <span class="toc-text">4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5"><span class="toc-number">1.5.</span> <span class="toc-text">5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6"><span class="toc-number">1.6.</span> <span class="toc-text">6</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7"><span class="toc-number">1.7.</span> <span class="toc-text">7</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/12/06/%E7%94%9F%E6%B4%BB/codeforces-rating%E7%BA%AA%E5%BF%B5/" title="Codeforces等级分突破1200分纪念"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/./images/codeforces/1200.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Codeforces等级分突破1200分纪念"/></a><div class="content"><a class="title" href="/2025/12/06/%E7%94%9F%E6%B4%BB/codeforces-rating%E7%BA%AA%E5%BF%B5/" title="Codeforces等级分突破1200分纪念">Codeforces等级分突破1200分纪念</a><time datetime="2025-12-06T00:25:33.396Z" title="发表于 2025-12-06 08:25:33">2025-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/04/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/C2Ladder%E4%B9%8B%E6%97%85/C2Ladder-1200/" title="C2Ladder之旅-1200"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/./images/c2ladder" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C2Ladder之旅-1200"/></a><div class="content"><a class="title" href="/2025/12/04/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/C2Ladder%E4%B9%8B%E6%97%85/C2Ladder-1200/" title="C2Ladder之旅-1200">C2Ladder之旅-1200</a><time datetime="2025-12-04T06:40:49.594Z" title="发表于 2025-12-04 14:40:49">2025-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/04/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/C2Ladder%E4%B9%8B%E6%97%85/C2Ladder%E4%B9%8B%E6%97%85%E2%80%94%E2%80%94%E5%BA%8F%E7%AB%A0/" title="C2Ladder之旅——序章"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/./images/c2ladder" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C2Ladder之旅——序章"/></a><div class="content"><a class="title" href="/2025/12/04/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/C2Ladder%E4%B9%8B%E6%97%85/C2Ladder%E4%B9%8B%E6%97%85%E2%80%94%E2%80%94%E5%BA%8F%E7%AB%A0/" title="C2Ladder之旅——序章">C2Ladder之旅——序章</a><time datetime="2025-12-04T06:37:59.387Z" title="发表于 2025-12-04 14:37:59">2025-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/11/20/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/%E6%9D%BF%E5%AD%90/" title="算法板子[updating]"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/./images/2025-11-20/baka3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法板子[updating]"/></a><div class="content"><a class="title" href="/2025/11/20/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/%E6%9D%BF%E5%AD%90/" title="算法板子[updating]">算法板子[updating]</a><time datetime="2025-11-20T08:20:38.989Z" title="发表于 2025-11-20 16:20:38">2025-11-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/11/20/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/updating/%E6%A0%91%E5%BD%A2DP/" title="动态规划-树形DP"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/./images/2025-11-20/baka.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="动态规划-树形DP"/></a><div class="content"><a class="title" href="/2025/11/20/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/updating/%E6%A0%91%E5%BD%A2DP/" title="动态规划-树形DP">动态规划-树形DP</a><time datetime="2025-11-20T05:48:09.219Z" title="发表于 2025-11-20 13:48:09">2025-11-20</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2024 - 2025 By <a class="footer-bar-link" href="/" title="4FGR" target="_blank">4FGR</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">38</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">6</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://blog.4fgr.xyz/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/OJ/" style="font-size: 0.88rem;">OJ<sup>1</sup></a><a href="/tags/ST%E8%A1%A8/" style="font-size: 0.88rem;">ST表<sup>1</sup></a><a href="/tags/bfs/" style="font-size: 0.88rem;">bfs<sup>1</sup></a><a href="/tags/c/" style="font-size: 0.88rem;">c++<sup>1</sup></a><a href="/tags/codeforces/" style="font-size: 0.88rem;">codeforces<sup>3</sup></a><a href="/tags/csp/" style="font-size: 0.88rem;">csp<sup>1</sup></a><a href="/tags/css/" style="font-size: 0.88rem;">css<sup>1</sup></a><a href="/tags/dfs/" style="font-size: 0.88rem;">dfs<sup>1</sup></a><a href="/tags/hash/" style="font-size: 0.88rem;">hash<sup>1</sup></a><a href="/tags/html/" style="font-size: 0.88rem;">html<sup>1</sup></a><a href="/tags/%E2%80%98%E6%A0%91%E5%BD%A2%E6%95%B0%E7%BB%84%E2%80%99/" style="font-size: 0.88rem;">‘树形数组’<sup>1</sup></a><a href="/tags/%E5%80%8D%E5%A2%9E/" style="font-size: 0.88rem;">倍增<sup>2</sup></a><a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 0.88rem;">分享<sup>4</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 0.88rem;">前端<sup>1</sup></a><a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 0.88rem;">前缀和<sup>1</sup></a><a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 0.88rem;">动态规划<sup>5</sup></a><a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 0.88rem;">双指针<sup>1</sup></a><a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 0.88rem;">图论<sup>1</sup></a><a href="/tags/%E5%B7%AE%E5%88%86/" style="font-size: 0.88rem;">差分<sup>1</sup></a><a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 0.88rem;">并查集<sup>1</sup></a><a href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" style="font-size: 0.88rem;">归并排序<sup>1</sup></a><a href="/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/" style="font-size: 0.88rem;">快速幂<sup>1</sup></a><a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 0.88rem;">排序<sup>1</sup></a><a href="/tags/%E6%95%A3%E5%88%97/" style="font-size: 0.88rem;">散列<sup>1</sup></a><a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 0.88rem;">数学<sup>2</sup></a><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 0.88rem;">数据结构<sup>10</sup></a><a href="/tags/%E6%96%90%E6%B3%A2%E6%8B%89%E5%A5%91/" style="font-size: 0.88rem;">斐波拉契<sup>1</sup></a><a href="/tags/%E6%A0%88/" style="font-size: 0.88rem;">栈<sup>2</sup></a><a href="/tags/%E6%A0%91%E5%BD%A2DP/" style="font-size: 0.88rem;">树形DP<sup>1</sup></a><a href="/tags/%E6%A0%91%E5%BD%A2%E6%95%B0%E7%BB%84/" style="font-size: 0.88rem;">树形数组<sup>1</sup></a><a href="/tags/%E7%8F%82%E6%9C%B5%E8%8E%89%E6%A0%91/" style="font-size: 0.88rem;">珂朵莉树<sup>1</sup></a><a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96/" style="font-size: 0.88rem;">离散化<sup>1</sup></a><a href="/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/" style="font-size: 0.88rem;">线性表<sup>1</sup></a><a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 0.88rem;">线段树<sup>1</sup></a><a href="/tags/%E8%83%8C%E5%8C%85DP/" style="font-size: 0.88rem;">背包DP<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8F%B2/" style="font-size: 0.88rem;">计算机史<sup>1</sup></a><a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 0.88rem;">链表<sup>2</sup></a><a href="/tags/%E9%98%9F%E5%88%97/" style="font-size: 0.88rem;">队列<sup>1</sup></a></div></div><hr/></div></div><div id="keyboard-tips"><div class="keyboardTitle">博客快捷键</div><div class="keybordList"><div class="keybordItem"><div class="keyGroup"><div class="key">shift K</div></div><div class="keyContent"><div class="content">关闭快捷键功能</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift A</div></div><div class="keyContent"><div class="content">打开/关闭中控台</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift M</div></div><div class="keyContent"><div class="content">播放/暂停音乐</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift D</div></div><div class="keyContent"><div class="content">深色/浅色显示模式</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift S</div></div><div class="keyContent"><div class="content">站内搜索</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift R</div></div><div class="keyContent"><div class="content">随机访问</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift H</div></div><div class="keyContent"><div class="content">返回首页</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift F</div></div><div class="keyContent"><div class="content">友链鱼塘</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift L</div></div><div class="keyContent"><div class="content">友链页面</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift P</div></div><div class="keyContent"><div class="content">关于本站</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift I</div></div><div class="keyContent"><div class="content">原版/本站右键菜单</div></div></div></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="12887774607" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("11/20/2024 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2024 By 安知鱼 V1.6.14",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 4FGR 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.cbd.int/mathjax@3.2.2/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><script>(() => {
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://towikoo.4fgr.xyz',
+      region: '',
+      onCommentLoaded: () => {
+        anzhiyu.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(runFn,0)
+    else getScript('https://cdn.cbd.int/twikoo@1.6.39/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://towikoo.4fgr.xyz',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const runFn = () => {
+    init();
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) anzhiyu.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else {
+      loadTwikoo()
+    }
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://towikoo.4fgr.xyz',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.cbd.int/twikoo@1.6.39/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'><div class='name'><span>${array[i].nick} </span></div></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:type\"]","meta[property=\"og:site_name\"]","meta[property=\"og:description\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
