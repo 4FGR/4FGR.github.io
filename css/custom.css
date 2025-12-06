@@ -12,6 +12,7 @@ summary {
     details {
         background-color: #1e2a38; /* 深蓝灰，护眼又有层次 */
         border: 1px solid #444;
+        margin-bottom: 16px;
     }
     summary {
         font-weight: bold; /*粗体*/
