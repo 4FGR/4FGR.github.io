@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RestMath - 高级数学工具站</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            },
+            chtml: {
+                scale: 1,
+                adaptiveCSS: true
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            /* Light Theme Variables */
+            --primary: #4f46e5; /* Indigo 600 */
+            --primary-hover: #4338ca;
+            --bg-body: #f3f4f6; /* Gray 100 */
+            --bg-sidebar: #ffffff;
+            --bg-card: #ffffff;
+            --text-main: #1f2937; /* Gray 800 */
+            --text-muted: #6b7280; /* Gray 500 */
+            --border-color: #e5e7eb; /* Gray 200 */
+            --accent-bg: #e0e7ff; /* Indigo 100 */
+            --accent-text: #3730a3; /* Indigo 800 */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --radius: 12px;
+            --header-height: 64px;
+        }
+
+        [data-theme="dark"] {
+            /* Dark Theme Variables */
+            --primary: #6366f1; /* Indigo 500 */
+            --primary-hover: #818cf8;
+            --bg-body: #111827; /* Gray 900 */
+            --bg-sidebar: #1f2937; /* Gray 800 */
+            --bg-card: #1f2937;
+            --text-main: #f9fafb; /* Gray 50 */
+            --text-muted: #9ca3af; /* Gray 400 */
+            --border-color: #374151; /* Gray 700 */
+            --accent-bg: #312e81; /* Indigo 900 */
+            --accent-text: #c7d2fe; /* Indigo 200 */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            height: 100vh;
+            overflow: hidden;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #app {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* --- Header --- */
+        .site-header {
+            background-color: var(--bg-sidebar);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            z-index: 10;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary), #818cf8);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .site-header h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.025em;
+        }
+
+        /* --- Sidebar --- */
+        .layout-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 260px;
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border-color);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-category {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin: 20px 12px 8px;
+        }
+        .menu-category:first-child { margin-top: 0; }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 12px;
+            margin-bottom: 2px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .menu-item:hover {
+            background-color: var(--bg-body);
+        }
+
+        .menu-item.active {
+            background-color: var(--accent-bg);
+            color: var(--accent-text);
+        }
+
+        .menu-icon {
+            margin-right: 10px;
+            opacity: 0.7;
+        }
+
+        /* --- Main Content --- */
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .page-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-main);
+        }
+
+        /* --- Cards & Inputs --- */
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: var(--text-muted);
+        }
+
+        input[type="number"], input[type="text"], select {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 15px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        button.btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        button.btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+        
+        button.btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .result-box {
+            background-color: var(--bg-body);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .result-title {
+            font-size: 13px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .error-msg {
+            color: #ef4444;
+            font-size: 14px;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* --- Components specific styles --- */
+        .matrix-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .matrix-cell {
+            width: 60px !important;
+            text-align: center;
+        }
+
+        .op-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: background-color 0.2s;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+        }
+
+        /* Cayley Table */
+        .cayley-table {
+            border-collapse: collapse;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .cayley-table th, .cayley-table td {
+            border: 1px solid var(--border-color);
+            padding: 8px;
+            text-align: center;
+            min-width: 40px;
+        }
+        .cayley-table th {
+            background-color: var(--accent-bg);
+            color: var(--accent-text);
+            font-weight: bold;
+        }
+        .cayley-header-cell {
+            background-color: var(--bg-body);
+        }
+
+        /* --- Mobile Responsive --- */
+        @media (max-width: 768px) {
+            .site-header { padding: 0 16px; }
+            .site-header h2 { font-size: 18px; }
+            
+            .layout-container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                max-height: 120px; /* Collapsed visual for mobile */
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                flex-direction: row;
+                overflow-x: auto;
+                padding: 10px;
+                gap: 10px;
+            }
+            
+            .menu-category { display: none; }
+            
+            .menu-item {
+                flex-shrink: 0;
+                white-space: nowrap;
+                margin-bottom: 0;
+                background-color: var(--bg-body);
+                border: 1px solid var(--border-color);
+            }
+
+            .main-content {
+                padding: 16px;
+            }
+
+            .op-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .op-container select, .op-container button {
+                width: 100%;
+            }
+            
+            .matrix-cell { width: 100% !important; }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <header class="site-header">
+            <div class="brand">
+                <div class="brand-logo">RM</div>
+                <h2>RestMath</h2>
+            </div>
+            <div>
+                <button class="theme-toggle" @click="toggleTheme" title="切换主题">
+                    <span v-if="isDark">🌞</span>
+                    <span v-else>🌙</span>
+                </button>
+            </div>
+        </header>
+
+        <div class="layout-container">
+            <nav class="sidebar">
+                <div v-for="(group, index) in menuGroups" :key="index">
+                    <div class="menu-category">{{ group.name }}</div>
+                    <div 
+                        v-for="item in group.items" 
+                        :key="item.id"
+                        class="menu-item"
+                        :class="{ active: activeMenuId === item.id }"
+                        @click="setActiveMenu(item.id)"
+                    >
+                        <span class="menu-icon">{{ item.icon }}</span>
+                        {{ item.name }}
+                    </div>
+                </div>
+            </nav>
+
+            <main class="main-content" id="main-content">
+                <h1 class="page-title">{{ activeTitle }}</h1>
+
+                <div v-if="activeMenuId === 11" class="card">
+                    <div class="op-container">
+                        <input type="number" v-model.number="basicOps.num1" placeholder="数值 1">
+                        <select v-model="basicOps.operation" style="width: auto;">
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                            <option value="*">×</option>
+                            <option value="/">÷</option>
+                        </select>
+                        <input type="number" v-model.number="basicOps.num2" placeholder="数值 2">
+                        <button class="btn-primary" @click="calculateBasicOps">计算结果</button>
+                    </div>
+                    <div v-if="basicOps.result !== null" class="result-box">
+                        <div class="result-title">计算结果</div>
+                        <div style="font-size: 1.2em; font-weight: bold;">{{ basicOps.result }}</div>
+                    </div>
+                </div>
+
+                <div v-else-if="activeMenuId === 12" class="card">
+                    <div class="op-container">
+                        <div style="display:flex; align-items:center; gap:5px;">
+                            <input type="number" v-model.number="fractionOps.frac1.numerator" placeholder="分" style="width:60px">
+                            <span>/</span>
+                            <input type="number" v-model.number="fractionOps.frac1.denominator" placeholder="母" style="width:60px">
+                        </div>
+                        <select v-model="fractionOps.operation" style="width: auto;">
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                            <option value="*">×</option>
+                            <option value="/">÷</option>
+                        </select>
+                        <div style="display:flex; align-items:center; gap:5px;">
+                            <input type="number" v-model.number="fractionOps.frac2.numerator" placeholder="分" style="width:60px">
+                            <span>/</span>
+                            <input type="number" v-model.number="fractionOps.frac2.denominator" placeholder="母" style="width:60px">
+                        </div>
+                        <button class="btn-primary" @click="calculateFractionOps">计算</button>
+                    </div>
+                    <div v-if="fractionOps.result !== null" class="result-box">
+                        <div class="result-title">结果</div>
+                        <div style="font-size: 1.2em;">\({{ fractionOps.result }}\)</div>
+                    </div>
+                    <div v-if="fractionOps.error" class="error-msg">⚠️ {{ fractionOps.error }}</div>
+                </div>
+
+                <div v-else-if="activeMenuId === 21" class="card">
+                    <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+                        <div>
+                            <div class="input-label">矩阵 A (2×2)</div>
+                            <div v-for="(row, i) in matrixOps.matrix1" :key="'a'+i" class="matrix-row">
+                                <input v-for="(cell, j) in row" :key="'a'+i+j" type="number" v-model.number="matrixOps.matrix1[i][j]" class="matrix-cell">
+                            </div>
+                        </div>
+                        <div style="font-size: 20px; color: var(--text-muted);">×</div>
+                        <div>
+                            <div class="input-label">矩阵 B (2×2)</div>
+                            <div v-for="(row, i) in matrixOps.matrix2" :key="'b'+i" class="matrix-row">
+                                <input v-for="(cell, j) in row" :key="'b'+i+j" type="number" v-model.number="matrixOps.matrix2[i][j]" class="matrix-cell">
+                            </div>
+                        </div>
+                        <button class="btn-primary" @click="calculateMatrixMultiplication">计算乘积</button>
+                    </div>
+                    <div v-if="matrixOps.result" class="result-box">
+                        <div class="result-title">结果矩阵</div>
+                        <div v-html="matrixResultHtml"></div>
+                    </div>
+                </div>
+
+                <div v-else-if="activeMenuId === 22" class="card">
+                    <div class="input-label">输入矩阵 (2×2)</div>
+                    <div v-for="(row, i) in determinant.matrix" :key="'d'+i" class="matrix-row">
+                        <input v-for="(cell, j) in row" :key="'d'+i+j" type="number" v-model.number="determinant.matrix[i][j]" class="matrix-cell">
+                    </div>
+                    <button class="btn-primary" @click="calculateDeterminant" style="margin-top: 10px;">计算行列式</button>
+                    <div v-if="determinant.result !== null" class="result-box">
+                        <div class="result-title">行列式值</div>
+                        <div style="font-size: 1.5em;" v-html="determinantResultHtml"></div>
+                    </div>
+                </div>
+
+                <div v-else-if="activeMenuId === 33">
+                    <div class="card">
+                        <div class="input-label">计算单个 \(\phi(n)\)</div>
+                        <div class="op-container">
+                            <input type="number" v-model.number="eulerInputN" placeholder="输入正整数 n">
+                            <button class="btn-primary" @click="calculateEuler">计算</button>
+                        </div>
+                        <div v-if="eulerResult" class="result-box">
+                             <div style="font-size: 1.3em;" v-html="eulerResultHtml"></div>
+                        </div>
+                        <div v-if="eulerError" class="error-msg">⚠️ {{ eulerError }}</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="input-label">批量计算 \(\phi(1) \dots \phi(n)\)</div>
+                        <div class="op-container">
+                            <input type="number" v-model.number="eulerBatchInputN" placeholder="输入 n (最大 1000)">
+                            <button class="btn-primary" @click="calculateEulerBatch" :disabled="eulerBatchLoading">
+                                {{ eulerBatchLoading ? '计算中...' : '开始筛法计算' }}
+                            </button>
+                        </div>
+                        <div v-if="eulerBatchResults.length > 0" class="result-box">
+                            <div style="max-height: 200px; overflow-y: auto; font-family: 'JetBrains Mono', monospace;">
+                                <div v-for="(res, idx) in eulerBatchResults" :key="idx" style="margin-bottom: 4px;" v-html="formatEulerBatchItem(idx, res)"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div v-else-if="activeMenuId === 31" class="card">
+                    <div class="op-container">
+                        <input type="number" v-model.number="gcdLcm.num1" placeholder="数 A">
+                        <input type="number" v-model.number="gcdLcm.num2" placeholder="数 B">
+                        <button class="btn-primary" @click="calculateGcdLcm">计算 GCD & LCM</button>
+                    </div>
+                    <div v-if="gcdLcm.gcd !== null" class="result-box" v-html="gcdLcmResultHtml"></div>
+                </div>
+
+                <div v-else-if="activeMenuId === 32" class="card">
+                    <p style="color: var(--text-muted); margin-bottom: 15px;">求解 \(ax \equiv 1 \pmod m\)</p>
+                    <div class="op-container">
+                        <input type="number" v-model.number="modularInverse.a" placeholder="a">
+                        <span>mod</span>
+                        <input type="number" v-model.number="modularInverse.m" placeholder="m">
+                        <button class="btn-primary" @click="calculateModularInverse">计算逆元</button>
+                    </div>
+                    <div v-if="modularInverse.result !== null" class="result-box">
+                        <div style="font-size: 1.2em;" v-html="modularInverseResultHtml"></div>
+                        <div style="font-size: 0.9em; color: var(--text-muted); margin-top: 5px;">验证: {{ modularInverseVerification }}</div>
+                    </div>
+                    <div v-if="modularInverse.error" class="error-msg">⚠️ {{ modularInverse.error }}</div>
+                </div>
+
+                <div v-else-if="activeMenuId === 41" class="card">
+                    <div class="input-label">系数序列 (逗号分隔，例如 1,1,1)</div>
+                    <div class="op-container">
+                        <input type="text" v-model="generatingFunction.coefficients" placeholder="输入序列...">
+                        <button class="btn-primary" @click="calculateGeneratingFunction">生成多项式</button>
+                    </div>
+                    <div v-if="generatingFunction.result" class="result-box">
+                        <div style="font-size: 1.2em;" v-html="generatingFunction.result"></div>
+                    </div>
+                </div>
+                
+                <div v-else-if="activeMenuId === 42" class="card">
+                    <div class="input-group">
+                        <div class="input-label">函数 f 序列 (前几项)</div>
+                        <input type="text" v-model="dirichletConvolution.f" placeholder="例如: 1,1,1,1">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-label">函数 g 序列 (前几项)</div>
+                        <input type="text" v-model="dirichletConvolution.g" placeholder="例如: 1,2,3,4">
+                    </div>
+                    <button class="btn-primary" @click="calculateDirichletConvolution">计算卷积 (f * g)</button>
+                    <div v-if="dirichletConvolution.result.length > 0" class="result-box">
+                        <p><strong>卷积结果 (前{{dirichletConvolution.result.length}}项):</strong></p>
+                        <p style="font-family: monospace; margin-top: 5px;">[{{ dirichletConvolution.result.join(', ') }}]</p>
+                    </div>
+                </div>
+
+                <div v-else-if="activeMenuId === 51" class="card">
+                    <p style="color: var(--text-muted); margin-bottom: 15px;">复数形式: \(z = a + bi\)</p>
+                    
+                    <div class="input-group">
+                        <div class="input-label">复数 Z1 (a + bi)</div>
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <input type="number" v-model.number="complex.z1.r" placeholder="实部 a">
+                            <span>+</span>
+                            <input type="number" v-model.number="complex.z1.i" placeholder="虚部 b">
+                            <span>i</span>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <div class="input-label">复数 Z2 (c + di)</div>
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <input type="number" v-model.number="complex.z2.r" placeholder="实部 c">
+                            <span>+</span>
+                            <input type="number" v-model.number="complex.z2.i" placeholder="虚部 d">
+                            <span>i</span>
+                        </div>
+                    </div>
+
+                    <div class="op-container" style="margin-top: 15px;">
+                        <button class="btn-primary" @click="calcComplex('+')">Z1 + Z2</button>
+                        <button class="btn-primary" @click="calcComplex('-')">Z1 - Z2</button>
+                        <button class="btn-primary" @click="calcComplex('*')">Z1 × Z2</button>
+                        <button class="btn-primary" @click="calcComplex('/')">Z1 ÷ Z2</button>
+                    </div>
+
+                    <div v-if="complex.resultString" class="result-box">
+                        <div class="result-title">运算结果</div>
+                        <div style="font-size: 1.3em;" v-html="complexResultHtml"></div>
+                        <div v-if="complex.modulus" style="margin-top: 8px; font-size: 0.9em; color: var(--text-muted);">
+                            模长 |Z| ≈ {{ complex.modulus }}
+                        </div>
+                    </div>
+                </div>
+
+                <div v-else-if="activeMenuId === 52" class="card">
+                    <div class="input-label">群类型与模数 n</div>
+                    <div class="op-container">
+                        <select v-model="groupTheory.type">
+                            <option value="add">模 n 加法群 (\(\mathbb{Z}_n\))</option>
+                            <option value="mult">模 n 乘法群 (\(U(n)\))</option>
+                        </select>
+                        <input type="number" v-model.number="groupTheory.n" placeholder="n (建议 < 20)" min="2" max="50">
+                        <button class="btn-primary" @click="generateCayleyTable">生成凯莱表</button>
+                    </div>
+                    
+                    <div v-if="groupTheory.elements.length > 0" class="result-box" style="overflow-x: auto;">
+                        <div class="result-title">
+                            群元素集合: \{ {{ groupTheory.elements.join(', ') }} \} 
+                            (阶: {{ groupTheory.elements.length }})
+                        </div>
+                        <table class="cayley-table">
+                            <thead>
+                                <tr>
+                                    <th class="cayley-header-cell">op</th>
+                                    <th v-for="h in groupTheory.elements" :key="'h'+h">{{ h }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(rowVal, rIdx) in groupTheory.elements" :key="'r'+rIdx">
+                                    <th>{{ rowVal }}</th>
+                                    <td v-for="(colVal, cIdx) in groupTheory.elements" :key="'c'+cIdx"
+                                        :style="getGroupCellStyle(rowVal, colVal, groupTheory.table[rIdx][cIdx])">
+                                        {{ groupTheory.table[rIdx][cIdx] }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div v-if="groupTheory.error" class="error-msg">⚠️ {{ groupTheory.error }}</div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script type="module">
+        import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+
+        // 工具函数：MathJax 渲染
+        function typeset() {
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                const el = document.getElementById('main-content');
+                // 稍微延迟以确保 Vue DOM 更新完毕
+                setTimeout(() => {
+                    MathJax.typesetPromise([el]).catch(err => console.log(err));
+                }, 50);
+            }
+        }
+
+        const app = createApp({
+            data() {
+                return {
+                    isDark: false,
+                    activeMenuId: 33, // 默认欧拉函数
+                    
+                    // --- 菜单结构 ---
+                    menuGroups: [
+                        {
+                            name: '数论 (Number Theory)',
+                            items: [
+                                { id: 33, name: '欧拉函数', icon: 'φ' },
+                                { id: 31, name: 'GCD & LCM', icon: '÷' },
+                                { id: 32, name: '模逆元', icon: 'mod' },
+                                { id: 41, name: '生成函数', icon: '∑' },
+                                { id: 42, name: '狄利克雷卷积', icon: '*' }
+                            ]
+                        },
+                        {
+                            name: '线性代数 (Linear Algebra)',
+                            items: [
+                                { id: 21, name: '矩阵乘法', icon: '⊞' },
+                                { id: 22, name: '行列式', icon: '|A|' }
+                            ]
+                        },
+                        {
+                            name: '抽象代数 (Abstract Algebra)',
+                            items: [
+                                { id: 51, name: '复数运算', icon: 'i' },
+                                { id: 52, name: '群论·凯莱表', icon: 'G' }
+                            ]
+                        },
+                        {
+                            name: '基础工具',
+                            items: [
+                                { id: 11, name: '基础四则', icon: '+-' },
+                                { id: 12, name: '分数运算', icon: '½' }
+                            ]
+                        }
+                    ],
+
+                    // --- 各功能数据状态 ---
+                    eulerInputN: null, eulerResult: null, eulerError: null,
+                    eulerBatchInputN: null, eulerBatchResults: [], eulerBatchError: null, eulerBatchLoading: false,
+
+                    basicOps: { num1: null, num2: null, operation: '+', result: null },
+                    fractionOps: { frac1: {numerator:null, denominator:null}, frac2: {numerator:null, denominator:null}, operation: '+', result: null, error: null },
+                    
+                    matrixOps: { matrix1: [[null,null],[null,null]], matrix2: [[null,null],[null,null]], result: null },
+                    determinant: { matrix: [[null,null],[null,null]], result: null },
+                    
+                    gcdLcm: { num1: null, num2: null, gcd: null, lcm: null },
+                    modularInverse: { a: null, m: null, result: null, error: null },
+                    
+                    generatingFunction: { coefficients: '', result: null },
+                    dirichletConvolution: { f: '', g: '', result: [], error: null },
+
+                    // NEW: 复数
+                    complex: {
+                        z1: { r: null, i: null },
+                        z2: { r: null, i: null },
+                        resultString: null,
+                        modulus: null
+                    },
+
+                    // NEW: 群论
+                    groupTheory: {
+                        type: 'add',
+                        n: 5,
+                        elements: [],
+                        table: [],
+                        error: null
+                    }
+                }
+            },
+            computed: {
+                activeTitle() {
+                    for(const g of this.menuGroups) {
+                        const item = g.items.find(i => i.id === this.activeMenuId);
+                        if(item) return item.name;
+                    }
+                    return '工具';
+                },
+                eulerResultHtml() {
+                    return `\\(\\phi(${this.eulerInputN}) = \\mathbf{${this.eulerResult}}\\)`
+                },
+                gcdLcmResultHtml() {
+                    if (this.gcdLcm.gcd === null) return '';
+                    return `
+                        <p>$$ \\gcd(${this.gcdLcm.num1}, ${this.gcdLcm.num2}) = \\mathbf{ ${this.gcdLcm.gcd} } $$</p>
+                        <p>$$ \\operatorname{lcm}(${this.gcdLcm.num1}, ${this.gcdLcm.num2}) = \\mathbf{ ${this.gcdLcm.lcm} } $$</p>
+                    `;
+                },
+                // 修正: 矩阵乘法结果 HTML 生成
+                matrixResultHtml() {
+                    const r = this.matrixOps.result;
+                    if (!r) return '';
+                    return `$$ \\begin{bmatrix} ${r[0][0]} & ${r[0][1]} \\\\ ${r[1][0]} & ${r[1][1]} \\end{bmatrix} $$`;
+                },
+                // 修正: 行列式结果 HTML 生成
+                determinantResultHtml() {
+                    if (this.determinant.result === null) return '';
+                    return `\\( ${this.determinant.result} \\)`;
+                },
+                // 修正: 复数结果 HTML 生成
+                complexResultHtml() {
+                    if (!this.complex.resultString) return '';
+                    return `$$ ${this.complex.resultString} $$`;
+                },
+                modularInverseResultHtml() {
+                    if (this.modularInverse.result === null) return '';
+                    return `\\(${this.modularInverse.a}^{-1} \\equiv ${this.modularInverse.result} \\pmod{${this.modularInverse.m}}\\)`;
+                },
+                modularInverseVerification() {
+                    if (!this.modularInverse.result) return '';
+                    const prod = this.modularInverse.a * this.modularInverse.result;
+                    return `${this.modularInverse.a} × ${this.modularInverse.result} = ${prod} ≡ ${prod % this.modularInverse.m} (mod ${this.modularInverse.m})`;
+                }
+            },
+            methods: {
+                toggleTheme() {
+                    this.isDark = !this.isDark;
+                    document.documentElement.setAttribute('data-theme', this.isDark ? 'dark' : 'light');
+                },
+                setActiveMenu(id) {
+                    this.activeMenuId = id;
+                    // Reset errors and simple states
+                    this.eulerError = null;
+                    this.complex.resultString = null;
+                    this.groupTheory.elements = [];
+                    typeset();
+                },
+
+                // 修正: 欧拉批量列表的单项格式化
+                formatEulerBatchItem(idx, res) {
+                    return `\\(\\phi(${idx + 1}) = ${res}\\)`;
+                },
+
+                // --- 欧拉函数 ---
+                calculateEuler() {
+                    let n = this.eulerInputN;
+                    if (!n || n <= 0) { this.eulerError = '请输入正整数'; return; }
+                    let result = n, tempN = n;
+                    for (let i = 2; i * i <= tempN; i++) {
+                        if (tempN % i === 0) {
+                            while (tempN % i === 0) tempN /= i;
+                            result -= result / i;
+                        }
+                    }
+                    if (tempN > 1) result -= result / tempN;
+                    this.eulerResult = Math.round(result);
+                    this.eulerError = null;
+                    typeset();
+                },
+                calculateEulerBatch() {
+                    const n = this.eulerBatchInputN;
+                    if(!n || n > 1000) return;
+                    this.eulerBatchLoading = true;
+                    setTimeout(() => {
+                        const phi = Array.from({length: n+1}, (_, i) => i);
+                        for(let i=2; i<=n; i++) {
+                            if(phi[i] === i) { // i is prime
+                                for(let j=i; j<=n; j+=i) phi[j] -= phi[j]/i;
+                            }
+                        }
+                        this.eulerBatchResults = phi.slice(1);
+                        this.eulerBatchLoading = false;
+                        typeset();
+                    }, 300);
+                },
+
+                // --- 基础 & 分数 ---
+                calculateBasicOps() {
+                    const {num1, num2, operation} = this.basicOps;
+                    if(num1==null || num2==null) return;
+                    switch(operation){
+                        case '+': this.basicOps.result = num1+num2; break;
+                        case '-': this.basicOps.result = num1-num2; break;
+                        case '*': this.basicOps.result = num1*num2; break;
+                        case '/': this.basicOps.result = num2!==0 ? num1/num2 : 'Error'; break;
+                    }
+                },
+                gcd(a, b) { return b === 0 ? a : this.gcd(b, a % b); },
+                calculateFractionOps() {
+                    const {frac1, frac2, operation} = this.fractionOps;
+                    if(!frac1.denominator || !frac2.denominator) { this.fractionOps.error = '分母不为0'; return; }
+                    let n, d;
+                    switch(operation) {
+                        case '+': n = frac1.numerator*frac2.denominator + frac2.numerator*frac1.denominator; d=frac1.denominator*frac2.denominator; break;
+                        case '-': n = frac1.numerator*frac2.denominator - frac2.numerator*frac1.denominator; d=frac1.denominator*frac2.denominator; break;
+                        case '*': n = frac1.numerator*frac2.numerator; d=frac1.denominator*frac2.denominator; break;
+                        case '/': n = frac1.numerator*frac2.denominator; d=frac1.denominator*frac2.numerator; break;
+                    }
+                    if(d===0) { this.fractionOps.error = '除零错误'; return; }
+                    const common = this.gcd(Math.abs(n), Math.abs(d));
+                    n/=common; d/=common;
+                    if(d<0) { n=-n; d=-d; }
+                    this.fractionOps.result = d === 1 ? `${n}` : `\\frac{${n}}{${d}}`;
+                    this.fractionOps.error = null;
+                    typeset();
+                },
+
+                // --- 线性代数 ---
+                calculateMatrixMultiplication() {
+                    const m1 = this.matrixOps.matrix1, m2 = this.matrixOps.matrix2;
+                    let res = [[0,0],[0,0]];
+                    for(let i=0;i<2;i++)
+                        for(let j=0;j<2;j++)
+                            for(let k=0;k<2;k++) res[i][j] += m1[i][k]*m2[k][j];
+                    this.matrixOps.result = res;
+                    typeset();
+                },
+                calculateDeterminant() {
+                    const m = this.determinant.matrix;
+                    this.determinant.result = m[0][0]*m[1][1] - m[0][1]*m[1][0];
+                    typeset();
+                },
+
+                // --- 数论其他 ---
+                calculateGcdLcm() {
+                    const a = this.gcdLcm.num1, b = this.gcdLcm.num2;
+                    if(!a || !b) return;
+                    const g = this.gcd(Math.abs(a), Math.abs(b));
+                    this.gcdLcm.gcd = g;
+                    this.gcdLcm.lcm = Math.abs(a*b)/g;
+                    typeset();
+                },
+                calculateModularInverse() {
+                    let {a, m} = this.modularInverse;
+                    if(m<=1) { this.modularInverse.error = '模数必须 > 1'; return; }
+                    const exGcd = (a, b) => {
+                        if (b === 0) return {x:1, y:0, d:a};
+                        const {x, y, d} = exGcd(b, a % b);
+                        return {x: y, y: x - Math.floor(a/b)*y, d};
+                    };
+                    const res = exGcd(a, m);
+                    if(res.d !== 1) { this.modularInverse.error = '无逆元 (不互质)'; this.modularInverse.result = null; }
+                    else {
+                        this.modularInverse.result = (res.x % m + m) % m;
+                        this.modularInverse.error = null;
+                    }
+                    typeset();
+                },
+                calculateGeneratingFunction() {
+                    const coeffs = this.generatingFunction.coefficients.split(',').map(Number);
+                    if(coeffs.some(isNaN)) return;
+                    let str = coeffs.map((c, i) => c===0 ? null : (i===0 ? c : (i===1 ? `${c}x` : `${c}x^${i}`))).filter(Boolean).join(' + ');
+                    this.generatingFunction.result = str ? `\\(${str}\\)` : '0';
+                    typeset();
+                },
+                calculateDirichletConvolution() {
+                    const f = this.dirichletConvolution.f.split(',').map(Number);
+                    const g = this.dirichletConvolution.g.split(',').map(Number);
+                    if(f.some(isNaN) || g.some(isNaN)) return;
+                    const n = Math.min(f.length, g.length);
+                    const h = [];
+                    for(let i=1; i<=n; i++) {
+                        let sum = 0;
+                        for(let d=1; d*d<=i; d++) {
+                            if(i%d===0) {
+                                sum += f[d-1] * g[i/d-1];
+                                if(d*d !== i) sum += f[i/d-1] * g[d-1];
+                            }
+                        }
+                        h.push(sum);
+                    }
+                    this.dirichletConvolution.result = h;
+                },
+
+                // --- 复数运算 ---
+                calcComplex(op) {
+                    const z1 = this.complex.z1, z2 = this.complex.z2;
+                    let r = 0, i = 0, den = 0;
+                    if(z1.r===null || z1.i===null || z2.r===null || z2.i===null) return;
+
+                    switch(op) {
+                        case '+': r = z1.r + z2.r; i = z1.i + z2.i; break;
+                        case '-': r = z1.r - z2.r; i = z1.i - z2.i; break;
+                        case '*': r = z1.r*z2.r - z1.i*z2.i; i = z1.r*z2.i + z1.i*z2.r; break;
+                        case '/': 
+                            den = z2.r*z2.r + z2.i*z2.i;
+                            if(den === 0) { this.complex.resultString = "\\text{Error: Div by 0}"; return; }
+                            r = (z1.r*z2.r + z1.i*z2.i)/den;
+                            i = (z1.i*z2.r - z1.r*z2.i)/den;
+                            break;
+                    }
+                    
+                    // 格式化输出
+                    const formatNum = (n) => Number.isInteger(n) ? n : n.toFixed(2);
+                    const sign = i >= 0 ? '+' : '-';
+                    this.complex.resultString = `${formatNum(r)} ${sign} ${formatNum(Math.abs(i))}i`;
+                    this.complex.modulus = formatNum(Math.sqrt(r*r + i*i));
+                    typeset();
+                },
+
+                // --- 群论 (凯莱表) ---
+                generateCayleyTable() {
+                    const n = this.groupTheory.n;
+                    const type = this.groupTheory.type;
+                    this.groupTheory.elements = [];
+                    this.groupTheory.table = [];
+                    this.groupTheory.error = null;
+
+                    if(n > 50) { this.groupTheory.error = 'n 太大，页面可能会卡顿，请减小 n'; return; }
+
+                    let elems = [];
+                    if (type === 'add') {
+                        // Zn: 0 ... n-1
+                        elems = Array.from({length: n}, (_, i) => i);
+                    } else {
+                        // Un: k in 1..n-1 where gcd(k, n) == 1
+                        for(let i=1; i<n; i++) {
+                            if(this.gcd(i, n) === 1) elems.push(i);
+                        }
+                    }
+                    
+                    this.groupTheory.elements = elems;
+                    
+                    // 生成表格
+                    const table = [];
+                    for(let r of elems) {
+                        const row = [];
+                        for(let c of elems) {
+                            if(type === 'add') row.push((r + c) % n);
+                            else row.push((r * c) % n);
+                        }
+                        table.push(row);
+                    }
+                    this.groupTheory.table = table;
+                },
+                getGroupCellStyle(r, c, val) {
+                    const type = this.groupTheory.type;
+                    const identity = type === 'add' ? 0 : 1;
+                    if(val === identity) return { backgroundColor: 'var(--accent-bg)', fontWeight: 'bold' };
+                    return {};
+                }
+            },
+            mounted() {
+                // Check system preference for dark mode
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    this.toggleTheme();
+                }
+                typeset();
+            }
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+</html>
