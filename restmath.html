@@ -547,6 +547,64 @@
                     <div v-if="modularInverse.error" class="error-msg">⚠️ {{ modularInverse.error }}</div>
                 </div>
 
+                <div v-else-if="activeMenuId === 34" class="card">
+                    <p style="color: var(--text-muted); margin-bottom: 15px;">
+                        判定 \(n\) 是否为素数。\(n-1 = 2^s \cdot d\)
+                    </p>
+                    
+                    <div class="input-group">
+                        <div class="input-label">待测整数 n (支持大整数)</div>
+                        <input type="text" v-model="millerRabin.n" placeholder="例如: 2047 或 1125899906842629">
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-label">测试基底 a (逗号分隔)</div>
+                        <input type="text" v-model="millerRabin.bases" placeholder="例如: 2, 3, 5, 7">
+                        <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">
+                            常见底: <span style="cursor:pointer; text-decoration:underline;" @click="millerRabin.bases='2, 7, 61'">u32范围</span> | 
+                            <span style="cursor:pointer; text-decoration:underline;" @click="millerRabin.bases='2, 3, 5, 7, 11, 13, 17, 19, 23'">u64范围</span>
+                        </div>
+                    </div>
+
+                    <button class="btn-primary" @click="runMillerRabin">开始测试</button>
+
+                    <div v-if="millerRabin.result !== null" class="result-box">
+                        <div class="result-title">测试结论</div>
+                        <div style="font-size: 1.4em; margin-bottom: 10px;" 
+                             :style="{color: millerRabin.isPrime ? '#10b981' : '#ef4444'}">
+                             {{ millerRabin.resultText }}
+                        </div>
+                        
+                        <div v-if="millerRabin.decomposition" style="margin-bottom: 10px; font-family: 'JetBrains Mono', monospace; background: var(--bg-body); padding: 8px; border-radius: 4px;">
+                            \(n-1 = 2^{ {{millerRabin.s}} } \cdot {{millerRabin.d}} \)
+                        </div>
+
+                        <div class="result-title">基底测试详情</div>
+                        <table class="cayley-table" style="width: 100%; margin-top: 5px;">
+                            <thead>
+                                <tr>
+                                    <th>基底 (a)</th>
+                                    <th>结果</th>
+                                    <th>详情</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(log, idx) in millerRabin.logs" :key="idx">
+                                    <td>{{ log.a }}</td>
+                                    <td :style="{color: log.pass ? '#10b981' : '#ef4444', fontWeight: 'bold'}">
+                                        {{ log.pass ? '可能素数' : '合数' }}
+                                    </td>
+                                    <td style="text-align: left; font-size: 0.9em;">
+                                        <span v-if="!log.pass">Fermat检测失败 或 平方探测失败</span>
+                                        <span v-else>通过 (类型: {{ log.type }})</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div v-if="millerRabin.error" class="error-msg">⚠️ {{ millerRabin.error }}</div>
+                </div>
+
                 <div v-else-if="activeMenuId === 41" class="card">
                     <div class="input-label">系数序列 (逗号分隔，例如 1,1,1)</div>
                     <div class="op-container">
@@ -672,7 +730,7 @@
             data() {
                 return {
                     isDark: false,
-                    activeMenuId: 33, // 默认欧拉函数
+                    activeMenuId: 34, // 默认打开 Miller-Rabin
                     
                     // --- 菜单结构 ---
                     menuGroups: [
@@ -682,6 +740,7 @@
                                 { id: 33, name: '欧拉函数', icon: 'φ' },
                                 { id: 31, name: 'GCD & LCM', icon: '÷' },
                                 { id: 32, name: '模逆元', icon: 'mod' },
+                                { id: 34, name: 'Miller-Rabin 素性', icon: 'MR' },
                                 { id: 41, name: '生成函数', icon: '∑' },
                                 { id: 42, name: '狄利克雷卷积', icon: '*' }
                             ]
@@ -724,6 +783,20 @@
                     
                     generatingFunction: { coefficients: '', result: null },
                     dirichletConvolution: { f: '', g: '', result: [], error: null },
+
+                    // NEW: Miller-Rabin
+                    millerRabin: {
+                        n: '',           // 使用字符串以支持 BigInt
+                        bases: '2, 3',   // 默认基底
+                        result: null,    // null, 'prime', 'composite'
+                        resultText: '',
+                        isPrime: false,
+                        s: 0,
+                        d: 0,
+                        logs: [],
+                        error: null,
+                        decomposition: false
+                    },
 
                     // NEW: 复数
                     complex: {
@@ -911,6 +984,130 @@
                     }
                     typeset();
                 },
+
+                // --- Miller-Rabin ---
+                // BigInt 模幂运算: (base^exp) % mod
+                bigIntModPow(base, exp, mod) {
+                    let res = 1n;
+                    base = base % mod;
+                    while (exp > 0n) {
+                        if (exp % 2n === 1n) res = (res * base) % mod;
+                        base = (base * base) % mod;
+                        exp /= 2n;
+                    }
+                    return res;
+                },
+
+                runMillerRabin() {
+                    this.millerRabin.error = null;
+                    this.millerRabin.result = null;
+                    this.millerRabin.logs = [];
+                    this.millerRabin.decomposition = false;
+
+                    let nStr = this.millerRabin.n.trim();
+                    let basesStr = this.millerRabin.bases;
+
+                    if (!nStr) { this.millerRabin.error = '请输入 n'; return; }
+
+                    try {
+                        const n = BigInt(nStr);
+                        
+                        // 1. 处理特例
+                        if (n < 2n) {
+                            this.millerRabin.resultText = '既不是素数也不是合数';
+                            this.millerRabin.isPrime = false;
+                            this.millerRabin.result = 'composite';
+                            return;
+                        }
+                        if (n === 2n || n === 3n) {
+                            this.millerRabin.resultText = '素数 (Prime)';
+                            this.millerRabin.isPrime = true;
+                            this.millerRabin.result = 'prime';
+                            return;
+                        }
+                        if (n % 2n === 0n) {
+                            this.millerRabin.resultText = '合数 (偶数)';
+                            this.millerRabin.isPrime = false;
+                            this.millerRabin.result = 'composite';
+                            return;
+                        }
+
+                        // 2. 解析基底
+                        let bases = basesStr.split(/[,，\s]+/).filter(x => x).map(x => BigInt(x));
+                        if (bases.length === 0) bases = [2n];
+
+                        // 3. 分解 n-1 = 2^s * d
+                        let d = n - 1n;
+                        let s = 0n;
+                        while (d % 2n === 0n) {
+                            d /= 2n;
+                            s++;
+                        }
+                        this.millerRabin.s = s.toString();
+                        this.millerRabin.d = d.toString();
+                        this.millerRabin.decomposition = true;
+
+                        let isComposite = false;
+
+                        // 4. 循环测试
+                        for (let a of bases) {
+                            // 调整基底范围 [2, n-2]
+                            let baseVal = a % n;
+                            if (baseVal === 0n || baseVal === 1n || baseVal === n-1n) {
+                                // 基底无效或琐碎，跳过或记录为通过
+                                this.millerRabin.logs.push({ a: a.toString(), pass: true, type: '琐碎基底' });
+                                continue;
+                            }
+
+                            let x = this.bigIntModPow(baseVal, d, n);
+                            let passed = false;
+                            let type = '';
+
+                            if (x === 1n || x === n - 1n) {
+                                passed = true;
+                                type = (x === 1n) ? 'x = 1' : 'x = -1';
+                            } else {
+                                for (let r = 0n; r < s - 1n; r++) {
+                                    x = (x * x) % n;
+                                    if (x === n - 1n) {
+                                        passed = true;
+                                        type = `在 r=${r+1n} 次平方后得 -1`;
+                                        break;
+                                    }
+                                }
+                            }
+
+                            this.millerRabin.logs.push({
+                                a: a.toString(),
+                                pass: passed,
+                                type: type
+                            });
+
+                            if (!passed) {
+                                isComposite = true;
+                                break; // 只要有一个 witness 证明是合数，就停止
+                            }
+                        }
+
+                        if (isComposite) {
+                            this.millerRabin.resultText = '合数 (Composite)';
+                            this.millerRabin.isPrime = false;
+                            this.millerRabin.result = 'composite';
+                        } else {
+                            this.millerRabin.resultText = '可能是素数 (Probable Prime)';
+                            this.millerRabin.isPrime = true;
+                            this.millerRabin.result = 'prime';
+                        }
+                        
+                        // 重新渲染公式
+                        typeset();
+
+                    } catch (e) {
+                        console.error(e);
+                        this.millerRabin.error = '输入格式错误 (请检查逗号或数字)';
+                    }
+                },
+
                 calculateGeneratingFunction() {
                     const coeffs = this.generatingFunction.coefficients.split(',').map(Number);
                     if(coeffs.some(isNaN)) return;
