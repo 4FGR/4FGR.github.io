@@ -22,15 +22,36 @@ summary {
     }
 }
 
-/* 白天模式（light）行内代码：经典 Markdown/Typora 风格 */
-[data-theme="light"] #article-container :not(pre) > code,
-[data-theme="light"] #article-container :not(figure) > code {
-    background-color: #f6f8fa !important; /* 经典的浅灰色背景 */
-    color: #e83e8c !important;            /* 经典的暗粉色/红色，如果喜欢深灰可以换成 #24292e */
-    padding: 0.2em 0.4em !important;      /* 合适的内边距，让背景稍微撑开 */
-    border-radius: 6px !important;        /* 圆角边缘 */
-    box-shadow: none !important;          /* 确保去掉 Anzhiyu 自带的边框阴影 */
-    border: none !important;              /* 去掉不需要的边框 */
-    font-size: 85% !important;            /* 字号比正文稍微小一点点，更协调 */
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important; /* 强制使用等宽字体 */
+/* ==========================================
+   全模式（日/夜）行内代码：带边框的经典 GitHub 风格
+   ========================================== */
+
+/* 1. 基础样式（默认适用白天模式，对所有 code 生效） */
+#article-container code {
+    background-color: #f6f8fa !important; /* 浅灰底色 */
+    color: #24292f !important;            /* 深色字体 */
+    border: 1px solid #d0d7de !important; /* 浅灰边框 */
+    border-radius: 6px !important;        /* 圆角 */
+    padding: 0.2em 0.4em !important;      /* 内边距 */
+    box-shadow: none !important;          /* 强行去掉主题阴影 */
+    margin: 0 2px !important;             /* 左右空隙 */
+    font-size: 85% !important;            /* 字号微调 */
+    word-break: break-word !important;
+}
+
+/* 2. 专门为夜间模式（dark）适配颜色，保持 GitHub 暗黑风格，防止刺眼 */
+html[data-theme="dark"] #article-container code {
+    background-color: #2d333b !important; /* 暗色底色 */
+    color: #adbac7 !important;            /* 浅灰字体 */
+    border: 1px solid #444c56 !important; /* 暗色边框 */
+}
+
+/* 3. 单独把多行代码块的样式还原，防止被上面的样式污染（全模式生效） */
+#article-container pre code,
+#article-container figure.highlight code {
+    background-color: transparent !important; 
+    border: none !important;                  
+    padding: 0 !important;                    
+    margin: 0 !important;
+    color: inherit !important;                
 }
