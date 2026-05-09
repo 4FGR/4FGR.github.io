@@ -21,3 +21,15 @@ summary {
         color: #e0e0e0;
     }
 }
+
+/* 仅针对白天模式（light）下的文章内容区域 */
+/* 使用 :not(pre) > code 排除多行代码块，防止破坏高亮插件的样式 */
+[data-theme='light'] #article-container :not(pre) > code {
+    background: transparent !important;   /* 移除主题添加的背景色 */
+    color: inherit !important;            /* 恢复为默认的字体颜色（继承父元素） */
+    padding: 0 !important;                /* 移除内边距 */
+    margin: 0 !important;                 /* 移除外边距 */
+    border: none !important;              /* 移除边框 */
+    box-shadow: none !important;          /* 移除阴影（如果有） */
+    font-family: monospace, Consolas, Monaco !important; /* 强制使用原生等宽字体 */
+}
