@@ -22,14 +22,15 @@ summary {
     }
 }
 
-/* 仅针对白天模式（light）下的文章内容区域 */
-/* 使用 :not(pre) > code 排除多行代码块，防止破坏高亮插件的样式 */
-[data-theme='light'] #article-container :not(pre) > code {
-    background: transparent !important;   /* 移除主题添加的背景色 */
-    color: inherit !important;            /* 恢复为默认的字体颜色（继承父元素） */
-    padding: 0 !important;                /* 移除内边距 */
-    margin: 0 !important;                 /* 移除外边距 */
-    border: none !important;              /* 移除边框 */
-    box-shadow: none !important;          /* 移除阴影（如果有） */
-    font-family: monospace, Consolas, Monaco !important; /* 强制使用原生等宽字体 */
+/* 白天模式（light）行内代码：经典 Markdown/Typora 风格 */
+[data-theme="light"] #article-container :not(pre) > code,
+[data-theme="light"] #article-container :not(figure) > code {
+    background-color: #f6f8fa !important; /* 经典的浅灰色背景 */
+    color: #e83e8c !important;            /* 经典的暗粉色/红色，如果喜欢深灰可以换成 #24292e */
+    padding: 0.2em 0.4em !important;      /* 合适的内边距，让背景稍微撑开 */
+    border-radius: 6px !important;        /* 圆角边缘 */
+    box-shadow: none !important;          /* 确保去掉 Anzhiyu 自带的边框阴影 */
+    border: none !important;              /* 去掉不需要的边框 */
+    font-size: 85% !important;            /* 字号比正文稍微小一点点，更协调 */
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important; /* 强制使用等宽字体 */
 }
