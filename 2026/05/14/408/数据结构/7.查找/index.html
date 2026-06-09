@@ -1,0 +1,671 @@
+<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>数据结构-查找(7) | 4FGR の Blog</title><meta name="keywords" content="数据结构"><meta name="author" content="4FGR"><meta name="copyright" content="4FGR"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="数据结构-查找(7)"><meta name="application-name" content="数据结构-查找(7)"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="数据结构-查找(7)"><meta property="og:url" content="http://example.com/2026/05/14/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/7.%E6%9F%A5%E6%89%BE/index.html"><meta property="og:site_name" content="4FGR の Blog"><meta property="og:description" content="7.1 查找的基本概念 查找：在数据集合中寻找满足某种条件的数据元素的过程称为查找 查找表（查找结构）：用于查找的数据集合称为查找表，它由同一类型的数据元素（或记录）构成 关键字：数据元素中唯一标识该元素的某个数据项，使用基于关键字的查找，查找结果应该是一样的  评价指标  查找长度：需要对比关键字"><meta property="og:locale" content="zh-cn"><meta property="og:image" content="http://example.com/images/covers/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png"><meta property="article:author" content="4FGR"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="http://example.com/images/covers/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png"><meta name="description" content="7.1 查找的基本概念 查找：在数据集合中寻找满足某种条件的数据元素的过程称为查找 查找表（查找结构）：用于查找的数据集合称为查找表，它由同一类型的数据元素（或记录）构成 关键字：数据元素中唯一标识该元素的某个数据项，使用基于关键字的查找，查找结果应该是一样的  评价指标  查找长度：需要对比关键字"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://example.com/2026/05/14/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/7.%E6%9F%A5%E6%89%BE/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: 'https://towikoo.4fgr.xyz',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: 4FGR","link":"链接: ","source":"来源: 4FGR の Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  shortcutKey: {"enable":true,"delay":100,"shiftDelay":200},
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '4FGR の Blog',
+  title: '数据结构-查找(7)',
+  postAI: '',
+  pageFillDescription: '7.1 查找的基本概念, 7.2 顺序查找和折半查找, 顺序查找, 折半查找（二分查找）, 分块查找, 7.3 树形查找, 二叉排序树（BST）, 平衡二叉树（AVL）, 插入, 删除, 红黑树（RBT）, 红黑树的插入, 红黑树的删除, B树, B树的插入, B树的删除, B+树, 7.5 散列（hash）表, 散列函数的构造方法, 处理冲突的方法, 拉链法, 开放定址法, 散列查找及性能分析的应用查找的基本概念查找在数据集合中寻找满足某种条件的数据元素的过程称为查找查找表查找结构用于查找的数据集合称为查找表它由同一类型的数据元素或记录构成关键字数据元素中唯一标识该元素的某个数据项使用基于关键字的查找查找结果应该是一样的评价指标查找长度需要对比关键字的次数平均查找长度查找过程中进行关键字的比较次数的平均值一般分为查找成功和查找失败的情况顺序查找和折半查找顺序查找按着下标顺序依次往后找可加入哨兵数组第个位置是哨兵从后往前查找显然如果查找失败则返回下标时间复杂度折半查找二分查找仅适用于有序的顺序表例如区间有序升序那么用指针指向中间如果则搜索的区间也就是如果相等就返回下标否则搜索不断搜索如果说明查找失败时间复杂度查找成功查找失败显然在查找判定树中若则对于任何一个结点必有右子树结点左子树结点数或若改成向上取整则反过来折半查找的判定树一定是平衡二叉树树高不含失败结点分块查找特点块内无序块间有序索引表中保存每个分块的最大关键字和分块的存储区间可使用折半查找去查找索引树形查找二叉排序树二叉排序树又称二叉查找树一颗二叉树或者是空二叉树或者是具有如下性质的二叉树左子树的所有结点关键字均小于根节点的关键字右子树的所有结点关键字均大于根节点的关键字对进行中序遍历可以得到一个升序序列二叉排序树的删除对于被删结点是叶子节点直接删除的度为则将唯一的子树上移的度为用的直接后继或直接前驱替代然后删去这个直接后继直接前驱的前驱的左子树中的最右下结点二叉排序树的查找效率主要取决于树的高度平衡二叉树平衡二叉树是树上任一结点的左子树和右子树的高度只差不超过结点的平衡因子左子树高右子树高插入每次插入时调整最小的不平衡的子树子树的根节点的平衡因子的绝对值大于平衡旋转右单旋转由于结点的左孩子的左子树上插入了新结点使不平衡需要一次向右的旋转操作将的左孩子向右上旋转代替为根节点右下旋转为的右孩子的原右子树作为的左子树平衡旋转左单旋转与同理的右孩子向左上旋转代替向右下旋转称为的左孩子的原左子树作为的右子树平衡旋转先左后右双旋转的左孩子的右孩子先向左上旋转替代再右上旋转替代平衡旋转先右后左双旋转和同理操作相反删除删除结点后也要保持特性不变具体步骤删除结点方法同二叉排序树向上找到最小不平衡子树找不到就结束找到最小平衡子树的根节点其深度最高的子树的儿子孙子根据孙子位置调整平衡如果不平衡向上传导继续操作红黑树红黑树是二叉排序树每个结点要么红要么黑根结点是黑色叶结点外部结点结点失败结点是黑色不存在两个相邻的红色结点对每个结点从该结点到任一叶结点的简单路径上所含黑色结点的数目相同结点的黑高从某结点出发不含该结点到任一叶结点的路径上的黑色结点总数查找和二叉排序树一致性质从根节点到叶节点的最长路径不大于最短路径的倍右个内部节点的红黑树高度红黑树的插入红黑树的删除树叉查找树中规定除了根节点外任何结点至少有个分叉即至少含有个关键字阶树的核心特性根节点的子树数关键字数其他结点的子树数关键字数对任一结点其所有子树高度都相同关键字的值子树关键字子树关键字子树最小高度最大高度树的插入树的删除树散列表散列表哈希表一种可以根据数据元素的关键字计算出它在散列表中的存储地址散列函数哈希函数建立了关键字存储地址的映射关系散列函数的构造方法设计散列函数定义域必须涵盖所有可能的关键字值域不能超出散列表的地址范围除留余数法散列表表长为取一个不大于的最大质数直接定址法或不会产生冲突若关键字分布不连续空位较多数字分析法选取数码分布较为均匀的若干位作为散列地址使用场景关键字集合已知且关键字的某几位数码位分布均匀平方取中法取关键字的平方值的中间几位作为散列地址适用场景关键字的每位取值都不够均匀处理冲突的方法拉链法链表默认是头插法散列到同一地址的所有同义词组织成一个链表适合频繁插入删除的情形一个小优化是每次插入时保证链表有序开放定址法如果发生冲突就给新元素找另一个空闲位置采用开放定址法时不能直接物理删除只能设置一个删除标记否则可能截断其他同义词的查找路径导致查找失败线性探测法增量序列冲突发生时依次查看下一个单元直到找到一个空闲单元容易发生聚集堆积现象大量元素在相邻地址上堆积显著降低查找速度平方探测法二次探测法增量序列其中长度必须是一个形如的素数才能探测到所有位置缺点是无法探测散列表中的所有位置但至少覆盖一半双散列法增量序列伪随机序列法增量序列由一个伪随机生成器产生散列查找及性能分析的应用散列表的装填因子表中记录数散列表长度显然装填因子越大越容易发生冲突',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-05-18 17:33:51',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://ooo.0x0.ooo/2024/11/22/OHsKLD.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://bolg.4fgr.top/" title="博客"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">4FGR の Blog</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="/%5Cimages%5Creward%5Cimage.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src="/%5Cimages%5Creward%5Cimage.jpg"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://ooo.0x0.ooo/2024/11/25/OH2LqP.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://ooo.0x0.ooo/2024/11/25/OH2LqP.jpg"/></a><div class="post-qr-code-desc">微信</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/OJ/" style="font-size: 1.05rem;">OJ<sup>1</sup></a><a href="/tags/ST%E8%A1%A8/" style="font-size: 1.05rem;">ST表<sup>1</sup></a><a href="/tags/bfs/" style="font-size: 1.05rem;">bfs<sup>1</sup></a><a href="/tags/c/" style="font-size: 1.05rem;">c++<sup>1</sup></a><a href="/tags/codeforces/" style="font-size: 1.05rem;">codeforces<sup>4</sup></a><a href="/tags/csp/" style="font-size: 1.05rem;">csp<sup>1</sup></a><a href="/tags/css/" style="font-size: 1.05rem;">css<sup>1</sup></a><a href="/tags/dfs/" style="font-size: 1.05rem;">dfs<sup>1</sup></a><a href="/tags/hash/" style="font-size: 1.05rem;">hash<sup>1</sup></a><a href="/tags/html/" style="font-size: 1.05rem;">html<sup>1</sup></a><a href="/tags/%E2%80%98%E6%A0%91%E5%BD%A2%E6%95%B0%E7%BB%84%E2%80%99/" style="font-size: 1.05rem;">‘树形数组’<sup>1</sup></a><a href="/tags/%E5%80%8D%E5%A2%9E/" style="font-size: 1.05rem;">倍增<sup>2</sup></a><a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 1.05rem;">分享<sup>4</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.05rem;">前端<sup>1</sup></a><a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 1.05rem;">前缀和<sup>1</sup></a><a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 1.05rem;">动态规划<sup>5</sup></a><a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 1.05rem;">图论<sup>1</sup></a><a href="/tags/%E5%B7%AE%E5%88%86/" style="font-size: 1.05rem;">差分<sup>1</sup></a><a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 1.05rem;">并查集<sup>1</sup></a><a href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" style="font-size: 1.05rem;">归并排序<sup>1</sup></a><a href="/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/" style="font-size: 1.05rem;">快速幂<sup>1</sup></a><a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 1.05rem;">排序<sup>1</sup></a><a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.05rem;">操作系统<sup>1</sup></a><a href="/tags/%E6%95%A3%E5%88%97/" style="font-size: 1.05rem;">散列<sup>1</sup></a><a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.05rem;">数学<sup>2</sup></a><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.05rem;">数据结构<sup>18</sup></a><a href="/tags/%E6%96%90%E6%B3%A2%E6%8B%89%E5%A5%91/" style="font-size: 1.05rem;">斐波拉契<sup>1</sup></a><a href="/tags/%E6%A0%88/" style="font-size: 1.05rem;">栈<sup>2</sup></a><a href="/tags/%E6%A0%91%E5%BD%A2DP/" style="font-size: 1.05rem;">树形DP<sup>1</sup></a><a href="/tags/%E6%A0%91%E5%BD%A2%E6%95%B0%E7%BB%84/" style="font-size: 1.05rem;">树形数组<sup>1</sup></a><a href="/tags/%E7%8F%82%E6%9C%B5%E8%8E%89%E6%A0%91/" style="font-size: 1.05rem;">珂朵莉树<sup>1</sup></a><a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96/" style="font-size: 1.05rem;">离散化<sup>1</sup></a><a href="/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/" style="font-size: 1.05rem;">线性表<sup>1</sup></a><a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 1.05rem;">线段树<sup>1</sup></a><a href="/tags/%E8%83%8C%E5%8C%85DP/" style="font-size: 1.05rem;">背包DP<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8F%B2/" style="font-size: 1.05rem;">计算机史<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.05rem;">计算机网络<sup>5</sup></a><a href="/tags/%E8%AE%A1%E7%BB%84/" style="font-size: 1.05rem;">计组<sup>2</sup></a><a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 1.05rem;">链表<sup>2</sup></a><a href="/tags/%E9%98%9F%E5%88%97/" style="font-size: 1.05rem;">队列<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/05/"><span class="card-archive-list-date">五月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/03/"><span class="card-archive-list-date">三月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">十二月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">4</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">十一月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">十月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">九月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">10</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">八月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">五月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div><div class="console-btn-item" id="consoleKeyboard" onclick="anzhiyu.keyboardToggle()" title="快捷键开关"><a class="keyboard-switch"><i class="anzhiyufont anzhiyu-icon-keyboard"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%80%83%E7%A0%94/" itemprop="url">考研</a><i class="anzhiyufont anzhiyu-icon-angle-right post-meta-separator"></i><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%80%83%E7%A0%94/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url">数据结构</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>数据结构</span></a></span></div></div><h1 class="post-title" itemprop="name headline">数据结构-查找(7)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2026-05-14T05:57:47.439Z" title="发表于 2026-05-14 13:57:47">2026-05-14</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2026-05-18T09:33:51.871Z" title="更新于 2026-05-18 17:33:51">2026-05-18</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="数据结构-查找(7)"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator"></span><span class="post-meta-commentcount"><i class="anzhiyufont anzhiyu-icon-comments post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2026/05/14/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/7.%E6%9F%A5%E6%89%BE/#post-comment" tabindex="-1"><span id="twikoo-count"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></a></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="/images/covers/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://example.com/2026/05/14/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/7.%E6%9F%A5%E6%89%BE/"><header><a class="post-meta-categories" href="/categories/%E8%80%83%E7%A0%94/" itemprop="url">考研</a><a class="post-meta-categories" href="/categories/%E8%80%83%E7%A0%94/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url">数据结构</a><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" tabindex="-1" itemprop="url">数据结构</a><h1 id="CrawlerTitle" itemprop="name headline">数据结构-查找(7)</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">4FGR</span><time itemprop="dateCreated datePublished" datetime="2026-05-14T05:57:47.439Z" title="发表于 2026-05-14 13:57:47">2026-05-14</time><time itemprop="dateCreated datePublished" datetime="2026-05-18T09:33:51.871Z" title="更新于 2026-05-18 17:33:51">2026-05-18</time></header><h1 id="7-1-查找的基本概念"><a href="#7-1-查找的基本概念" class="headerlink" title="7.1 查找的基本概念"></a>7.1 查找的基本概念</h1><ul>
+<li>查找：在数据集合中寻找满足某种条件的数据元素的过程称为查找</li>
+<li>查找表（查找结构）：用于查找的数据集合称为查找表，它由同一类型的数据元素（或记录）构成</li>
+<li>关键字：数据元素中唯一标识该元素的某个数据项，使用基于关键字的查找，查找结果应该是一样的</li>
+</ul>
+<p><strong>评价指标</strong></p>
+<ul>
+<li>查找长度：需要对比关键字的次数</li>
+<li>平均查找长度（ASL）：查找过程中进行关键字的比较次数的平均值</li>
+</ul>
+<blockquote>
+<p>ASL一般分为查找成功和查找失败的情况</p>
+</blockquote>
+<h2 id="7-2-顺序查找和折半查找"><a href="#7-2-顺序查找和折半查找" class="headerlink" title="7.2 顺序查找和折半查找"></a>7.2 顺序查找和折半查找</h2><h2 id="顺序查找"><a href="#顺序查找" class="headerlink" title="顺序查找"></a>顺序查找</h2><p>按着下标顺序依次往后找。</p>
+<p>可加入“哨兵”，数组第 $0$ 个位置是哨兵，从后往前查找，显然，如果查找失败，则返回下标 $0$ 。</p>
+<p> 时间复杂度 $O(n)$ </p>
+<p><img src="/images/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE%E5%88%A4%E5%AE%9A%E6%A0%91.png" alt="image-20260517172341345"></p>
+<h2 id="折半查找（二分查找）"><a href="#折半查找（二分查找）" class="headerlink" title="折半查找（二分查找）"></a>折半查找（二分查找）</h2><blockquote>
+<p>仅适用于有序的顺序表</p>
+</blockquote>
+<p>例如，$[l,r]$ 区间有序（升序），那么用 $mid$ 指针指向中间 $mid&#x3D;(l+r)&#x2F;2$ ，如果 $mid&lt;k$ ，则搜索 $[l,mid-1]$ 的区间，也就是 $r&#x3D;mid-1$ ；如果相等，就返回下标；否则，搜索 $[mid+1,r]$ ，$l&#x3D;mid+1$ ，不断搜索，如果 $l&gt;r$ ，说明查找失败。</p>
+<p>时间复杂度 $O(\log n)$</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">Binary_Search</span><span class="params">(SSTable L,ElemType key)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> low=<span class="number">0</span>,high=L.Tablelen<span class="number">-1</span>,mid;</span><br><span class="line">    <span class="keyword">while</span>(low&lt;=high)&#123;</span><br><span class="line">        mid = (low+high)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(L.elem[mid]==key) <span class="keyword">return</span> mid; <span class="comment">// 查找成功</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(L.elem[mid]&gt;key) high=mid<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> low=mid<span class="number">+1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>; <span class="comment">// 查找失败</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>显然，在查找判定树中，若 $mid&#x3D;\lfloor (low+high)&#x2F;2\rfloor$ ，，则对于任何一个结点，必有：<br>$$<br>右子树结点-左子树结点数&#x3D;0或1<br>$$</p>
+<blockquote>
+<p>若改成向上取整，则反过来</p>
+</blockquote>
+<p>折半查找的判定树一定是平衡二叉树，树高 $h&#x3D;\lceil \log_2(n+1)\rceil$ （不含失败结点）</p>
+<h2 id="分块查找"><a href="#分块查找" class="headerlink" title="分块查找"></a>分块查找</h2><blockquote>
+<p>特点：块内无序，块间有序</p>
+</blockquote>
+<p>“索引表”中保存每个分块的最大关键字和分块的存储区间。</p>
+<p><img src="/images/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%88%86%E5%9D%97%E6%9F%A5%E6%89%BE.png" alt="image-20260517174129393"></p>
+<p>可使用折半查找去查找索引</p>
+<p><img src="/images/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%88%86%E5%9D%97%E6%9F%A5%E6%89%BE%E6%95%88%E7%8E%87.png" alt="image-20260518131442885"></p>
+<h1 id="7-3-树形查找"><a href="#7-3-树形查找" class="headerlink" title="7.3 树形查找"></a>7.3 树形查找</h1><h2 id="二叉排序树（BST）"><a href="#二叉排序树（BST）" class="headerlink" title="二叉排序树（BST）"></a>二叉排序树（BST）</h2><p><strong>二叉排序树</strong>，又称<strong>二叉查找树</strong>（Binary Search Tree）一颗二叉树或者是空二叉树，或者是具有如下性质的二叉树：</p>
+<ul>
+<li>左子树的所有结点关键字均小于根节点的关键字</li>
+<li>右子树的所有结点关键字均大于根节点的关键字</li>
+</ul>
+<blockquote>
+<p>对BST进行中序遍历，可以得到一个升序序列</p>
+</blockquote>
+<p><img src="/images/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E7%9A%84%E6%9F%A5%E6%89%BE.png" alt="image-20260518132143526"></p>
+<p><img src="/images/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E7%9A%84%E6%8F%92%E5%85%A5.png" alt="image-20260518132343502"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Creat_BST</span><span class="params">(BSTree &amp;T,<span class="type">int</span> str[],<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    T=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="type">int</span> i=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;n)&#123;</span><br><span class="line">        <span class="built_in">BST_Insert</span>(T,str[i]);</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>二叉排序树的删除</strong></p>
+<p>对于被删结点 $z$</p>
+<ul>
+<li>$z$ 是叶子节点，直接删除</li>
+<li>$z$ 的度为 $1$ ，则将唯一的子树上移</li>
+<li>$z$ 的度为 $2$ ，用 $z$ 的直接后继（或直接前驱）替代 $z$ ，然后删去这个直接后继（直接前驱）。</li>
+</ul>
+<blockquote>
+<p>$z$ 的前驱：$z$ 的左子树中的最右下结点</p>
+</blockquote>
+<p>二叉排序树的查找效率主要取决于树的高度</p>
+<h2 id="平衡二叉树（AVL）"><a href="#平衡二叉树（AVL）" class="headerlink" title="平衡二叉树（AVL）"></a>平衡二叉树（AVL）</h2><p>平衡二叉树，是树上任一结点的左子树和右子树的高度只差不超过 $1$ </p>
+<p><mark>结点的平衡因子</mark>&#x3D;左子树高-右子树高</p>
+<h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><p>每次插入时，调整最小的不平衡的子树（子树的根节点的平衡因子的绝对值大于 $1$ ）</p>
+<p>1）LL 平衡旋转（右单旋转）：由于结点 $A$ 的左孩子（L）的左子树（L）上插入了新结点使 $A$ 不平衡，需要一次向右的旋转操作，<mark>将 $A$ 的左孩子 $B$ 向右上旋转代替 $A$ 为根节点，$A$ 右下旋转为 $B$ 的右孩子，$B$ 的原右子树作为 $A$ 的左子树</mark></p>
+<p>2）RR 平衡旋转（左单旋转）：与 LL 同理，<mark>$A$ 的右孩子 $B$ 向左上旋转代替 $A$ ，$A$ 向右下旋转称为 $B$ 的左孩子，$B$ 的原左子树作为 $A$ 的右子树</mark> </p>
+<p>3）LR 平衡旋转（先左后右双旋转）：$A$ 的左孩子 $B$ 的右孩子 $C$ ，先向左上旋转替代 $B$ ，再右上旋转替代 $A$ 。</p>
+<p>4）RL平衡旋转（先右后左双旋转）：和 LR 同理，操作相反。</p>
+<p><img src="/images/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E8%B0%83%E6%95%B4%E6%9C%80%E5%B0%8F%E4%B8%8D%E5%B9%B3%E8%A1%A1%E5%AD%90%E6%A0%91.png" alt="image-20260518135536122"></p>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>删除结点后，也要保持特性不变</p>
+<p>具体步骤</p>
+<p>① 删除结点（方法同“二叉排序树”）</p>
+<p>② 向上找到最小不平衡子树，找不到就结束</p>
+<p>③ 找到最小平衡子树的根节点，其深度最高的子树的儿子、孙子</p>
+<p>④根据孙子位置，调整平衡（LL&#x2F;RR&#x2F;LR&#x2F;RL）</p>
+<p>⑤ 如果不平衡向上传导，继续操作 ②</p>
+<h2 id="红黑树（RBT）"><a href="#红黑树（RBT）" class="headerlink" title="红黑树（RBT）"></a>红黑树（RBT）</h2><p><img src="/images/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%8F%91%E6%98%8E%E7%BA%A2%E9%BB%91%E6%A0%91.png" alt="image-20260518145035713"></p>
+<p>红黑树是二叉排序树</p>
+<ul>
+<li>每个结点要么红要么黑</li>
+<li>根结点是黑色</li>
+<li>叶结点（外部结点、NULL结点、失败结点）是黑色</li>
+<li>不存在两个相邻的红色结点</li>
+<li>对每个结点，从该结点到任一叶结点的简单路径上，所含黑色结点的数目相同</li>
+</ul>
+<blockquote>
+<p>结点的<mark>黑高</mark>——从某结点出发（不含该结点），到任一叶结点的路径上的黑色结点总数</p>
+<p>查找和二叉排序树一致</p>
+</blockquote>
+<p><strong>性质</strong></p>
+<blockquote>
+<p>从根节点到叶节点的最长路径不大于最短路径的2倍</p>
+<p>右 $n$ 个内部节点的红黑树高度 $h\leq 2\log(n+1)$</p>
+</blockquote>
+<h3 id="红黑树的插入"><a href="#红黑树的插入" class="headerlink" title="红黑树的插入"></a>红黑树的插入</h3><p><img src="/images/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91%E7%9A%84%E6%8F%92%E5%85%A5.png" alt="image-20260518151323806"></p>
+<h3 id="红黑树的删除"><a href="#红黑树的删除" class="headerlink" title="红黑树的删除"></a>红黑树的删除</h3><p><img src="/images/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91%E7%9A%84%E5%88%A0%E9%99%A4.png" alt="image-20260518152621953"></p>
+<h2 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h2><blockquote>
+<p>m 叉查找树中，规定除了根节点外，任何结点至少有 $\lceil m&#x2F;2 \rceil$ 个分叉，即至少含有 $\lceil m&#x2F;2 \rceil-1$ 个关键字。 </p>
+</blockquote>
+<p><img src="/images/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/B%E6%A0%91.png" alt="image-20260518154359324"></p>
+<p><img src="/images/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/B%E6%A0%91.4.png" alt="image-20260518154732080"></p>
+<p><mark>m阶B树</mark>的核心特性</p>
+<ul>
+<li>根节点的子树数 $\in[2,m]$ ; 关键字数 $\in [1,m-1]$，其他结点的子树数 $\in [\lceil m&#x2F;2 \rceil,m]$ ; 关键字数 $\in [\lceil m&#x2F;2 \rceil -1,m-1]$</li>
+<li>对任一结点，其所有子树高度都相同</li>
+<li>关键字的值：$子树0&lt;关键字1&lt;子树1&lt;关键字2&lt;子树2&lt;…$</li>
+</ul>
+<p>最小高度 $h\geq \log_m{(n+1)}$</p>
+<p>最大高度 $h\leq \log_{\lceil m&#x2F;2 \rceil}\frac{n+1}{2}+1$</p>
+<h3 id="B树的插入"><a href="#B树的插入" class="headerlink" title="B树的插入"></a>B树的插入</h3><p><img src="/images/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/B%E6%A0%91%E7%9A%84%E6%8F%92%E5%85%A5.png" alt="image-20260518160205413"></p>
+<h3 id="B树的删除"><a href="#B树的删除" class="headerlink" title="B树的删除"></a>B树的删除</h3><p><img src="/images/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/B%E6%A0%91%E7%9A%84%E5%88%A0%E9%99%A4.png" alt="image-20260518160421453"></p>
+<p><img src="/images/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/B%E6%A0%91%E7%9A%84%E5%88%A0%E9%99%A42.png" alt="image-20260518160746829"></p>
+<h3 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h3><p><img src="/images/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/B+%E6%A0%91.png" alt="image-20260518161411050"></p>
+<p><img src="/images/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/B%E6%A0%91vsB+%E6%A0%91.png" alt="image-20260518161946685"></p>
+<h1 id="7-5-散列（hash）表"><a href="#7-5-散列（hash）表" class="headerlink" title="7.5 散列（hash）表"></a>7.5 散列（hash）表</h1><p><strong>散列表（哈希表，Hash Table）</strong>：一种可以根据数据元素的关键字计算出它在散列表中的存储地址</p>
+<p><strong>散列函数（哈希函数）</strong>：Addr&#x3D;H(key) 建立了<mark>“关键字”$\rightarrow$“存储地址”的映射关系</mark></p>
+<h2 id="散列函数的构造方法"><a href="#散列函数的构造方法" class="headerlink" title="散列函数的构造方法"></a>散列函数的构造方法</h2><p>设计散列函数：</p>
+<ol>
+<li>定义域必须涵盖所有可能的关键字</li>
+<li>值域不能超出散列表的地址范围</li>
+</ol>
+<p><strong>除留余数法</strong></p>
+<p>$H(key)&#x3D;key \mod p$</p>
+<p>散列表表长为 $m$ ，取一个不大于 $m$ 的最大质数 $p$</p>
+<p><strong>直接定址法</strong></p>
+<p>$H(key)&#x3D;key$ 或 $H(key)&#x3D;a\times key+b$</p>
+<p>不会产生冲突，若关键字分布不连续，空位较多</p>
+<p><strong>数字分析法</strong></p>
+<p>选取数码分布较为均匀的若干位作为散列地址</p>
+<p>使用场景：关键字集合已知，且关键字的某几位数码位分布均匀</p>
+<p><strong>平方取中法</strong></p>
+<p>取关键字的平方值的中间几位作为散列地址</p>
+<p>适用场景：关键字的每位取值都不够均匀。</p>
+<h2 id="处理冲突的方法"><a href="#处理冲突的方法" class="headerlink" title="处理冲突的方法"></a>处理冲突的方法</h2><h3 id="拉链法"><a href="#拉链法" class="headerlink" title="拉链法"></a>拉链法</h3><blockquote>
+<p>链表默认是头插法</p>
+</blockquote>
+<p>散列到同一地址的所有同义词组织成一个链表，适合频繁插入、删除的情形。</p>
+<p>一个小优化是，每次插入时保证链表有序。</p>
+<h3 id="开放定址法"><a href="#开放定址法" class="headerlink" title="开放定址法"></a>开放定址法</h3><p>如果发生冲突，就给新元素找另一个空闲位置</p>
+<blockquote>
+<p>采用开放定址法时，不能直接物理删除，只能设置一个删除标记，否则可能截断其他同义词的查找路径，导致查找失败。</p>
+</blockquote>
+<ul>
+<li>线性探测法<ul>
+<li>增量序列 $d_i&#x3D;0,1,2,…,m-1$</li>
+<li>冲突发生时，依次查看下一个单元，直到找到一个空闲单元</li>
+<li>容易发生“聚集（堆积）”现象，大量元素在相邻地址上堆积，显著降低查找速度</li>
+</ul>
+</li>
+<li>平方探测法（二次探测法）<ul>
+<li>增量序列 $d_i&#x3D;1^2,-1^2,2^2,-2^2,…,k^2,-k^2$</li>
+<li>其中，长度 $m$ 必须是一个形如 $4k+3$ 的素数，才能探测到所有位置</li>
+<li>缺点是无法探测散列表中的所有位置，但至少覆盖一半</li>
+</ul>
+</li>
+<li>双散列法<ul>
+<li>增量序列 $d_i&#x3D;iH_2(key),i&#x3D;0,1,2,…$</li>
+</ul>
+</li>
+<li>伪随机序列法<ul>
+<li>增量序列由一个伪随机生成器产生</li>
+</ul>
+</li>
+</ul>
+<h2 id="散列查找及性能分析的应用"><a href="#散列查找及性能分析的应用" class="headerlink" title="散列查找及性能分析的应用"></a>散列查找及性能分析的应用</h2><p><strong>散列表的装填因子</strong><br>$$<br>\alpha &#x3D; \frac{表中记录数n}{散列表长度m}<br>$$<br>显然，装填因子越大，越容易发生冲突。</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src="/./images/avator.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src="/./images/avator.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">4FGR</div><div class="post-copyright__author_desc">爱智慧(..＞◡＜..)</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://example.com/2026/05/14/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/7.%E6%9F%A5%E6%89%BE/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://example.com/2026/05/14/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/7.%E6%9F%A5%E6%89%BE/')">数据结构-查找(7)</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="/%5Cimages%5Creward%5Cimage.jpg" target="_blank"><img class="post-qr-code-img" src="/%5Cimages%5Creward%5Cimage.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://ooo.0x0.ooo/2024/11/25/OH2LqP.jpg" target="_blank"><img class="post-qr-code-img" src="https://ooo.0x0.ooo/2024/11/25/OH2LqP.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li></ul></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://example.com/2026/05/14/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/7.%E6%9F%A5%E6%89%BE/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=数据结构-查找(7)&amp;url=http://example.com/2026/05/14/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/7.%E6%9F%A5%E6%89%BE/&amp;pic=/images/covers/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">4FGR の Blog</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>数据结构<span class="tagsPageCount">18</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="/images/covers/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/05/12/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/6.%E5%9B%BE/"><img class="prev-cover" src="/images/covers/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">数据结构-图(6)</div></div></a></div><div class="next-post pull-right"><a href="/2026/05/18/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/8.%E6%8E%92%E5%BA%8F/"><img class="next-cover" src="/images/covers/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">数据结构-排序(8)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/2025/05/23/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/OJ%E9%80%89%E9%A2%98%E9%9B%86/" title="OJ选题集"><img class="cover" src="https://ooo.0x0.ooo/2025/05/23/OdDsBc.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2025-05-23</div><div class="title">OJ选题集</div></div></a></div><div><a href="/2025/01/07/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%88/" title="数据结构-栈"><img class="cover" src="https://pic.baike.soso.com/ugc/baikepic/17004/cut-20131227153856-391880133.jpg/0" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2025-01-07</div><div class="title">数据结构-栈</div></div></a></div><div><a href="/2024/12/01/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%95%A3%E5%88%97%E8%A1%A8(hash-table)/" title="数据结构-散列表(hash table)"><img class="cover" src="https://ooo.0x0.ooo/2024/11/29/OLa5Ug.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-12-01</div><div class="title">数据结构-散列表(hash table)</div></div></a></div><div><a href="/2025/01/06/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%BA%BF%E6%80%A7%E8%A1%A8/" title="数据结构-线性表"><img class="cover" src="https://wallpaperm.cmcm.com/a24f3943e85c327401afcf3c23332b56.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2025-01-06</div><div class="title">数据结构-线性表</div></div></a></div><div><a href="/2025/01/06/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8/" title="数据结构-链表"><img class="cover" src="/images/covers/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2025-01-06</div><div class="title">数据结构-链表</div></div></a></div><div><a href="/2025/01/06/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%A2%98%E8%A7%A3/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/" title="数据结构绪论"><img class="cover" src="https://tse3-mm.cn.bing.net/th/id/OIP-C.1TNncJSuAKVHHNakGOKoTwHaFj?rs=1&pid=ImgDetMain" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2025-01-06</div><div class="title">数据结构绪论</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div><div class="comment-tips" id="comment-tips"><span>✅ 你无需删除空行，直接评论以获取最佳展示效果</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src="/./images/avator.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description">这是我的个人博客</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">4FGR</h1><div class="author-info__desc">爱智慧(..＞◡＜..)</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/4FGR" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/383167539?spm_id_from=333.1007.0.0" target="_blank" title="BiliBili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a></div></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来看我的博客鸭~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#7-1-%E6%9F%A5%E6%89%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">7.1 查找的基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE%E5%92%8C%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE"><span class="toc-number">1.1.</span> <span class="toc-text">7.2 顺序查找和折半查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE"><span class="toc-number">1.2.</span> <span class="toc-text">顺序查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE%EF%BC%88%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">折半查找（二分查找）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%9D%97%E6%9F%A5%E6%89%BE"><span class="toc-number">1.4.</span> <span class="toc-text">分块查找</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-3-%E6%A0%91%E5%BD%A2%E6%9F%A5%E6%89%BE"><span class="toc-number">2.</span> <span class="toc-text">7.3 树形查找</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%EF%BC%88BST%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">二叉排序树（BST）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%88AVL%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">平衡二叉树（AVL）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5"><span class="toc-number">2.2.1.</span> <span class="toc-text">插入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4"><span class="toc-number">2.2.2.</span> <span class="toc-text">删除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91%EF%BC%88RBT%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">红黑树（RBT）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91%E7%9A%84%E6%8F%92%E5%85%A5"><span class="toc-number">2.3.1.</span> <span class="toc-text">红黑树的插入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91%E7%9A%84%E5%88%A0%E9%99%A4"><span class="toc-number">2.3.2.</span> <span class="toc-text">红黑树的删除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B%E6%A0%91"><span class="toc-number">2.4.</span> <span class="toc-text">B树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#B%E6%A0%91%E7%9A%84%E6%8F%92%E5%85%A5"><span class="toc-number">2.4.1.</span> <span class="toc-text">B树的插入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B%E6%A0%91%E7%9A%84%E5%88%A0%E9%99%A4"><span class="toc-number">2.4.2.</span> <span class="toc-text">B树的删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-%E6%A0%91"><span class="toc-number">2.4.3.</span> <span class="toc-text">B+树</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-5-%E6%95%A3%E5%88%97%EF%BC%88hash%EF%BC%89%E8%A1%A8"><span class="toc-number">3.</span> <span class="toc-text">7.5 散列（hash）表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%A3%E5%88%97%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text">散列函数的构造方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E5%86%B2%E7%AA%81%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">3.2.</span> <span class="toc-text">处理冲突的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%89%E9%93%BE%E6%B3%95"><span class="toc-number">3.2.1.</span> <span class="toc-text">拉链法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E6%94%BE%E5%AE%9A%E5%9D%80%E6%B3%95"><span class="toc-number">3.2.2.</span> <span class="toc-text">开放定址法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%A3%E5%88%97%E6%9F%A5%E6%89%BE%E5%8F%8A%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">3.3.</span> <span class="toc-text">散列查找及性能分析的应用</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/05/18/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/8.%E6%8E%92%E5%BA%8F/" title="数据结构-排序(8)"><img src="/images/covers/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据结构-排序(8)"/></a><div class="content"><a class="title" href="/2026/05/18/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/8.%E6%8E%92%E5%BA%8F/" title="数据结构-排序(8)">数据结构-排序(8)</a><time datetime="2026-05-18T09:34:11.201Z" title="发表于 2026-05-18 17:34:11">2026-05-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/14/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/7.%E6%9F%A5%E6%89%BE/" title="数据结构-查找(7)"><img src="/images/covers/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据结构-查找(7)"/></a><div class="content"><a class="title" href="/2026/05/14/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/7.%E6%9F%A5%E6%89%BE/" title="数据结构-查找(7)">数据结构-查找(7)</a><time datetime="2026-05-14T05:57:47.439Z" title="发表于 2026-05-14 13:57:47">2026-05-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/12/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/6.%E5%9B%BE/" title="数据结构-图(6)"><img src="/images/covers/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据结构-图(6)"/></a><div class="content"><a class="title" href="/2026/05/12/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/6.%E5%9B%BE/" title="数据结构-图(6)">数据结构-图(6)</a><time datetime="2026-05-12T08:36:42.303Z" title="发表于 2026-05-12 16:36:42">2026-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/10/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/5.%E6%A0%91/" title="数据结构-树(5)"><img src="/images/covers/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据结构-树(5)"/></a><div class="content"><a class="title" href="/2026/05/10/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/5.%E6%A0%91/" title="数据结构-树(5)">数据结构-树(5)</a><time datetime="2026-05-10T09:31:22.533Z" title="发表于 2026-05-10 17:31:22">2026-05-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/10/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/4.%E4%B8%B2/" title="数据结构-串(4)"><img src="/images/covers/%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据结构-串(4)"/></a><div class="content"><a class="title" href="/2026/05/10/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/4.%E4%B8%B2/" title="数据结构-串(4)">数据结构-串(4)</a><time datetime="2026-05-10T08:00:17.550Z" title="发表于 2026-05-10 16:00:17">2026-05-10</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2024 - 2026 By <a class="footer-bar-link" href="/" title="4FGR" target="_blank">4FGR</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">48</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">40</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">11</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://bolg.4fgr.top/" title="博客"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/OJ/" style="font-size: 0.88rem;">OJ<sup>1</sup></a><a href="/tags/ST%E8%A1%A8/" style="font-size: 0.88rem;">ST表<sup>1</sup></a><a href="/tags/bfs/" style="font-size: 0.88rem;">bfs<sup>1</sup></a><a href="/tags/c/" style="font-size: 0.88rem;">c++<sup>1</sup></a><a href="/tags/codeforces/" style="font-size: 0.88rem;">codeforces<sup>4</sup></a><a href="/tags/csp/" style="font-size: 0.88rem;">csp<sup>1</sup></a><a href="/tags/css/" style="font-size: 0.88rem;">css<sup>1</sup></a><a href="/tags/dfs/" style="font-size: 0.88rem;">dfs<sup>1</sup></a><a href="/tags/hash/" style="font-size: 0.88rem;">hash<sup>1</sup></a><a href="/tags/html/" style="font-size: 0.88rem;">html<sup>1</sup></a><a href="/tags/%E2%80%98%E6%A0%91%E5%BD%A2%E6%95%B0%E7%BB%84%E2%80%99/" style="font-size: 0.88rem;">‘树形数组’<sup>1</sup></a><a href="/tags/%E5%80%8D%E5%A2%9E/" style="font-size: 0.88rem;">倍增<sup>2</sup></a><a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 0.88rem;">分享<sup>4</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 0.88rem;">前端<sup>1</sup></a><a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 0.88rem;">前缀和<sup>1</sup></a><a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 0.88rem;">动态规划<sup>5</sup></a><a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 0.88rem;">图论<sup>1</sup></a><a href="/tags/%E5%B7%AE%E5%88%86/" style="font-size: 0.88rem;">差分<sup>1</sup></a><a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 0.88rem;">并查集<sup>1</sup></a><a href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" style="font-size: 0.88rem;">归并排序<sup>1</sup></a><a href="/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/" style="font-size: 0.88rem;">快速幂<sup>1</sup></a><a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 0.88rem;">排序<sup>1</sup></a><a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 0.88rem;">操作系统<sup>1</sup></a><a href="/tags/%E6%95%A3%E5%88%97/" style="font-size: 0.88rem;">散列<sup>1</sup></a><a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 0.88rem;">数学<sup>2</sup></a><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 0.88rem;">数据结构<sup>18</sup></a><a href="/tags/%E6%96%90%E6%B3%A2%E6%8B%89%E5%A5%91/" style="font-size: 0.88rem;">斐波拉契<sup>1</sup></a><a href="/tags/%E6%A0%88/" style="font-size: 0.88rem;">栈<sup>2</sup></a><a href="/tags/%E6%A0%91%E5%BD%A2DP/" style="font-size: 0.88rem;">树形DP<sup>1</sup></a><a href="/tags/%E6%A0%91%E5%BD%A2%E6%95%B0%E7%BB%84/" style="font-size: 0.88rem;">树形数组<sup>1</sup></a><a href="/tags/%E7%8F%82%E6%9C%B5%E8%8E%89%E6%A0%91/" style="font-size: 0.88rem;">珂朵莉树<sup>1</sup></a><a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96/" style="font-size: 0.88rem;">离散化<sup>1</sup></a><a href="/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/" style="font-size: 0.88rem;">线性表<sup>1</sup></a><a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 0.88rem;">线段树<sup>1</sup></a><a href="/tags/%E8%83%8C%E5%8C%85DP/" style="font-size: 0.88rem;">背包DP<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8F%B2/" style="font-size: 0.88rem;">计算机史<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 0.88rem;">计算机网络<sup>5</sup></a><a href="/tags/%E8%AE%A1%E7%BB%84/" style="font-size: 0.88rem;">计组<sup>2</sup></a><a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 0.88rem;">链表<sup>2</sup></a><a href="/tags/%E9%98%9F%E5%88%97/" style="font-size: 0.88rem;">队列<sup>1</sup></a></div></div><hr/></div></div><div id="keyboard-tips"><div class="keyboardTitle">博客快捷键</div><div class="keybordList"><div class="keybordItem"><div class="keyGroup"><div class="key">shift K</div></div><div class="keyContent"><div class="content">关闭快捷键功能</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift A</div></div><div class="keyContent"><div class="content">打开/关闭中控台</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift M</div></div><div class="keyContent"><div class="content">播放/暂停音乐</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift D</div></div><div class="keyContent"><div class="content">深色/浅色显示模式</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift S</div></div><div class="keyContent"><div class="content">站内搜索</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift R</div></div><div class="keyContent"><div class="content">随机访问</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift H</div></div><div class="keyContent"><div class="content">返回首页</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift F</div></div><div class="keyContent"><div class="content">友链鱼塘</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift L</div></div><div class="keyContent"><div class="content">友链页面</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift P</div></div><div class="keyContent"><div class="content">关于本站</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift I</div></div><div class="keyContent"><div class="content">原版/本站右键菜单</div></div></div></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="12887774607" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("11/20/2024 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2024 By 安知鱼 V1.6.14",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 4FGR 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.cbd.int/mathjax@3.2.2/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><script>(() => {
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://towikoo.4fgr.xyz',
+      region: '',
+      onCommentLoaded: () => {
+        anzhiyu.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(runFn,0)
+    else getScript('https://cdn.cbd.int/twikoo@1.6.39/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://towikoo.4fgr.xyz',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const runFn = () => {
+    init();
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) anzhiyu.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else {
+      loadTwikoo()
+    }
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://towikoo.4fgr.xyz',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.cbd.int/twikoo@1.6.39/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'><div class='name'><span>${array[i].nick} </span></div></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:type\"]","meta[property=\"og:site_name\"]","meta[property=\"og:description\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
