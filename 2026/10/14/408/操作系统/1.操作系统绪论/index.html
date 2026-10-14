@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>操作系统-绪论(1) | 4FGR の Blog</title><meta name="keywords" content="操作系统"><meta name="author" content="4FGR"><meta name="copyright" content="4FGR"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="操作系统-绪论(1)"><meta name="application-name" content="操作系统-绪论(1)"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="操作系统-绪论(1)"><meta property="og:url" content="http://example.com/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%AA%E8%AE%BA/index.html"><meta property="og:site_name" content="4FGR の Blog"><meta property="og:description" content="本blog考研操作系统主体内容由小白兔友情提供  1.1 操作系统的基本概念  1.1.1 操作系统的定义 操作系统（Operating System，OS）是指控制和管理整个计算机系统的硬件和软件资源，并合理地组织调度计算机的工作和资源的分配；以提供给用户和其他软件方便的接口和环境"><meta property="og:locale" content="zh-cn"><meta property="og:image" content="http://example.com/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png"><meta property="article:author" content="4FGR"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="http://example.com/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png"><meta name="description" content="本blog考研操作系统主体内容由小白兔友情提供  1.1 操作系统的基本概念  1.1.1 操作系统的定义 操作系统（Operating System，OS）是指控制和管理整个计算机系统的硬件和软件资源，并合理地组织调度计算机的工作和资源的分配；以提供给用户和其他软件方便的接口和环境"><link rel="shortcut icon" href="/baka.ico"><link rel="canonical" href="http://example.com/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%AA%E8%AE%BA/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>操作系统-绪论(1) | 4FGR の Blog</title><meta name="keywords" content="操作系统"><meta name="author" content="4FGR"><meta name="copyright" content="4FGR"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="操作系统-绪论(1)"><meta name="application-name" content="操作系统-绪论(1)"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="操作系统-绪论(1)"><meta property="og:url" content="http://example.com/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%AA%E8%AE%BA/index.html"><meta property="og:site_name" content="4FGR の Blog"><meta property="og:description" content="本blog考研操作系统主体内容由小白兔友情提供  1.1 操作系统的基本概念 1.1.1 操作系统的定义操作系统（Operating System，OS）是指控制和管理整个计算机系统的硬件和软件资源，并合理地组织调度计算机的工作和资源的分配；以提供给用户和其他软件方便的接口和环境；它是计算机系统中"><meta property="og:locale" content="zh-cn"><meta property="og:image" content="http://example.com/images/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png"><meta property="article:author" content="4FGR"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="http://example.com/images/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png"><meta name="description" content="本blog考研操作系统主体内容由小白兔友情提供  1.1 操作系统的基本概念 1.1.1 操作系统的定义操作系统（Operating System，OS）是指控制和管理整个计算机系统的硬件和软件资源，并合理地组织调度计算机的工作和资源的分配；以提供给用户和其他软件方便的接口和环境；它是计算机系统中"><link rel="shortcut icon" href="/baka.ico"><link rel="canonical" href="http://example.com/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%AA%E8%AE%BA/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   linkPageTop: undefined,
   peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png"},
   postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
@@ -55,12 +55,12 @@
   configTitle: '4FGR の Blog',
   title: '操作系统-绪论(1)',
   postAI: '',
-  pageFillDescription: '1.1 操作系统的基本概念, 1.1.1 操作系统的定义, 1.1.2 操作系统的功能和目标, 资源的管理者（四大管理功能）, 向上层提供服务（接口分类）, 给普通用户使用：用户接口（命令接口）, 给软件/程序员使用：程序接口, 对硬件机器的扩展：扩充机器, 1.1.3 操作系统的特征, 并发, 共享, 并发与共享的关系, 虚拟, 异步, 1.2操作系统发展与分类, 手工操作阶段, 批处理阶段, 1. 单道批处理系统, 分时操作系统, 实时操作系统, 其他操作系统, 1.3操作系统运行环境, 1.3.1运行机制, 程序分类, 两种指令, 状态转换（变态）, 1.3.2中断和异常, 中断的作用, 中断的分类（广义中断）, 1. 内中断（异常）, 2. 外中断（狭义的中断）, 中断机制的基本实现原理, 1.3.3 系统调用, 系统调用的定义, 系统调用与库函数, 为什么必须要有系统调用？, 系统调用的分类, 系统调用的处理过程, 1.4 操作系统体系结构, 操作系统内核, 内核包含模块, 操作系统的两种体系结构, 大内核, 微内核, 大内核与微内核的对比, 操作系统的体系结构补充, 1. 分层结构, 2. 模块化结构, 3. 宏内核（大内核）, 4. 微内核, 体系结构对比总结, 1.1.5操作系统引导, 整体流程梳理, 关键名词区分（考试常考）, 补充要点本考研操作系统主体内容由小白兔友情提供操作系统的基本概念操作系统的定义操作系统是指控制和管理整个计算机系统的硬件和软件资源并合理地组织调度计算机的工作和资源的分配以提供给用户和其他软件方便的接口和环境它是计算机系统中最基本的系统软件操作系统的功能和目标资源的管理者四大管理功能处理机管理管理负责进程调度分配处理器资源存储器管理管理内存负责内存分配地址映射内存保护与扩充文件管理管理文件负责文件的存取共享保护管理外存设备管理管理外设负责设备分配缓冲管理等向上层提供服务接口分类操作系统向上提供三类接口供不同对象使用给普通用户使用用户接口命令接口联机命令接口交互式命令接口实例系统的命令提示符特点用户输入一条命令操作系统立刻执行给出反馈交互式实时操作脱机命令接口批处理命令接口实例批处理脚本文件特点提前把多条命令写在脚本中一次性提交给操作系统系统自动批量执行不需要用户逐条交互补充图形用户界面也属于面向普通用户的接口依托鼠标窗口可视化操作给软件程序员使用程序接口程序接口由一系列系统调用组成程序接口可以在程序中进行系统调用来使用程序接口普通用户不能直接使用程序接口只能通过程序代码间接使用调用流程示例程序员语言库函数如系统调用操作系统程序接口操作系统内核硬件显示器举例语言的底层就调用操作系统显示相关的系统调用重点系统调用是应用程序请求操作系统服务的唯一方式类似函数调用是用户态进入内核态的途径对硬件机器的扩展扩充机器操作系统把裸机只有硬件的计算机改造为功能更强使用更方便的扩充机器虚拟机屏蔽硬件底层复杂细节向上提供易用服务操作系统的特征操作系统有四大特征并发共享虚拟异步其中并发共享是操作系统两个最基本的特征并发并发性指计算机系统中同时存在着多个运行着的程序操作系统的并发性指计算机系统中同时运行着多个程序这些程序宏观上看是同时运行着的而微观上看是交替运行的注意单核同一时刻只能执行一个程序各个程序只能并发地执行多核同一时刻可以同时执行多个程序多个程序可以并行地执行比如核可以并行地执行个程序区分并发宏观同时微观交替并行同一时刻同时执行共享共享性是指系统中的资源可供内存中多个并发执行的进程共同使用共享即资源共享是指系统中的资源可供内存中多个并发执行的进程共同使用资源共享分为两种方式互斥共享方式系统中的某些资源虽然可以提供给多个进程使用但一个时间段内只允许一个进程访问该资源实例使用和微信视频同一时间段内摄像头只能分配给其中一个进程同时共享方式系统中的某些资源允许一个时间段内由多个进程同时对它们进行访问所谓的同时往往是宏观上的而在微观上这些进程可能是交替地对该资源进行访问的即分时共享实例使用发送文件同时使用微信发送文件宏观上看两边都在同时读取并发送文件说明两个进程都在访问硬盘资源从中读取数据微观上看两个进程是交替着访问硬盘的并发与共享的关系例子使用发送文件同时使用微信发送文件两个进程正在并发执行并发性需要共享地访问硬盘资源共享性如果失去并发性则系统中只有一个程序正在运行则共享性失去存在的意义如果失去共享性则和微信不能同时访问硬盘资源就无法实现同时发送文件也就无法并发结论并发与共享互为存在条件虚拟虚拟是指把一个物理上的实体变为若干个逻辑上的对应物物理实体前者是实际存在的而逻辑上对应物后者是用户感受到的虚拟技术分为两类时分复用技术如虚拟处理器技术空分复用技术如虚拟存储技术实例单核上运行多个进程用户会感觉有多个独立的处理器在运行程序这就是时分复用带来的虚拟物理内存通过虚拟存储技术让程序感知到更大的逻辑内存空间属于空分复用异步异步是指在多道程序环境下允许多个程序并发执行但由于资源有限进程的执行不是一贯到底的而是走走停停以不可预知的速度向前推进这就是进程的异步性操作系统发展与分类手工操作阶段特点用户独占整机人工装取纸带完成输入输出缺点人机速度矛盾大量空闲资源利用率极低批处理阶段单道批处理系统引入脱机输入输出技术监督程序管理作业优点一定程度缓解人机速度矛盾资源利用率有所提升缺点内存同一时刻只有一道程序运行等待资源利用率依然很低多道批处理系统操作系统正式诞生内存同时载入多道程序程序并发执行优点多道程序并发资源共享利用率系统吞吐量大幅提高缺点无交互能力提交作业后用户无法干预程序运行响应时间长分时操作系统以时间片轮转的方式轮流为多个终端用户服务优点支持人机交互多用户同时使用一台主机相互独立用户感觉独占计算机缺点公平分配时间片不能优先处理紧急任务实时操作系统核心特征及时性可靠性可优先响应紧急任务紧急任务不需要排队等时间片硬实时系统必须在绝对严格时限内完成处理超时会造成严重后果例导弹控制系统自动驾驶系统软实时系统允许偶尔违反时间规定超时不会造成灾难性后果例火车订票系统其他操作系统网络操作系统实现网络中多机通信资源共享分布式操作系统多台计算机协同对外像一台机器个人计算机操作系统面向单用户如操作系统运行环境运行机制程序分类内核程序操作系统内核使用的程序应用程序普通用户程序员编写的程序两种指令在出厂时就划分了特权指令与非特权指令执行指令前可判断指令类型特权指令影响重大仅允许操作系统内核使用如内存清零指令非特权指令应用程序可使用如加法指令减法指令两种处理器状态状态别名内核态核心态管态用户态目态内核态正在运行内核程序可执行特权指令与非特权指令用户态正在运行应用程序只能执行非特权指令内核是操作系统最重要最核心最接近硬件的部分由大量内核程序组成中有程序状态字寄存器用其中一位标记状态表示内核态表示用户态状态转换变态内核态用户态执行一条特权指令修改的标志位为用户态这个动作意味着操作系统将主动让出使用权操作系统内核在让出之前会用一条特权指令把的标志位设置为用户态用户态内核态由中断引发硬件自动完成变态过程触发中断信号意味着操作系统将强行夺回的使用权共性但凡需要操作系统介入的地方都会触发中断信号检测到中断信号后会立即变为内核态停止运行当前应用程序转而运行处理中断信号的内核程序中断和异常中断的作用中断是让操作系统内核夺回使用权的唯一途径让操作系统内核强行夺回的控制权使从用户态变为内核态补充内核态用户态执行一条特权指令修改的标志位为用户态操作系统主动让出使用权用户态内核态由中断引发硬件自动完成状态切换操作系统强行夺回使用权如果没有中断机制一旦应用程序占用会一直运行该应用程序无法实现并发中断的分类广义中断大多数教材试卷中中断特指狭义的中断外中断内中断一般称为异常内中断异常信号来自内部与当前执行指令有关陷阱陷入由陷入指令引发是应用程序主动触发例系统调用应用程序请求操作系统内核服务主动交出控制权故障由错误条件引起内核有可能修复修复完成后将交回应用程序继续执行例缺页故障终止由致命错误引起内核无法修复一般不再交还直接终止应用程序例整数除用户态非法执行特权指令外中断狭义的中断信号来自外部与当前执行指令无关每条指令周期末尾才检查外中断信号时钟中断时钟部件每隔固定时间如发送中断信号用于时间片轮转中断请求输入输出设备完成任务后向发送中断信号中断机制的基本实现原理检查中断信号内中断在执行指令时检查是否有异常发生外中断在每个指令周期末尾检查是否有外中断信号找到相应的中断处理程序通过中断向量表实现不同中断信号对应不同中断处理程序检测中断信号后查询中断向量表找到中断处理程序在内存中的位置中断处理程序属于内核程序运行在内核态系统调用系统调用的定义系统调用是操作系统内核提供给应用程序使用的接口凡是涉及系统共享资源的操作必须通过系统调用向内核发起请求由操作系统代为完成是用户程序请求内核服务的唯一入口系统资源由操作系统统一管控不允许用户程序直接操作硬件内存等共享资源以此保障系统安全稳定系统调用与库函数层次从底层到上层裸机操作系统编程语言库函数普通应用程序系统调用操作系统内核提供运行于内核态完成资源相关操作库函数编程语言提供运行于用户态一部分库函数封装系统调用隐藏底层细节一部分库函数完全不涉及系统调用例取绝对值库函数不需要系统调用文件打开库函数底层会调用文件相关系统调用为什么必须要有系统调用计算机里的硬件文件内存进程都属于系统共享资源多个进程会竞争使用如果允许用户程序直接操作硬件内存会产生冲突破坏系统不安全不稳定规则凡是和共享资源有关会影响其他进程的操作必须交给操作系统内核完成必须通过系统调用例子和同时向打印机发打印请求由内核统一调度打印机资源系统调用的分类设备管理设备请求释放启动读写外设文件管理文件创建删除读写进程控制进程创建撤销阻塞唤醒进程通信进程之间消息信号传递内存管理内存分配内存回收系统调用的处理过程传递参数应用程序处于用户态将系统调用所需要的参数放到通用寄存器执行陷入指令访管指令陷入指令在用户态执行执行后触发内中断完成用户态向内核态的切换内核执行对应服务程序切换至内核态操作系统内核执行对应的系统调用服务子程序完成资源操作返回用户程序内核处理完毕将从内核态切回用户态回到应用程序继续执行陷入指令是用户态主动进入内核态的唯一手段系统调用请求发出发生在用户态真正资源操作发生在内核态操作系统体系结构操作系统内核内核是操作系统最基本最核心的部分实现操作系统内核功能的那些程序就是内核程序内核包含模块时钟管理实现计时功能中断处理负责实现中断机制原语是一种特殊的程序处于操作系统最底层是最接近硬件的部分这种程序的运行具有原子性其运行不可中断运行时间较短调用频繁对系统资源进行管理的功能进程管理存储器管理设备管理时钟管理中断处理原语与硬件关联较紧密的模块进程管理存储器管理设备管理这些管理工作更多的是对数据结构的操作不会直接涉及硬件操作系统的两种体系结构大内核将操作系统的主要功能模块都作为系统内核运行在核心态优点高性能缺点内核代码庞大结构混乱难以维护微内核只把最基本的功能保留在内核优点内核功能少结构清晰方便维护缺点需要频繁地在核心态和用户态之间切换性能低典型的大内核宏内核单内核操作系统典型的微内核操作系统大内核与微内核的对比场景应用程序想要请求操作系统的服务这个服务的处理同时涉及到进程管理存储管理设备管理大内核两次变态微内核六次变态注意变态的过程是有成本的要消耗不少时间频繁地变态会降低系统性能操作系统的体系结构补充分层结构分层结构将操作系统按功能划分为多个层次每层只对上一层提供服务并隐藏底层实现细节优点结构清晰便于调试和验证每层可独立测试便于移植支持增量开发可逐层实现缺点层次划分会增加系统开销每层之间存在严格接口约束跨层访问受限效率可能低于其他结构分层结构的核心思想是每一层只做有限职责通过接口向上提供服务模块化结构模块化是将操作系统功能划分为若干具有一定独立性的模块每个模块负责某一方面的管理功能并规定模块之间的接口使模块能通过接口通信例如操作系统可划分为进程管理模块存储器管理模块文件管理模块等每个模块内部还可进一步划分为若干子模块如进程控制进程调度内存分配内存保护磁盘管理目录管理等优点模块独立性强便于理解和维护可单独开发测试和替换模块接口清晰有利于多人协作开发缺点模块之间可能存在复杂依赖若接口设计不当会影响系统效率模块划分的粒度会直接影响系统结构的清晰度这种设计方法称为模块接口法由模块子模块和模块之间的接口共同组成模块化操作系统结构宏内核大内核宏内核将操作系统的主要功能模块都集成在内核中运行在核心态优点性能高模块间通信直接功能完整适合对效率要求较高的系统缺点内核代码庞大结构混乱难以维护一个模块出错可能影响整个内核典型操作系统微内核微内核只把最基本的功能保留在内核中如进程通信内存管理中断处理等其他服务以用户态进程方式运行优点内核小结构清晰可靠性高用户态服务出错不易影响整个系统便于扩展和维护缺点需要频繁在核心态和用户态之间切换性能较低用户态服务之间通信成本较高典型操作系统外核外核是一种更极端的内核结构内核只负责保护和复用硬件资源而资源管理策略更多地由用户级软件完成优点减少了内核资源管理的负担提高了系统的灵活性和并行度缺点降低了系统的一致性部分管理工作需要上层软件承担体系结构对比总结体系结构核心思想优点缺点分层结构按层次组织每层只通过接口向上层提供服务结构清晰便于测试调试和移植层次开销较大效率可能较低模块化结构按功能划分为独立模块通过接口通信模块独立便于开发测试和维护模块依赖可能复杂接口设计影响效率宏内核主要功能都集成在内核中性能高功能完整内核庞大难以维护微内核只保留最基本功能在内核服务运行在用户态结构清晰可靠性高便于扩展状态切换频繁性能较低外核内核只做资源保护和复用管理策略上移灵活性高并行度高一致性较低上层负担较重操作系统引导说明这是传统磁盘的开机引导流程不是整体流程梳理上电执行里的引导程序计算机通电后直接从固定的主存地址取指令运行固化在中的程序首先执行硬件自检检测内存硬盘等基础硬件是否正常自检通过后会按照启动顺序寻找可引导磁盘读取磁盘的主引导记录载入执行找到启动硬盘读取磁盘第扇区第一块也就是主引导记录加载到内存包含两部分磁盘引导程序分区表执行引导程序扫描分区表标记出活动分区主分区装系统的分区如图里盘读取活动分区内的分区引导记录载入执行的引导程序定位到活动分区读取该分区第一个扇区分区引导记录调入内存运行的任务在当前分区的文件系统里找到操作系统的启动管理器找到启动管理器加载完整内核完成开机在分区的根目录中定位到系统启动管理器把它读入内存并执行启动管理器再进一步加载操作系统内核初始化系统最终进入操作系统关键名词区分考试常考名词存放位置核心作用主板上电自检找到硬盘加载主引导记录硬盘号扇区不属于任何分区硬盘引导程序整张磁盘的分区表找到活动分区分区引导记录活动分区的第一个扇区属于分区内部在本分区文件系统里寻找系统启动文件补充要点是整个硬盘的第一扇区不属于任何一个分区属于单个分区只有标记为活动可引导的分区它里面的才会被执行一般操作系统就安装在活动分区这套是老式启动现在新电脑多用流程不一样不要混淆虚拟机与虚拟机管理程序虚拟机使用虚拟化技术将一台物理机器虚拟化为多台虚拟机每个虚拟机都可以独立运行一个操作系统同义术语虚拟机管理程序虚拟机监控程序全称中文叫虚拟机管理程序虚拟机监控程序分为第一类和第二类第一类直接运行在硬件之上没有宿主操作系统位置硬件之上直接接管硬件资源运行在最高特权级可以执行最高特权的指令实例裸金属部署场景第二类运行在宿主操作系统之上属于宿主操作系统上的软件位置依赖获取硬件资源部分运行在用户态部分运行在内核态客户操作系统发出的系统调用会被截获并转化为对的系统调用实例两类虚拟机管理程序的对比对比维度第一类第二类对物理资源的控制权直接运行在硬件之上能直接控制和分配物理资源运行在之上依赖于为其分配物理资源资源分配方式在安装时要在原本的硬盘上自行分配存储空间类似于外核的分配方式分配未经抽象的物理硬件拥有自己的虚拟磁盘该盘实际上是文件系统中的一个大文件分配到的内存是虚拟内存性能性能更好性能更差需要作为中介可支持的虚拟机数量更多不需要和竞争资源相同的硬件资源可以支持更多的虚拟机更少本身需要使用物理资源上运行的其他进程也需要物理资源虚拟机的可迁移性更差更好只需导出虚拟机镜像文件即可迁移到另一台上商业化应用更广泛运行模式第一类运行在最高特权级可以执行最高特权的指令第二类部分运行在用户态部分运行在内核态发出的系统调用会被截获并转化为对的系统调用宿主操作系统物理机上原本安装的操作系统第二类虚拟化才有客户操作系统跑在虚拟机内部的操作系统虚拟机管理程序负责隔离调度各个虚拟机分配硬件资源',
+  pageFillDescription: '1.1 操作系统的基本概念, 1.1.1 操作系统的定义, 1.1.2 操作系统的功能和目标, 资源的管理者（四大管理功能）, 向上层提供服务（接口分类）, 给普通用户使用：用户接口（命令接口）, 给软件x2F程序员使用：程序接口, 对硬件机器的扩展：扩充机器, 1.1.3 操作系统的特征, 并发, 共享, 并发与共享的关系, 虚拟, 异步, 1.2操作系统发展与分类, 手工操作阶段, 批处理阶段, 1. 单道批处理系统, 2. 多道批处理系统（操作系统正式诞生）, 分时操作系统, 实时操作系统, 其他操作系统, 1.3操作系统运行环境, 1.3.1运行机制, 程序分类, 两种指令, 两种处理器状态（$CPU$ 状态）, 状态转换（变态）, 1.3.2中断和异常, 中断的作用, 中断的分类（广义中断）, 1. 内中断（异常）, 2. 外中断（狭义的中断）, 中断机制的基本实现原理, 1.3.3 系统调用, 系统调用的定义, 系统调用与库函数, 为什么必须要有系统调用？, 系统调用的分类, 系统调用的处理过程, 1.4 操作系统体系结构, 操作系统内核, 内核包含模块, 操作系统的两种体系结构, 大内核, 微内核, 大内核与微内核的对比, 操作系统的体系结构补充, 1. 分层结构, 2. 模块化结构, 3. 宏内核（大内核）, 4. 微内核, 5. 外核（$exokernel$）, 体系结构对比总结, 1.1.5操作系统引导, 整体流程梳理, 关键名词区分（考试常考）, 补充要点, 1.1.6虚拟机与 $VMM$（虚拟机管理程序）, 1. 第一类 $VMM$, 2. 第二类 $VMM$, 两类虚拟机管理程序（$VMM$）的对比本考研操作系统主体内容由小白兔友情提供操作系统的基本概念操作系统的定义操作系统是指控制和管理整个计算机系统的硬件和软件资源并合理地组织调度计算机的工作和资源的分配以提供给用户和其他软件方便的接口和环境它是计算机系统中最基本的系统软件操作系统的功能和目标资源的管理者四大管理功能处理机管理管理负责进程调度分配处理器资源存储器管理管理内存负责内存分配地址映射内存保护与扩充文件管理管理文件负责文件的存取共享保护管理外存设备管理管理外设负责设备分配缓冲管理等向上层提供服务接口分类操作系统向上提供三类接口供不同对象使用给普通用户使用用户接口命令接口联机命令接口交互式命令接口实例系统的命令提示符特点用户输入一条命令操作系统立刻执行给出反馈交互式实时操作脱机命令接口批处理命令接口实例批处理脚本文件特点提前把多条命令写在脚本中一次性提交给操作系统系统自动批量执行不需要用户逐条交互补充图形用户界面也属于面向普通用户的接口依托鼠标窗口可视化操作给软件程序员使用程序接口程序接口由一系列系统调用组成程序接口可以在程序中进行系统调用来使用程序接口普通用户不能直接使用程序接口只能通过程序代码间接使用调用流程示例程序员语言库函数如系统调用操作系统程序接口操作系统内核硬件显示器举例语言的底层就调用操作系统显示相关的系统调用重点系统调用是应用程序请求操作系统服务的唯一方式类似函数调用是用户态进入内核态的途径对硬件机器的扩展扩充机器操作系统把裸机只有硬件的计算机改造为功能更强使用更方便的扩充机器虚拟机屏蔽硬件底层复杂细节向上提供易用服务操作系统的特征操作系统有四大特征并发共享虚拟异步其中并发共享是操作系统两个最基本的特征并发并发性指计算机系统中同时存在着多个运行着的程序操作系统的并发性指计算机系统中同时运行着多个程序这些程序宏观上看是同时运行着的而微观上看是交替运行的注意单核同一时刻只能执行一个程序各个程序只能并发地执行多核同一时刻可以同时执行多个程序多个程序可以并行地执行比如核可以并行地执行个程序区分并发宏观同时微观交替并行同一时刻同时执行共享共享性是指系统中的资源可供内存中多个并发执行的进程共同使用共享即资源共享是指系统中的资源可供内存中多个并发执行的进程共同使用资源共享分为两种方式互斥共享方式系统中的某些资源虽然可以提供给多个进程使用但一个时间段内只允许一个进程访问该资源实例使用和微信视频同一时间段内摄像头只能分配给其中一个进程同时共享方式系统中的某些资源允许一个时间段内由多个进程同时对它们进行访问所谓的同时往往是宏观上的而在微观上这些进程可能是交替地对该资源进行访问的即分时共享实例使用发送文件同时使用微信发送文件宏观上看两边都在同时读取并发送文件说明两个进程都在访问硬盘资源从中读取数据微观上看两个进程是交替着访问硬盘的并发与共享的关系例子使用发送文件同时使用微信发送文件两个进程正在并发执行并发性需要共享地访问硬盘资源共享性如果失去并发性则系统中只有一个程序正在运行则共享性失去存在的意义如果失去共享性则和微信不能同时访问硬盘资源就无法实现同时发送文件也就无法并发结论并发与共享互为存在条件虚拟虚拟是指把一个物理上的实体变为若干个逻辑上的对应物物理实体前者是实际存在的而逻辑上对应物后者是用户感受到的虚拟技术分为两类时分复用技术如虚拟处理器技术空分复用技术如虚拟存储技术实例单核上运行多个进程用户会感觉有多个独立的处理器在运行程序这就是时分复用带来的虚拟物理内存通过虚拟存储技术让程序感知到更大的逻辑内存空间属于空分复用异步异步是指在多道程序环境下允许多个程序并发执行但由于资源有限进程的执行不是一贯到底的而是走走停停以不可预知的速度向前推进这就是进程的异步性操作系统发展与分类手工操作阶段特点用户独占整机人工装取纸带完成输入输出缺点人机速度矛盾大量空闲资源利用率极低批处理阶段单道批处理系统引入脱机输入输出技术监督程序管理作业优点一定程度缓解人机速度矛盾资源利用率有所提升缺点内存同一时刻只有一道程序运行等待资源利用率依然很低多道批处理系统操作系统正式诞生内存同时载入多道程序程序并发执行优点多道程序并发资源共享利用率系统吞吐量大幅提高缺点无交互能力提交作业后用户无法干预程序运行响应时间长分时操作系统以时间片轮转的方式轮流为多个终端用户服务优点支持人机交互多用户同时使用一台主机相互独立用户感觉独占计算机缺点公平分配时间片不能优先处理紧急任务实时操作系统核心特征及时性可靠性可优先响应紧急任务紧急任务不需要排队等时间片硬实时系统必须在绝对严格时限内完成处理超时会造成严重后果例导弹控制系统自动驾驶系统软实时系统允许偶尔违反时间规定超时不会造成灾难性后果例火车订票系统其他操作系统网络操作系统实现网络中多机通信资源共享分布式操作系统多台计算机协同对外像一台机器个人计算机操作系统面向单用户如操作系统运行环境运行机制程序分类内核程序操作系统内核使用的程序应用程序普通用户程序员编写的程序两种指令在出厂时就划分了特权指令与非特权指令执行指令前可判断指令类型特权指令影响重大仅允许操作系统内核使用如内存清零指令非特权指令应用程序可使用如加法指令减法指令两种处理器状态状态别名内核态核心态管态用户态目态内核态正在运行内核程序可执行特权指令与非特权指令用户态正在运行应用程序只能执行非特权指令内核是操作系统最重要最核心最接近硬件的部分由大量内核程序组成中有程序状态字寄存器用其中一位标记状态表示内核态表示用户态状态转换变态内核态用户态执行一条特权指令修改的标志位为用户态这个动作意味着操作系统将主动让出使用权操作系统内核在让出之前会用一条特权指令把的标志位设置为用户态用户态内核态由中断引发硬件自动完成变态过程触发中断信号意味着操作系统将强行夺回的使用权共性但凡需要操作系统介入的地方都会触发中断信号检测到中断信号后会立即变为内核态停止运行当前应用程序转而运行处理中断信号的内核程序中断和异常中断的作用中断是让操作系统内核夺回使用权的唯一途径让操作系统内核强行夺回的控制权使从用户态变为内核态补充内核态用户态执行一条特权指令修改的标志位为用户态操作系统主动让出使用权用户态内核态由中断引发硬件自动完成状态切换操作系统强行夺回使用权如果没有中断机制一旦应用程序占用会一直运行该应用程序无法实现并发中断的分类广义中断大多数教材试卷中中断特指狭义的中断外中断内中断一般称为异常内中断异常信号来自内部与当前执行指令有关陷阱陷入由陷入指令引发是应用程序主动触发例系统调用应用程序请求操作系统内核服务主动交出控制权故障由错误条件引起内核有可能修复修复完成后将交回应用程序继续执行例缺页故障终止由致命错误引起内核无法修复一般不再交还直接终止应用程序例整数除用户态非法执行特权指令外中断狭义的中断信号来自外部与当前执行指令无关每条指令周期末尾才检查外中断信号时钟中断时钟部件每隔固定时间如发送中断信号用于时间片轮转中断请求输入输出设备完成任务后向发送中断信号中断机制的基本实现原理检查中断信号内中断在执行指令时检查是否有异常发生外中断在每个指令周期末尾检查是否有外中断信号找到相应的中断处理程序通过中断向量表实现不同中断信号对应不同中断处理程序检测中断信号后查询中断向量表找到中断处理程序在内存中的位置中断处理程序属于内核程序运行在内核态系统调用系统调用的定义系统调用是操作系统内核提供给应用程序使用的接口凡是涉及系统共享资源的操作必须通过系统调用向内核发起请求由操作系统代为完成是用户程序请求内核服务的唯一入口系统资源由操作系统统一管控不允许用户程序直接操作硬件内存等共享资源以此保障系统安全稳定系统调用与库函数层次从底层到上层裸机操作系统编程语言库函数普通应用程序系统调用操作系统内核提供运行于内核态完成资源相关操作库函数编程语言提供运行于用户态一部分库函数封装系统调用隐藏底层细节一部分库函数完全不涉及系统调用例取绝对值库函数不需要系统调用文件打开库函数底层会调用文件相关系统调用为什么必须要有系统调用计算机里的硬件文件内存进程都属于系统共享资源多个进程会竞争使用如果允许用户程序直接操作硬件内存会产生冲突破坏系统不安全不稳定规则凡是和共享资源有关会影响其他进程的操作必须交给操作系统内核完成必须通过系统调用例子和同时向打印机发打印请求由内核统一调度打印机资源系统调用的分类设备管理设备请求释放启动读写外设文件管理文件创建删除读写进程控制进程创建撤销阻塞唤醒进程通信进程之间消息信号传递内存管理内存分配内存回收系统调用的处理过程传递参数应用程序处于用户态将系统调用所需要的参数放到通用寄存器执行陷入指令访管指令陷入指令在用户态执行执行后触发内中断完成用户态向内核态的切换内核执行对应服务程序切换至内核态操作系统内核执行对应的系统调用服务子程序完成资源操作返回用户程序内核处理完毕将从内核态切回用户态回到应用程序继续执行陷入指令是用户态主动进入内核态的唯一手段系统调用请求发出发生在用户态真正资源操作发生在内核态操作系统体系结构操作系统内核内核是操作系统最基本最核心的部分实现操作系统内核功能的那些程序就是内核程序内核包含模块时钟管理实现计时功能中断处理负责实现中断机制原语是一种特殊的程序处于操作系统最底层是最接近硬件的部分这种程序的运行具有原子性其运行不可中断运行时间较短调用频繁对系统资源进行管理的功能进程管理存储器管理设备管理时钟管理中断处理原语与硬件关联较紧密的模块进程管理存储器管理设备管理这些管理工作更多的是对数据结构的操作不会直接涉及硬件操作系统的两种体系结构大内核将操作系统的主要功能模块都作为系统内核运行在核心态优点高性能缺点内核代码庞大结构混乱难以维护微内核只把最基本的功能保留在内核优点内核功能少结构清晰方便维护缺点需要频繁地在核心态和用户态之间切换性能低典型的大内核宏内核单内核操作系统典型的微内核操作系统大内核与微内核的对比场景应用程序想要请求操作系统的服务这个服务的处理同时涉及到进程管理存储管理设备管理大内核两次变态微内核六次变态注意变态的过程是有成本的要消耗不少时间频繁地变态会降低系统性能操作系统的体系结构补充分层结构分层结构将操作系统按功能划分为多个层次每层只对上一层提供服务并隐藏底层实现细节优点结构清晰便于调试和验证每层可独立测试便于移植支持增量开发可逐层实现缺点层次划分会增加系统开销每层之间存在严格接口约束跨层访问受限效率可能低于其他结构分层结构的核心思想是每一层只做有限职责通过接口向上提供服务模块化结构模块化是将操作系统功能划分为若干具有一定独立性的模块每个模块负责某一方面的管理功能并规定模块之间的接口使模块能通过接口通信例如操作系统可划分为进程管理模块存储器管理模块文件管理模块等每个模块内部还可进一步划分为若干子模块如进程控制进程调度内存分配内存保护磁盘管理目录管理等优点模块独立性强便于理解和维护可单独开发测试和替换模块接口清晰有利于多人协作开发缺点模块之间可能存在复杂依赖若接口设计不当会影响系统效率模块划分的粒度会直接影响系统结构的清晰度这种设计方法称为模块接口法由模块子模块和模块之间的接口共同组成模块化操作系统结构宏内核大内核宏内核将操作系统的主要功能模块都集成在内核中运行在核心态优点性能高模块间通信直接功能完整适合对效率要求较高的系统缺点内核代码庞大结构混乱难以维护一个模块出错可能影响整个内核典型操作系统微内核微内核只把最基本的功能保留在内核中如进程通信内存管理中断处理等其他服务以用户态进程方式运行优点内核小结构清晰可靠性高用户态服务出错不易影响整个系统便于扩展和维护缺点需要频繁在核心态和用户态之间切换性能较低用户态服务之间通信成本较高典型操作系统外核外核是一种更极端的内核结构内核只负责保护和复用硬件资源而资源管理策略更多地由用户级软件完成优点减少了内核资源管理的负担提高了系统的灵活性和并行度缺点降低了系统的一致性部分管理工作需要上层软件承担体系结构对比总结体系结构核心思想优点缺点分层结构按层次组织每层只通过接口向上层提供服务结构清晰便于测试调试和移植层次开销较大效率可能较低模块化结构按功能划分为独立模块通过接口通信模块独立便于开发测试和维护模块依赖可能复杂接口设计影响效率宏内核主要功能都集成在内核中性能高功能完整内核庞大难以维护微内核只保留最基本功能在内核服务运行在用户态结构清晰可靠性高便于扩展状态切换频繁性能较低外核内核只做资源保护和复用管理策略上移灵活性高并行度高一致性较低上层负担较重操作系统引导说明这是传统磁盘的开机引导流程不是整体流程梳理上电执行里的引导程序计算机通电后直接从固定的主存地址取指令运行固化在中的程序首先执行硬件自检检测内存硬盘等基础硬件是否正常自检通过后会按照启动顺序寻找可引导磁盘读取磁盘的主引导记录载入执行找到启动硬盘读取磁盘第扇区第一块也就是主引导记录加载到内存包含两部分磁盘引导程序分区表执行引导程序扫描分区表标记出活动分区主分区装系统的分区如图里盘读取活动分区内的分区引导记录载入执行的引导程序定位到活动分区读取该分区第一个扇区分区引导记录调入内存运行的任务在当前分区的文件系统里找到操作系统的启动管理器找到启动管理器加载完整内核完成开机在分区的根目录中定位到系统启动管理器把它读入内存并执行启动管理器再进一步加载操作系统内核初始化系统最终进入操作系统关键名词区分考试常考名词存放位置核心作用主板上电自检找到硬盘加载主引导记录硬盘号扇区不属于任何分区硬盘引导程序整张磁盘的分区表找到活动分区分区引导记录活动分区的第一个扇区属于分区内部在本分区文件系统里寻找系统启动文件补充要点是整个硬盘的第一扇区不属于任何一个分区属于单个分区只有标记为活动可引导的分区它里面的才会被执行一般操作系统就安装在活动分区这套是老式启动现在新电脑多用流程不一样不要混淆虚拟机与虚拟机管理程序虚拟机使用虚拟化技术将一台物理机器虚拟化为多台虚拟机每个虚拟机都可以独立运行一个操作系统同义术语虚拟机管理程序虚拟机监控程序全称中文叫虚拟机管理程序虚拟机监控程序分为第一类和第二类第一类直接运行在硬件之上没有宿主操作系统位置硬件之上直接接管硬件资源运行在最高特权级可以执行最高特权的指令实例裸金属部署场景第二类运行在宿主操作系统之上属于宿主操作系统上的软件位置依赖获取硬件资源部分运行在用户态部分运行在内核态客户操作系统发出的系统调用会被截获并转化为对的系统调用实例两类虚拟机管理程序的对比对比维度第一类第二类对物理资源的控制权直接运行在硬件之上能直接控制和分配物理资源运行在之上依赖于为其分配物理资源资源分配方式在安装时要在原本的硬盘上自行分配存储空间类似于外核的分配方式分配未经抽象的物理硬件拥有自己的虚拟磁盘该盘实际上是文件系统中的一个大文件分配到的内存是虚拟内存性能性能更好性能更差需要作为中介可支持的虚拟机数量更多不需要和竞争资源相同的硬件资源可以支持更多的虚拟机更少本身需要使用物理资源上运行的其他进程也需要物理资源虚拟机的可迁移性更差更好只需导出虚拟机镜像文件即可迁移到另一台上商业化应用更广泛运行模式第一类运行在最高特权级可以执行最高特权的指令第二类部分运行在用户态部分运行在内核态发出的系统调用会被截获并转化为对的系统调用宿主操作系统物理机上原本安装的操作系统第二类虚拟化才有客户操作系统跑在虚拟机内部的操作系统虚拟机管理程序负责隔离调度各个虚拟机分配硬件资源',
   isPost: true,
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2026-10-14 16:54:43',
+  postUpdate: '2026-10-14 17:20:57',
   postMainColor: '',
 }</script><noscript><style type="text/css">
   #nav {
@@ -193,76 +193,41 @@ if (true) {
   document.addEventListener('pjax:send', () => { preloader.initLoading() })
   document.addEventListener('pjax:complete', () => { preloader.endLoading() })
 }</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://bolg.4fgr.top/" title="博客"><img class="back-menu-item-icon" src="/img/baka.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">4FGR の Blog</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="/%5Cimages%5Creward%5Cimage.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src="/%5Cimages%5Creward%5Cimage.jpg"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://ooo.0x0.ooo/2024/11/25/OH2LqP.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://ooo.0x0.ooo/2024/11/25/OH2LqP.jpg"/></a><div class="post-qr-code-desc">微信</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/OJ/" style="font-size: 1.05rem;">OJ<sup>1</sup></a><a href="/tags/ST%E8%A1%A8/" style="font-size: 1.05rem;">ST表<sup>1</sup></a><a href="/tags/bfs/" style="font-size: 1.05rem;">bfs<sup>1</sup></a><a href="/tags/c/" style="font-size: 1.05rem;">c++<sup>1</sup></a><a href="/tags/codeforces/" style="font-size: 1.05rem;">codeforces<sup>4</sup></a><a href="/tags/csp/" style="font-size: 1.05rem;">csp<sup>1</sup></a><a href="/tags/css/" style="font-size: 1.05rem;">css<sup>1</sup></a><a href="/tags/dfs/" style="font-size: 1.05rem;">dfs<sup>1</sup></a><a href="/tags/hash/" style="font-size: 1.05rem;">hash<sup>1</sup></a><a href="/tags/html/" style="font-size: 1.05rem;">html<sup>1</sup></a><a href="/tags/%E2%80%98%E6%A0%91%E5%BD%A2%E6%95%B0%E7%BB%84%E2%80%99/" style="font-size: 1.05rem;">‘树形数组’<sup>1</sup></a><a href="/tags/%E5%80%8D%E5%A2%9E/" style="font-size: 1.05rem;">倍增<sup>2</sup></a><a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 1.05rem;">分享<sup>5</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.05rem;">前端<sup>1</sup></a><a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 1.05rem;">前缀和<sup>1</sup></a><a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 1.05rem;">动态规划<sup>5</sup></a><a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 1.05rem;">图论<sup>1</sup></a><a href="/tags/%E5%B7%AE%E5%88%86/" style="font-size: 1.05rem;">差分<sup>1</sup></a><a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 1.05rem;">并查集<sup>1</sup></a><a href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" style="font-size: 1.05rem;">归并排序<sup>1</sup></a><a href="/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/" style="font-size: 1.05rem;">快速幂<sup>1</sup></a><a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 1.05rem;">排序<sup>1</sup></a><a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.05rem;">操作系统<sup>5</sup></a><a href="/tags/%E6%95%A3%E5%88%97/" style="font-size: 1.05rem;">散列<sup>1</sup></a><a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.05rem;">数学<sup>2</sup></a><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.05rem;">数据结构<sup>18</sup></a><a href="/tags/%E6%96%90%E6%B3%A2%E6%8B%89%E5%A5%91/" style="font-size: 1.05rem;">斐波拉契<sup>1</sup></a><a href="/tags/%E6%A0%88/" style="font-size: 1.05rem;">栈<sup>2</sup></a><a href="/tags/%E6%A0%91%E5%BD%A2DP/" style="font-size: 1.05rem;">树形DP<sup>1</sup></a><a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 1.05rem;">游戏<sup>1</sup></a><a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96/" style="font-size: 1.05rem;">离散化<sup>1</sup></a><a href="/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/" style="font-size: 1.05rem;">线性表<sup>1</sup></a><a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 1.05rem;">线段树<sup>1</sup></a><a href="/tags/%E8%83%8C%E5%8C%85DP/" style="font-size: 1.05rem;">背包DP<sup>1</sup></a><a href="/tags/%E8%A7%86%E8%A7%89%E5%B0%8F%E8%AF%B4/" style="font-size: 1.05rem;">视觉小说<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8F%B2/" style="font-size: 1.05rem;">计算机史<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.05rem;">计算机网络<sup>5</sup></a><a href="/tags/%E8%AE%A1%E7%BB%84/" style="font-size: 1.05rem;">计组<sup>7</sup></a><a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 1.05rem;">链表<sup>2</sup></a><a href="/tags/%E9%98%9F%E5%88%97/" style="font-size: 1.05rem;">队列<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
-    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/10/"><span class="card-archive-list-date">十月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">6</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/09/"><span class="card-archive-list-date">九月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">4</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/07/"><span class="card-archive-list-date">七月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/05/"><span class="card-archive-list-date">五月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/03/"><span class="card-archive-list-date">三月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">十二月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">4</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">十一月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">十月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div><div class="console-btn-item" id="consoleKeyboard" onclick="anzhiyu.keyboardToggle()" title="快捷键开关"><a class="keyboard-switch"><i class="anzhiyufont anzhiyu-icon-keyboard"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%80%83%E7%A0%94/" itemprop="url">考研</a><i class="anzhiyufont anzhiyu-icon-angle-right post-meta-separator"></i><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%80%83%E7%A0%94/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url">操作系统</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>操作系统</span></a></span></div></div><h1 class="post-title" itemprop="name headline">操作系统-绪论(1)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2026-10-14T08:35:14.491Z" title="发表于 2026-10-14 16:35:14">2026-10-14</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2026-10-14T08:54:43.602Z" title="更新于 2026-10-14 16:54:43">2026-10-14</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="操作系统-绪论(1)"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator"></span><span class="post-meta-commentcount"><i class="anzhiyufont anzhiyu-icon-comments post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%AA%E8%AE%BA/#post-comment" tabindex="-1"><span id="twikoo-count"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></a></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://example.com/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%AA%E8%AE%BA/"><header><a class="post-meta-categories" href="/categories/%E8%80%83%E7%A0%94/" itemprop="url">考研</a><a class="post-meta-categories" href="/categories/%E8%80%83%E7%A0%94/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url">操作系统</a><a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" tabindex="-1" itemprop="url">操作系统</a><h1 id="CrawlerTitle" itemprop="name headline">操作系统-绪论(1)</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">4FGR</span><time itemprop="dateCreated datePublished" datetime="2026-10-14T08:35:14.491Z" title="发表于 2026-10-14 16:35:14">2026-10-14</time><time itemprop="dateCreated datePublished" datetime="2026-10-14T08:54:43.602Z" title="更新于 2026-10-14 16:54:43">2026-10-14</time></header><blockquote>
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/10/"><span class="card-archive-list-date">十月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">6</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/09/"><span class="card-archive-list-date">九月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">4</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/07/"><span class="card-archive-list-date">七月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/05/"><span class="card-archive-list-date">五月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/03/"><span class="card-archive-list-date">三月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">十二月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">4</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">十一月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">十月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div><div class="console-btn-item" id="consoleKeyboard" onclick="anzhiyu.keyboardToggle()" title="快捷键开关"><a class="keyboard-switch"><i class="anzhiyufont anzhiyu-icon-keyboard"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%80%83%E7%A0%94/" itemprop="url">考研</a><i class="anzhiyufont anzhiyu-icon-angle-right post-meta-separator"></i><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%80%83%E7%A0%94/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url">操作系统</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>操作系统</span></a></span></div></div><h1 class="post-title" itemprop="name headline">操作系统-绪论(1)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2026-10-14T08:35:14.491Z" title="发表于 2026-10-14 16:35:14">2026-10-14</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2026-10-14T09:20:57.398Z" title="更新于 2026-10-14 17:20:57">2026-10-14</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="操作系统-绪论(1)"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator"></span><span class="post-meta-commentcount"><i class="anzhiyufont anzhiyu-icon-comments post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%AA%E8%AE%BA/#post-comment" tabindex="-1"><span id="twikoo-count"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></a></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="/images/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://example.com/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%AA%E8%AE%BA/"><header><a class="post-meta-categories" href="/categories/%E8%80%83%E7%A0%94/" itemprop="url">考研</a><a class="post-meta-categories" href="/categories/%E8%80%83%E7%A0%94/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url">操作系统</a><a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" tabindex="-1" itemprop="url">操作系统</a><h1 id="CrawlerTitle" itemprop="name headline">操作系统-绪论(1)</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">4FGR</span><time itemprop="dateCreated datePublished" datetime="2026-10-14T08:35:14.491Z" title="发表于 2026-10-14 16:35:14">2026-10-14</time><time itemprop="dateCreated datePublished" datetime="2026-10-14T09:20:57.398Z" title="更新于 2026-10-14 17:20:57">2026-10-14</time></header><blockquote>
 <p>本blog考研操作系统主体内容由小白兔友情提供</p>
 </blockquote>
-<h1 id="11-操作系统的基本概念">1.1 操作系统的基本概念</h1>
-<hr />
-<h2 id="111-操作系统的定义">1.1.1 操作系统的定义</h2>
-<p>操作系统（Operating
-System，OS）是指<strong>控制和管理整个计算机系统的硬件和软件资源</strong>，并合理地组织调度计算机的工作和资源的分配；以<strong>提供给用户和其他软件方便的接口和环境</strong>；它是计算机系统中最基本的<strong>系统软件</strong>。</p>
-<h2 id="112-操作系统的功能和目标">1.1.2 操作系统的功能和目标</h2>
-<h3 id="资源的管理者四大管理功能">资源的管理者（四大管理功能）</h3>
-<ul>
-<li>处理机管理：管理 <span
-class="math inline">\(CPU\)</span>，负责进程调度、分配处理器资源</li>
+<h1 id="1-1-操作系统的基本概念"><a href="#1-1-操作系统的基本概念" class="headerlink" title="1.1 操作系统的基本概念"></a>1.1 操作系统的基本概念</h1><hr>
+<h2 id="1-1-1-操作系统的定义"><a href="#1-1-1-操作系统的定义" class="headerlink" title="1.1.1 操作系统的定义"></a>1.1.1 操作系统的定义</h2><p>操作系统（Operating System，OS）是指<strong>控制和管理整个计算机系统的硬件和软件资源</strong>，并合理地组织调度计算机的工作和资源的分配；以<strong>提供给用户和其他软件方便的接口和环境</strong>；它是计算机系统中最基本的<strong>系统软件</strong>。</p>
+<h2 id="1-1-2-操作系统的功能和目标"><a href="#1-1-2-操作系统的功能和目标" class="headerlink" title="1.1.2 操作系统的功能和目标"></a>1.1.2 操作系统的功能和目标</h2><h3 id="资源的管理者（四大管理功能）"><a href="#资源的管理者（四大管理功能）" class="headerlink" title="资源的管理者（四大管理功能）"></a>资源的管理者（四大管理功能）</h3><ul>
+<li>处理机管理：管理 $CPU$，负责进程调度、分配处理器资源</li>
 <li>存储器管理：管理内存，负责内存分配、地址映射、内存保护与扩充</li>
 <li>文件管理：管理文件，负责文件的存取、共享、保护，管理外存</li>
-<li>设备管理：管理 <span class="math inline">\((I/O)\)</span>
-外设，负责设备分配、缓冲管理等</li>
+<li>设备管理：管理 $(I&#x2F;O)$ 外设，负责设备分配、缓冲管理等</li>
 </ul>
-<h3 id="向上层提供服务接口分类">向上层提供服务（接口分类）</h3>
-<p>操作系统向上提供三类接口，供不同对象使用：</p>
-<h4
-id="给普通用户使用用户接口命令接口">给普通用户使用：用户接口（命令接口）</h4>
-<ol type="1">
-<li><strong>联机命令接口（交互式命令接口）</strong> 实例：<span
-class="math inline">\(Windows\)</span> 系统的 <span
-class="math inline">\(cmd\)</span> 命令提示符。
-特点：用户输入一条命令，操作系统立刻执行、给出反馈，交互式实时操作。</li>
-<li><strong>脱机命令接口（批处理命令接口）</strong> 实例：<span
-class="math inline">\(Windows\)</span> 批处理 <code>.bat</code>
-脚本文件。
-特点：提前把多条命令写在脚本中，一次性提交给操作系统，系统自动批量执行，不需要用户逐条交互。</li>
+<h3 id="向上层提供服务（接口分类）"><a href="#向上层提供服务（接口分类）" class="headerlink" title="向上层提供服务（接口分类）"></a>向上层提供服务（接口分类）</h3><p>操作系统向上提供三类接口，供不同对象使用：</p>
+<h4 id="给普通用户使用：用户接口（命令接口）"><a href="#给普通用户使用：用户接口（命令接口）" class="headerlink" title="给普通用户使用：用户接口（命令接口）"></a>给普通用户使用：用户接口（命令接口）</h4><ol>
+<li><strong>联机命令接口（交互式命令接口）</strong> 实例：$Windows$ 系统的 $cmd$ 命令提示符。 特点：用户输入一条命令，操作系统立刻执行、给出反馈，交互式实时操作。</li>
+<li><strong>脱机命令接口（批处理命令接口）</strong> 实例：$Windows$ 批处理 <code>.bat</code> 脚本文件。 特点：提前把多条命令写在脚本中，一次性提交给操作系统，系统自动批量执行，不需要用户逐条交互。</li>
 </ol>
 <blockquote>
-<p>补充：<span class="math inline">\(GUI\)</span>
-图形用户界面，也属于面向普通用户的接口，依托鼠标、窗口可视化操作。</p>
+<p>补充：$GUI$ 图形用户界面，也属于面向普通用户的接口，依托鼠标、窗口可视化操作。</p>
 </blockquote>
-<h4 id="给软件程序员使用程序接口">给软件/程序员使用：程序接口</h4>
-<p>程序接口，由一系列<strong>系统调用</strong>组成。</p>
+<h4 id="给软件-程序员使用：程序接口"><a href="#给软件-程序员使用：程序接口" class="headerlink" title="给软件&#x2F;程序员使用：程序接口"></a>给软件&#x2F;程序员使用：程序接口</h4><p>程序接口，由一系列<strong>系统调用</strong>组成。</p>
 <blockquote>
 <p>程序接口，可以在程序中进行<strong>系统调用</strong>来使用程序接口。</p>
 <p>普通用户不能直接使用程序接口，只能通过程序代码间接使用。</p>
 </blockquote>
-<p>调用流程示例： 程序员 → <span class="math inline">\(C\)</span>
-语言库函数（如 <span class="math inline">\(printf\)</span>） →
-系统调用（操作系统程序接口） → 操作系统内核 → 硬件（显示器） 举例：<span
-class="math inline">\(C\)</span> 语言 <span class="math inline">\(Hello
-World\)</span> 的 <span class="math inline">\(printf\)</span>
-底层，就调用操作系统显示相关的系统调用。</p>
+<p>调用流程示例： 程序员 → $C$ 语言库函数（如 $printf$） → 系统调用（操作系统程序接口） → 操作系统内核 → 硬件（显示器） 举例：$C$ 语言 $Hello World$ 的  $printf$ 底层，就调用操作系统显示相关的系统调用。</p>
 <blockquote>
 <p>重点：<strong>系统调用是应用程序请求操作系统服务的唯一方式</strong>，类似函数调用，是用户态进入内核态的途径。</p>
 </blockquote>
-<p><img src="/images/操作系统/1/程序调用图.png"
-alt="屏幕截图 2026-09-22 164154" /></p>
-<h3 id="对硬件机器的扩展扩充机器">对硬件机器的扩展：扩充机器</h3>
-<p>操作系统把裸机（只有硬件的计算机）改造为功能更强、使用更方便的<strong>扩充机器（虚拟机）</strong>，屏蔽硬件底层复杂细节，向上提供易用服务。</p>
-<p><img src="/images/操作系统/1/定义功能小结.png"
-alt="屏幕截图 2026-09-22 163758" /></p>
-<h2 id="113-操作系统的特征">1.1.3 操作系统的特征</h2>
-<p>操作系统有四大特征：<strong>并发、共享、虚拟、异步</strong>；其中<strong>并发、共享</strong>是操作系统两个最基本的特征。</p>
-<h3 id="并发">并发</h3>
-<p><strong>并发性</strong>指计算机系统中同时存在着多个运行着的程序。
-操作系统的并发性指计算机系统中“同时”运行着多个程序，这些程序宏观上看是同时运行着的，而微观上看是交替运行的。</p>
+<p><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1/%E7%A8%8B%E5%BA%8F%E8%B0%83%E7%94%A8%E5%9B%BE.png" alt="屏幕截图 2026-09-22 164154"></p>
+<h3 id="对硬件机器的扩展：扩充机器"><a href="#对硬件机器的扩展：扩充机器" class="headerlink" title="对硬件机器的扩展：扩充机器"></a>对硬件机器的扩展：扩充机器</h3><p>操作系统把裸机（只有硬件的计算机）改造为功能更强、使用更方便的<strong>扩充机器（虚拟机）</strong>，屏蔽硬件底层复杂细节，向上提供易用服务。</p>
+<p><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1/%E5%AE%9A%E4%B9%89%E5%8A%9F%E8%83%BD%E5%B0%8F%E7%BB%93.png" alt="屏幕截图 2026-09-22 163758"></p>
+<h2 id="1-1-3-操作系统的特征"><a href="#1-1-3-操作系统的特征" class="headerlink" title="1.1.3 操作系统的特征"></a>1.1.3 操作系统的特征</h2><p>操作系统有四大特征：<strong>并发、共享、虚拟、异步</strong>；其中<strong>并发、共享</strong>是操作系统两个最基本的特征。</p>
+<h3 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h3><p><strong>并发性</strong>指计算机系统中同时存在着多个运行着的程序。<br>操作系统的并发性指计算机系统中“同时”运行着多个程序，这些程序宏观上看是同时运行着的，而微观上看是交替运行的。</p>
 <blockquote>
-<p>注意： 单核 <span class="math inline">\(CPU\)</span>
-同一时刻只能执行一个程序，各个程序只能并发地执行 多核 <span
-class="math inline">\(CPU\)</span>
-同一时刻可以同时执行多个程序，多个程序可以并行地执行比如 <span
-class="math inline">\(4\)</span> 核 <span
-class="math inline">\(CPU\)</span>，可以并行地执行 <span
-class="math inline">\(4\)</span> 个程序。</p>
+<p>注意：<br>单核 $CPU$ 同一时刻只能执行一个程序，各个程序只能并发地执行<br>多核 $CPU$ 同一时刻可以同时执行多个程序，多个程序可以并行地执行比如 $4$ 核 $CPU$，可以并行地执行 $4$ 个程序。</p>
 </blockquote>
 <blockquote>
 <p>区分：</p>
@@ -271,329 +236,208 @@ class="math inline">\(4\)</span> 个程序。</p>
 <li><strong>并行</strong>：同一时刻同时执行</li>
 </ul>
 </blockquote>
-<h3 id="共享">共享</h3>
-<p><strong>共享性</strong>是指系统中的资源可供内存中多个并发执行的进程共同使用。
-共享即资源共享，是指系统中的资源可供内存中多个并发执行的进程共同使用。</p>
+<h3 id="共享"><a href="#共享" class="headerlink" title="共享"></a>共享</h3><p><strong>共享性</strong>是指系统中的资源可供内存中多个并发执行的进程共同使用。<br>共享即资源共享，是指系统中的资源可供内存中多个并发执行的进程共同使用。</p>
 <p>资源共享分为两种方式：</p>
-<ol type="1">
-<li><p><strong>互斥共享方式</strong>
-系统中的某些资源，虽然可以提供给多个进程使用，但一个时间段内只允许一个进程访问该资源。
-实例：使用 <span class="math inline">\(QQ\)</span>
-和微信视频。同一时间段内摄像头只能分配给其中一个进程。</p></li>
-<li><p><strong>同时共享方式</strong>
-系统中的某些资源，允许一个时间段内由多个进程“同时”对它们进行访问。
-所谓的“同时”往往是宏观上的，而在微观上，这些进程可能是交替地对该资源进行访问的（即分时共享）。
-实例：使用 <span class="math inline">\(QQ\)</span> 发送文件 <span
-class="math inline">\(A\)</span>，同时使用微信发送文件 <span
-class="math inline">\(B\)</span>。宏观上看，两边都在同时读取并发送文件，说明两个进程都在访问硬盘资源，从中读取数据。微观上看，两个进程是交替着访问硬盘的。</p></li>
+<ol>
+<li><p><strong>互斥共享方式</strong><br>系统中的某些资源，虽然可以提供给多个进程使用，但一个时间段内只允许一个进程访问该资源。<br>实例：使用 $QQ$ 和微信视频。同一时间段内摄像头只能分配给其中一个进程。</p>
+</li>
+<li><p><strong>同时共享方式</strong><br>系统中的某些资源，允许一个时间段内由多个进程“同时”对它们进行访问。<br>所谓的“同时”往往是宏观上的，而在微观上，这些进程可能是交替地对该资源进行访问的（即分时共享）。<br>实例：使用 $QQ$ 发送文件 $A$，同时使用微信发送文件 $B$。宏观上看，两边都在同时读取并发送文件，说明两个进程都在访问硬盘资源，从中读取数据。微观上看，两个进程是交替着访问硬盘的。</p>
+</li>
 </ol>
-<h4 id="并发与共享的关系">并发与共享的关系</h4>
-<p>例子：使用 <span class="math inline">\(QQ\)</span> 发送文件 <span
-class="math inline">\(A\)</span>，同时使用微信发送文件 <span
-class="math inline">\(B\)</span>。</p>
-<ol type="1">
+<h4 id="并发与共享的关系"><a href="#并发与共享的关系" class="headerlink" title="并发与共享的关系"></a>并发与共享的关系</h4><p>例子：使用 $QQ$ 发送文件 $A$，同时使用微信发送文件 $B$。</p>
+<ol>
 <li>两个进程正在并发执行（并发性）</li>
 <li>需要共享地访问硬盘资源（共享性）</li>
 </ol>
 <ul>
 <li>如果失去并发性，则系统中只有一个程序正在运行，则共享性失去存在的意义</li>
-<li>如果失去共享性，则 <span class="math inline">\(QQ\)</span>
-和微信不能同时访问硬盘资源，就无法实现同时发送文件，也就无法并发</li>
+<li>如果失去共享性，则 $QQ$ 和微信不能同时访问硬盘资源，就无法实现同时发送文件，也就无法并发</li>
 </ul>
 <blockquote>
 <p>结论：并发与共享互为存在条件。</p>
 </blockquote>
-<h3 id="虚拟">虚拟</h3>
-<p><strong>虚拟</strong>是指把一个物理上的实体变为若干个逻辑上的对应物。物理实体（前者）是实际存在的，而逻辑上对应物（后者）是用户感受到的。</p>
+<h3 id="虚拟"><a href="#虚拟" class="headerlink" title="虚拟"></a>虚拟</h3><p><strong>虚拟</strong>是指把一个物理上的实体变为若干个逻辑上的对应物。物理实体（前者）是实际存在的，而逻辑上对应物（后者）是用户感受到的。</p>
 <p>虚拟技术分为两类：</p>
 <ul>
 <li>时分复用技术（如虚拟处理器技术）</li>
 <li>空分复用技术（如虚拟存储技术）</li>
 </ul>
-<p>实例：单核 <span class="math inline">\(CPU\)</span>
-上运行多个进程，用户会感觉有多个独立的处理器在运行程序，这就是时分复用带来的虚拟；物理内存通过虚拟存储技术，让程序感知到更大的逻辑内存空间，属于空分复用。</p>
-<h3 id="异步">异步</h3>
-<p><strong>异步</strong>是指，在多道程序环境下，允许多个程序并发执行，但由于资源有限，进程的执行不是一贯到底的，而是走走停停，以<strong>不可预知的速度向前推进</strong>，这就是进程的异步性。</p>
-<p><img src="/images/操作系统/1/操作系统特性.png"
-alt="image-20260922204348457" /></p>
-<h1 id="12操作系统发展与分类">1.2操作系统发展与分类</h1>
-<h2 id="手工操作阶段">手工操作阶段</h2>
-<p>特点：用户独占整机，人工装取纸带完成输入输出
-缺点：<strong>人机速度矛盾</strong>，<span
-class="math inline">\(CPU\)</span> 大量空闲，资源利用率极低</p>
-<h2 id="批处理阶段">批处理阶段</h2>
-<h3 id="1-单道批处理系统">1. 单道批处理系统</h3>
-<p>引入<strong>脱机输入/输出技术</strong>，监督程序管理作业 <span
-class="math inline">\(\(I/O\)\)</span></p>
+<p>实例：单核 $CPU$ 上运行多个进程，用户会感觉有多个独立的处理器在运行程序，这就是时分复用带来的虚拟；物理内存通过虚拟存储技术，让程序感知到更大的逻辑内存空间，属于空分复用。</p>
+<h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><p><strong>异步</strong>是指，在多道程序环境下，允许多个程序并发执行，但由于资源有限，进程的执行不是一贯到底的，而是走走停停，以<strong>不可预知的速度向前推进</strong>，这就是进程的异步性。</p>
+<p><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%89%B9%E6%80%A7.png" alt="image-20260922204348457"></p>
+<h1 id="1-2操作系统发展与分类"><a href="#1-2操作系统发展与分类" class="headerlink" title="1.2操作系统发展与分类"></a>1.2操作系统发展与分类</h1><h2 id="手工操作阶段"><a href="#手工操作阶段" class="headerlink" title="手工操作阶段"></a>手工操作阶段</h2><p>特点：用户独占整机，人工装取纸带完成输入输出<br>缺点：<strong>人机速度矛盾</strong>，$CPU$ 大量空闲，资源利用率极低</p>
+<h2 id="批处理阶段"><a href="#批处理阶段" class="headerlink" title="批处理阶段"></a>批处理阶段</h2><h3 id="1-单道批处理系统"><a href="#1-单道批处理系统" class="headerlink" title="1. 单道批处理系统"></a>1. 单道批处理系统</h3><p>引入<strong>脱机输入&#x2F;输出技术</strong>，监督程序管理作业 $(I&#x2F;O)$</p>
 <ul>
 <li>优点：一定程度缓解人机速度矛盾，资源利用率有所提升</li>
-<li>缺点：内存同一时刻只有一道程序运行；<span
-class="math inline">\(CPU\)</span> 等待 <span
-class="math inline">\(\(I/O\)\)</span>，<strong>资源利用率依然很低</strong></li>
+<li>缺点：内存同一时刻只有一道程序运行；$CPU$ 等待 $(I&#x2F;O)$，<strong>资源利用率依然很低</strong></li>
 </ul>
-<h3 id="2-多道批处理系统操作系统正式诞生">2.
-多道批处理系统（操作系统正式诞生）</h3>
-<p>内存同时载入多道程序，程序并发执行</p>
+<h3 id="2-多道批处理系统（操作系统正式诞生）"><a href="#2-多道批处理系统（操作系统正式诞生）" class="headerlink" title="2. 多道批处理系统（操作系统正式诞生）"></a>2. 多道批处理系统（操作系统正式诞生）</h3><p>内存同时载入多道程序，程序并发执行</p>
 <ul>
-<li>优点：多道程序并发、资源共享，<span
-class="math inline">\(CPU\)</span> 利用率、系统吞吐量大幅提高</li>
+<li>优点：多道程序并发、资源共享，$CPU$ 利用率、系统吞吐量大幅提高</li>
 <li>缺点：<strong>无交互能力</strong>，提交作业后用户无法干预程序运行，响应时间长</li>
 </ul>
-<h2 id="分时操作系统">分时操作系统</h2>
-<p>以<strong>时间片轮转</strong>的方式轮流为多个终端用户服务</p>
+<h2 id="分时操作系统"><a href="#分时操作系统" class="headerlink" title="分时操作系统"></a>分时操作系统</h2><p>以<strong>时间片轮转</strong>的方式轮流为多个终端用户服务</p>
 <ul>
 <li>优点：支持人机交互；多用户同时使用一台主机，相互独立，用户感觉独占计算机</li>
 <li>缺点：公平分配时间片，<strong>不能优先处理紧急任务</strong></li>
 </ul>
-<h2 id="实时操作系统">实时操作系统</h2>
-<p>核心特征：<strong>及时性、可靠性</strong>，可优先响应紧急任务，紧急任务不需要排队等时间片</p>
+<h2 id="实时操作系统"><a href="#实时操作系统" class="headerlink" title="实时操作系统"></a>实时操作系统</h2><p>核心特征：<strong>及时性、可靠性</strong>，可优先响应紧急任务，紧急任务不需要排队等时间片</p>
 <ul>
-<li>硬实时系统：<strong>必须在绝对严格时限内完成处理</strong>，超时会造成严重后果
-例：导弹控制系统、自动驾驶系统</li>
-<li>软实时系统：允许<strong>偶尔违反时间规定</strong>，超时不会造成灾难性后果
-例：<span class="math inline">\(12306\)</span> 火车订票系统</li>
+<li>硬实时系统：<strong>必须在绝对严格时限内完成处理</strong>，超时会造成严重后果<br>例：导弹控制系统、自动驾驶系统</li>
+<li>软实时系统：允许<strong>偶尔违反时间规定</strong>，超时不会造成灾难性后果<br>例：$12306$ 火车订票系统</li>
 </ul>
-<h2 id="其他操作系统">其他操作系统</h2>
-<ul>
+<h2 id="其他操作系统"><a href="#其他操作系统" class="headerlink" title="其他操作系统"></a>其他操作系统</h2><ul>
 <li>网络操作系统：实现网络中多机通信、资源共享</li>
 <li>分布式操作系统：多台计算机协同，对外像一台机器</li>
-<li>个人计算机操作系统：面向单用户，如 <span
-class="math inline">\(Windows\)</span>、<span
-class="math inline">\(macOS\)</span></li>
+<li>个人计算机操作系统：面向单用户，如 $Windows$、$macOS$</li>
 </ul>
-<p><img src="/images/操作系统/1/操作系统分类与发展.png"
-alt="屏幕截图 2026-09-22 205123" /></p>
-<h1 id="13操作系统运行环境">1.3操作系统运行环境</h1>
-<h2 id="131运行机制">1.3.1运行机制</h2>
-<h3 id="程序分类">程序分类</h3>
-<ul>
+<p><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%88%86%E7%B1%BB%E4%B8%8E%E5%8F%91%E5%B1%95.png" alt="屏幕截图 2026-09-22 205123"></p>
+<h1 id="1-3操作系统运行环境"><a href="#1-3操作系统运行环境" class="headerlink" title="1.3操作系统运行环境"></a>1.3操作系统运行环境</h1><h2 id="1-3-1运行机制"><a href="#1-3-1运行机制" class="headerlink" title="1.3.1运行机制"></a>1.3.1运行机制</h2><h3 id="程序分类"><a href="#程序分类" class="headerlink" title="程序分类"></a>程序分类</h3><ul>
 <li>内核程序：操作系统内核使用的程序</li>
-<li>应用程序：普通用户/程序员编写的程序</li>
+<li>应用程序：普通用户&#x2F;程序员编写的程序</li>
 </ul>
-<h3 id="两种指令">两种指令</h3>
-<p><span class="math inline">\(CPU\)</span>
-在出厂时就划分了特权指令与非特权指令，<span
-class="math inline">\(CPU\)</span> 执行指令前可判断指令类型</p>
+<h3 id="两种指令"><a href="#两种指令" class="headerlink" title="两种指令"></a>两种指令</h3><p>$CPU$ 在出厂时就划分了特权指令与非特权指令，$CPU$ 执行指令前可判断指令类型</p>
 <ul>
 <li><strong>特权指令</strong>：影响重大，仅允许操作系统内核使用，如内存清零指令</li>
 <li><strong>非特权指令</strong>：应用程序可使用，如加法指令、减法指令</li>
 </ul>
-<h3 id="两种处理器状态cpu-状态">两种处理器状态（<span
-class="math inline">\(CPU\)</span> 状态）</h3>
-<p>别名：内核态=核心态=管态；用户态=目态</p>
+<h3 id="两种处理器状态（-CPU-状态）"><a href="#两种处理器状态（-CPU-状态）" class="headerlink" title="两种处理器状态（$CPU$ 状态）"></a>两种处理器状态（$CPU$ 状态）</h3><p>别名：内核态&#x3D;核心态&#x3D;管态；用户态&#x3D;目态</p>
 <ul>
-<li><p><strong>内核态</strong>：正在运行内核程序，可执行特权指令与非特权指令</p></li>
+<li><p><strong>内核态</strong>：正在运行内核程序，可执行特权指令与非特权指令</p>
+</li>
 <li><p><strong>用户态</strong>：正在运行应用程序，<strong>只能执行非特权指令</strong></p>
 <blockquote>
-<p>内核是操作系统最重要最核心最接近硬件的部分，由大量内核程序组成。
-<span class="math inline">\(CPU\)</span> 中有程序状态字寄存器（<span
-class="math inline">\(PSW\)</span>），用其中一位标记状态，<span
-class="math inline">\(1\)</span> 表示“内核态”，<span
-class="math inline">\(0\)</span> 表示“用户态”</p>
-</blockquote></li>
-</ul>
-<h4 id="状态转换变态">状态转换（变态）</h4>
-<ol type="1">
-<li><p><strong>内核态 <span
-class="math inline">\(\boldsymbol{\rightarrow}\)</span> 用户态</strong>
-执行一条特权指令——修改 <span class="math inline">\(PSW\)</span>
-的标志位为“用户态”，这个动作意味着操作系统将主动让出 <span
-class="math inline">\(CPU\)</span> 使用权。</p>
-<blockquote>
-<p>操作系统内核在让出 <span class="math inline">\(CPU\)</span>
-之前，会用一条特权指令把 <span class="math inline">\(PSW\)</span>
-的标志位设置为“用户态”</p>
-</blockquote></li>
-<li><p><strong>用户态 <span
-class="math inline">\(\boldsymbol{\rightarrow}\)</span> 内核态</strong>
-由<strong>中断</strong>引发，硬件自动完成变态过程；触发中断信号意味着操作系统将强行夺回
-<span class="math inline">\(CPU\)</span> 的使用权。</p>
-<blockquote>
-<p>共性：但凡需要操作系统介入的地方，都会触发中断信号。 <span
-class="math inline">\(CPU\)</span>
-检测到中断信号后，会立即变为“内核态”，停止运行当前应用程序，转而运行处理中断信号的内核程序？</p>
-</blockquote></li>
-</ol>
-<p><img src="/images/操作系统/1/操作系统运行机制.png"
-alt="屏幕截图 2026-09-22 210557" /></p>
-<h2 id="132中断和异常">1.3.2中断和异常</h2>
-<h3 id="中断的作用">中断的作用</h3>
-<p>“中断”是让操作系统内核夺回 <span class="math inline">\(CPU\)</span>
-使用权的<strong>唯一途径</strong>。</p>
-<ul>
-<li>让操作系统内核强行夺回 <span class="math inline">\(CPU\)</span>
-的控制权</li>
-<li>使 <span class="math inline">\(CPU\)</span> 从用户态变为内核态</li>
-</ul>
-<blockquote>
-<p>补充： 内核态 <span class="math inline">\(\rightarrow\)</span>
-用户态：执行一条特权指令，修改 <span class="math inline">\(PSW\)</span>
-的标志位为“用户态”，操作系统主动让出 <span
-class="math inline">\(CPU\)</span> 使用权。 用户态 <span
-class="math inline">\(\rightarrow\)</span>
-内核态：由<strong>中断</strong>引发，硬件自动完成状态切换，操作系统强行夺回
-<span class="math inline">\(CPU\)</span> 使用权。
-如果没有中断机制，一旦应用程序占用 <span
-class="math inline">\(CPU\)</span>，<span
-class="math inline">\(CPU\)</span>
-会一直运行该应用程序，无法实现并发。</p>
+<p>内核是操作系统最重要最核心最接近硬件的部分，由大量内核程序组成。 $CPU$ 中有程序状态字寄存器（$PSW$），用其中一位标记状态，$1$ 表示“内核态”，$0$ 表示“用户态”</p>
 </blockquote>
-<h3 id="中断的分类广义中断">中断的分类（广义中断）</h3>
+</li>
+</ul>
+<h4 id="状态转换（变态）"><a href="#状态转换（变态）" class="headerlink" title="状态转换（变态）"></a>状态转换（变态）</h4><ol>
+<li><p><strong>内核态 $\boldsymbol{\rightarrow}$ 用户态</strong> 执行一条特权指令——修改 $PSW$ 的标志位为“用户态”，这个动作意味着操作系统将主动让出 $CPU$ 使用权。</p>
 <blockquote>
+<p>操作系统内核在让出 $CPU$ 之前，会用一条特权指令把 $PSW$ 的标志位设置为“用户态”</p>
+</blockquote>
+</li>
+<li><p><strong>用户态 $\boldsymbol{\rightarrow}$ 内核态</strong> 由<strong>中断</strong>引发，硬件自动完成变态过程；触发中断信号意味着操作系统将强行夺回 $CPU$ 的使用权。</p>
+<blockquote>
+<p>共性：但凡需要操作系统介入的地方，都会触发中断信号。 $CPU$ 检测到中断信号后，会立即变为“内核态”，停止运行当前应用程序，转而运行处理中断信号的内核程序？</p>
+</blockquote>
+</li>
+</ol>
+<p><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6.png" alt="屏幕截图 2026-09-22 210557"></p>
+<h2 id="1-3-2中断和异常"><a href="#1-3-2中断和异常" class="headerlink" title="1.3.2中断和异常"></a>1.3.2中断和异常</h2><h3 id="中断的作用"><a href="#中断的作用" class="headerlink" title="中断的作用"></a>中断的作用</h3><p>“中断”是让操作系统内核夺回 $CPU$ 使用权的<strong>唯一途径</strong>。</p>
+<ul>
+<li>让操作系统内核强行夺回 $CPU$ 的控制权</li>
+<li>使 $CPU$ 从用户态变为内核态</li>
+</ul>
+<blockquote>
+<p>补充： 内核态 $\rightarrow$ 用户态：执行一条特权指令，修改 $PSW$ 的标志位为“用户态”，操作系统主动让出 $CPU$ 使用权。 用户态 $\rightarrow$ 内核态：由<strong>中断</strong>引发，硬件自动完成状态切换，操作系统强行夺回 $CPU$ 使用权。 如果没有中断机制，一旦应用程序占用 $CPU$，$CPU$ 会一直运行该应用程序，无法实现并发。</p>
+</blockquote>
+<h3 id="中断的分类（广义中断）"><a href="#中断的分类（广义中断）" class="headerlink" title="中断的分类（广义中断）"></a>中断的分类（广义中断）</h3><blockquote>
 <p>大多数教材、试卷中，“中断”特指<strong>狭义的中断（外中断）</strong>，内中断一般称为<strong>异常</strong>。</p>
 </blockquote>
-<h4 id="1-内中断异常">1. 内中断（异常）</h4>
-<p>信号来自 <span class="math inline">\(CPU\)</span>
-<strong>内部</strong>，<strong>与当前执行指令有关</strong></p>
-<ol type="1">
-<li><strong>陷阱、陷入（trap）</strong>：由陷入指令引发，是应用程序<strong>主动</strong>触发。
-例：系统调用，应用程序请求操作系统内核服务，主动交出 <span
-class="math inline">\(CPU\)</span> 控制权。</li>
-<li><strong>故障（fault）</strong>：由错误条件引起，内核有可能修复；修复完成后将
-<span class="math inline">\(CPU\)</span> 交回应用程序继续执行。
-例：缺页故障。</li>
-<li><strong>终止（abort）</strong>：由致命错误引起，内核无法修复，一般不再交还
-<span class="math inline">\(CPU\)</span>，直接终止应用程序。 例：整数除
-<span class="math inline">\(0\)</span>、用户态非法执行特权指令。</li>
+<h4 id="1-内中断（异常）"><a href="#1-内中断（异常）" class="headerlink" title="1. 内中断（异常）"></a>1. 内中断（异常）</h4><p>信号来自 $CPU$ <strong>内部</strong>，<strong>与当前执行指令有关</strong></p>
+<ol>
+<li><strong>陷阱、陷入（trap）</strong>：由陷入指令引发，是应用程序<strong>主动</strong>触发。 例：系统调用，应用程序请求操作系统内核服务，主动交出 $CPU$ 控制权。</li>
+<li><strong>故障（fault）</strong>：由错误条件引起，内核有可能修复；修复完成后将 $CPU$ 交回应用程序继续执行。 例：缺页故障。</li>
+<li><strong>终止（abort）</strong>：由致命错误引起，内核无法修复，一般不再交还 $CPU$，直接终止应用程序。 例：整数除 $0$、用户态非法执行特权指令。</li>
 </ol>
-<h4 id="2-外中断狭义的中断">2. 外中断（狭义的中断）</h4>
-<p>信号来自 <span class="math inline">\(CPU\)</span>
-<strong>外部</strong>，<strong>与当前执行指令无关</strong>，每条指令周期末尾
-<span class="math inline">\(CPU\)</span> 才检查外中断信号</p>
+<h4 id="2-外中断（狭义的中断）"><a href="#2-外中断（狭义的中断）" class="headerlink" title="2. 外中断（狭义的中断）"></a>2. 外中断（狭义的中断）</h4><p>信号来自 $CPU$ <strong>外部</strong>，<strong>与当前执行指令无关</strong>，每条指令周期末尾 $CPU$ 才检查外中断信号</p>
 <ul>
-<li>时钟中断：时钟部件每隔固定时间（如 <span
-class="math inline">\(50\mathrm{ms}\)</span>）发送中断信号，用于时间片轮转。</li>
-<li><span class="math inline">\((I/O)\)</span>
-中断请求：输入输出设备完成任务后，向 <span
-class="math inline">\(CPU\)</span> 发送中断信号。</li>
+<li>时钟中断：时钟部件每隔固定时间（如 $50\mathrm{ms}$）发送中断信号，用于时间片轮转。</li>
+<li>$(I&#x2F;O)$ 中断请求：输入输出设备完成任务后，向 $CPU$ 发送中断信号。</li>
 </ul>
-<h3 id="中断机制的基本实现原理">中断机制的基本实现原理</h3>
-<ol type="1">
+<h3 id="中断机制的基本实现原理"><a href="#中断机制的基本实现原理" class="headerlink" title="中断机制的基本实现原理"></a>中断机制的基本实现原理</h3><ol>
 <li><p><strong>检查中断信号</strong></p>
 <ul>
-<li>内中断：<span class="math inline">\(CPU\)</span>
-在<strong>执行指令时</strong>检查是否有异常发生</li>
-<li>外中断：在<strong>每个指令周期末尾</strong>，<span
-class="math inline">\(CPU\)</span> 检查是否有外中断信号</li>
-</ul></li>
-<li><p><strong>找到相应的中断处理程序</strong>
-通过<strong>中断向量表</strong>实现：不同中断信号对应不同中断处理程序；<span
-class="math inline">\(CPU\)</span>
-检测中断信号后，查询中断向量表，找到中断处理程序在内存中的位置。</p>
+<li>内中断：$CPU$ 在<strong>执行指令时</strong>检查是否有异常发生</li>
+<li>外中断：在<strong>每个指令周期末尾</strong>，$CPU$ 检查是否有外中断信号</li>
+</ul>
+</li>
+<li><p><strong>找到相应的中断处理程序</strong> 通过<strong>中断向量表</strong>实现：不同中断信号对应不同中断处理程序；$CPU$ 检测中断信号后，查询中断向量表，找到中断处理程序在内存中的位置。</p>
 <blockquote>
 <p>中断处理程序属于内核程序，运行在内核态。</p>
-</blockquote></li>
+</blockquote>
+</li>
 </ol>
-<p><img src="/images/操作系统/1/中断与异常.png"
-alt="屏幕截图 2026-09-22 212444" /></p>
-<h2 id="133-系统调用">1.3.3 系统调用</h2>
-<h3 id="系统调用的定义">系统调用的定义</h3>
-<p><strong>系统调用</strong>是操作系统内核提供给应用程序使用的接口。凡是涉及系统共享资源的操作，必须通过系统调用向内核发起请求，由操作系统代为完成，是用户程序请求内核服务的<strong>唯一入口</strong>。</p>
+<p><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1/%E4%B8%AD%E6%96%AD%E4%B8%8E%E5%BC%82%E5%B8%B8.png" alt="屏幕截图 2026-09-22 212444"></p>
+<h2 id="1-3-3-系统调用"><a href="#1-3-3-系统调用" class="headerlink" title="1.3.3 系统调用"></a>1.3.3 系统调用</h2><h3 id="系统调用的定义"><a href="#系统调用的定义" class="headerlink" title="系统调用的定义"></a>系统调用的定义</h3><p><strong>系统调用</strong>是操作系统内核提供给应用程序使用的接口。凡是涉及系统共享资源的操作，必须通过系统调用向内核发起请求，由操作系统代为完成，是用户程序请求内核服务的<strong>唯一入口</strong>。</p>
 <blockquote>
 <p>系统资源由操作系统统一管控，不允许用户程序直接操作硬件、内存等共享资源，以此保障系统安全稳定。</p>
 </blockquote>
-<h3 id="系统调用与库函数">系统调用与库函数</h3>
-<p>层次从底层到上层：裸机 <span
-class="math inline">\(\rightarrow\)</span> 操作系统 <span
-class="math inline">\(\rightarrow\)</span> 编程语言库函数 <span
-class="math inline">\(\rightarrow\)</span> 普通应用程序</p>
+<h3 id="系统调用与库函数"><a href="#系统调用与库函数" class="headerlink" title="系统调用与库函数"></a>系统调用与库函数</h3><p>层次从底层到上层：裸机 $\rightarrow$ 操作系统 $\rightarrow$ 编程语言库函数 $\rightarrow$ 普通应用程序</p>
 <ul>
-<li><p>系统调用：操作系统内核提供，运行于内核态，完成资源相关操作。</p></li>
+<li><p>系统调用：操作系统内核提供，运行于内核态，完成资源相关操作。</p>
+</li>
 <li><p>库函数：编程语言提供，运行于用户态。一部分库函数封装系统调用，隐藏底层细节；一部分库函数完全不涉及系统调用。</p>
 <blockquote>
-<p>例：<span class="math inline">\(abs()\)</span>
-取绝对值库函数，不需要系统调用；<span
-class="math inline">\(fopen()\)</span>
-文件打开库函数，底层会调用文件相关系统调用。</p>
-</blockquote></li>
-</ul>
-<h3 id="为什么必须要有系统调用">为什么必须要有系统调用？</h3>
-<p>计算机里的硬件、文件、内存、进程都属于系统共享资源，多个进程会竞争使用。
-如果允许用户程序直接操作硬件 /
-内存，会产生冲突、破坏系统，不安全、不稳定。</p>
-<blockquote>
-<p>规则：凡是和共享资源有关、会影响其他进程的操作，必须交给操作系统内核完成，必须通过系统调用。
-例子：<span class="math inline">\(Word\)</span> 和 <span
-class="math inline">\(WPS\)</span>
-同时向打印机发打印请求，由内核统一调度打印机资源。</p>
+<p>例：$abs()$ 取绝对值库函数，不需要系统调用；$fopen()$ 文件打开库函数，底层会调用文件相关系统调用。</p>
 </blockquote>
-<h3 id="系统调用的分类">系统调用的分类</h3>
-<ol type="1">
+</li>
+</ul>
+<h3 id="为什么必须要有系统调用？"><a href="#为什么必须要有系统调用？" class="headerlink" title="为什么必须要有系统调用？"></a>为什么必须要有系统调用？</h3><p>计算机里的硬件、文件、内存、进程都属于系统共享资源，多个进程会竞争使用。 如果允许用户程序直接操作硬件 &#x2F; 内存，会产生冲突、破坏系统，不安全、不稳定。</p>
+<blockquote>
+<p>规则：凡是和共享资源有关、会影响其他进程的操作，必须交给操作系统内核完成，必须通过系统调用。<br>例子：$Word$ 和 $WPS$ 同时向打印机发打印请求，由内核统一调度打印机资源。</p>
+</blockquote>
+<h3 id="系统调用的分类"><a href="#系统调用的分类" class="headerlink" title="系统调用的分类"></a>系统调用的分类</h3><ol>
 <li><strong>设备管理</strong>：设备请求、释放、启动读写外设</li>
 <li><strong>文件管理</strong>：文件创建、删除、读、写</li>
 <li><strong>进程控制</strong>：进程创建、撤销、阻塞、唤醒</li>
 <li><strong>进程通信</strong>：进程之间消息、信号传递</li>
 <li><strong>内存管理</strong>：内存分配、内存回收</li>
 </ol>
-<h3 id="系统调用的处理过程">系统调用的处理过程</h3>
-<ol type="1">
-<li><p><strong>传递参数</strong>：应用程序处于用户态，将系统调用所需要的参数放到通用寄存器。</p></li>
+<h3 id="系统调用的处理过程"><a href="#系统调用的处理过程" class="headerlink" title="系统调用的处理过程"></a>系统调用的处理过程</h3><ol>
+<li><p><strong>传递参数</strong>：应用程序处于用户态，将系统调用所需要的参数放到通用寄存器。</p>
+</li>
 <li><p><strong>执行陷入指令（访管指令）</strong></p>
 <blockquote>
-<p>陷入指令在<strong>用户态</strong>执行，执行后触发内中断，<span
-class="math inline">\(CPU\)</span> 完成用户态向内核态的切换。</p>
-</blockquote></li>
-<li><p><strong>内核执行对应服务程序</strong>：<span
-class="math inline">\(CPU\)</span>
-切换至内核态，操作系统内核执行对应的系统调用服务子程序，完成资源操作。</p></li>
-<li><p><strong>返回用户程序</strong>：内核处理完毕，将 <span
-class="math inline">\(CPU\)</span>
-从内核态切回用户态，回到应用程序继续执行。</p></li>
+<p>陷入指令在<strong>用户态</strong>执行，执行后触发内中断，$CPU$ 完成用户态向内核态的切换。</p>
+</blockquote>
+</li>
+<li><p><strong>内核执行对应服务程序</strong>：$CPU$ 切换至内核态，操作系统内核执行对应的系统调用服务子程序，完成资源操作。</p>
+</li>
+<li><p><strong>返回用户程序</strong>：内核处理完毕，将 $CPU$ 从内核态切回用户态，回到应用程序继续执行。</p>
+</li>
 </ol>
 <blockquote>
 <p>陷入指令是用户态主动进入内核态的唯一手段；系统调用请求发出发生在用户态，真正资源操作发生在内核态。</p>
 </blockquote>
-<p><img src="/images/操作系统/1/系统调用.png"
-alt="屏幕截图 2026-09-22 213906" /></p>
-<h2 id="14-操作系统体系结构">1.4 操作系统体系结构</h2>
-<h3 id="操作系统内核">操作系统内核</h3>
-<p>内核是操作系统最基本、最核心的部分。
-实现操作系统内核功能的那些程序就是<strong>内核程序</strong>。</p>
-<h4 id="内核包含模块">内核包含模块</h4>
-<ul>
+<p><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1/%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8.png" alt="屏幕截图 2026-09-22 213906"></p>
+<h2 id="1-4-操作系统体系结构"><a href="#1-4-操作系统体系结构" class="headerlink" title="1.4 操作系统体系结构"></a>1.4 操作系统体系结构</h2><h3 id="操作系统内核"><a href="#操作系统内核" class="headerlink" title="操作系统内核"></a>操作系统内核</h3><p>内核是操作系统最基本、最核心的部分。 实现操作系统内核功能的那些程序就是<strong>内核程序</strong>。</p>
+<h4 id="内核包含模块"><a href="#内核包含模块" class="headerlink" title="内核包含模块"></a>内核包含模块</h4><ul>
 <li>时钟管理：实现计时功能</li>
 <li>中断处理：负责实现中断机制</li>
-<li>原语
-<ul>
+<li>原语<ul>
 <li>是一种特殊的程序</li>
 <li>处于操作系统最底层，是最接近硬件的部分</li>
 <li>这种程序的运行具有原子性——其运行不可中断</li>
 <li>运行时间较短、调用频繁</li>
-</ul></li>
-<li>对系统资源进行管理的功能
-<ul>
+</ul>
+</li>
+<li>对系统资源进行管理的功能<ul>
 <li>进程管理</li>
 <li>存储器管理</li>
 <li>设备管理</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <blockquote>
-<p>时钟管理、中断处理、原语：与硬件关联较紧密的模块
-进程管理、存储器管理、设备管理：这些管理工作更多的是对数据结构的操作，不会直接涉及硬件</p>
+<p>时钟管理、中断处理、原语：与硬件关联较紧密的模块 进程管理、存储器管理、设备管理：这些管理工作更多的是对数据结构的操作，不会直接涉及硬件</p>
 </blockquote>
-<h3 id="操作系统的两种体系结构">操作系统的两种体系结构</h3>
-<p><img src="/images/操作系统/1/大内核与微内核.png"
-alt="image-20260922220029374" /></p>
-<h4 id="大内核">大内核</h4>
-<p>将操作系统的主要功能模块都作为系统内核，运行在核心态</p>
+<h3 id="操作系统的两种体系结构"><a href="#操作系统的两种体系结构" class="headerlink" title="操作系统的两种体系结构"></a>操作系统的两种体系结构</h3><p><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1/%E5%A4%A7%E5%86%85%E6%A0%B8%E4%B8%8E%E5%BE%AE%E5%86%85%E6%A0%B8.png" alt="image-20260922220029374"></p>
+<h4 id="大内核"><a href="#大内核" class="headerlink" title="大内核"></a>大内核</h4><p>将操作系统的主要功能模块都作为系统内核，运行在核心态</p>
 <ul>
 <li>优点：高性能</li>
 <li>缺点：内核代码庞大，结构混乱，难以维护</li>
 </ul>
-<h4 id="微内核">微内核</h4>
-<p>只把最基本的功能保留在内核</p>
+<h4 id="微内核"><a href="#微内核" class="headerlink" title="微内核"></a>微内核</h4><p>只把最基本的功能保留在内核</p>
 <ul>
 <li>优点：内核功能少，结构清晰，方便维护</li>
 <li>缺点：需要频繁地在核心态和用户态之间切换，性能低</li>
 </ul>
 <blockquote>
-<p>典型的大内核/宏内核/单内核操作系统：<span
-class="math inline">\(Linux\)</span>、<span
-class="math inline">\(UNIX\)</span> 典型的微内核操作系统：<span
-class="math inline">\(Windows\ NT\)</span></p>
+<p>典型的大内核&#x2F;宏内核&#x2F;单内核操作系统：$Linux$、$UNIX$ 典型的微内核操作系统：$Windows\ NT$</p>
 </blockquote>
-<h3 id="大内核与微内核的对比">大内核与微内核的对比</h3>
-<p>场景：应用程序想要请求操作系统的服务，这个服务的处理同时涉及到进程管理、存储管理、设备管理</p>
+<h3 id="大内核与微内核的对比"><a href="#大内核与微内核的对比" class="headerlink" title="大内核与微内核的对比"></a>大内核与微内核的对比</h3><p>场景：应用程序想要请求操作系统的服务，这个服务的处理同时涉及到进程管理、存储管理、设备管理</p>
 <ul>
 <li>大内核：两次变态</li>
 <li>微内核：六次变态</li>
@@ -601,11 +445,8 @@ class="math inline">\(Windows\ NT\)</span></p>
 <blockquote>
 <p>注意：变态的过程是有成本的，要消耗不少时间，频繁地变态会降低系统性能</p>
 </blockquote>
-<p><img src="/images/操作系统/1/内核小结.png"
-alt="屏幕截图 2026-09-22 215252" /></p>
-<h3 id="操作系统的体系结构补充">操作系统的体系结构补充</h3>
-<h4 id="1-分层结构">1. 分层结构</h4>
-<p>分层结构将操作系统按功能划分为多个层次，每层只对上一层提供服务，并隐藏底层实现细节。</p>
+<p><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1/%E5%86%85%E6%A0%B8%E5%B0%8F%E7%BB%93.png" alt="屏幕截图 2026-09-22 215252"></p>
+<h3 id="操作系统的体系结构补充"><a href="#操作系统的体系结构补充" class="headerlink" title="操作系统的体系结构补充"></a>操作系统的体系结构补充</h3><h4 id="1-分层结构"><a href="#1-分层结构" class="headerlink" title="1. 分层结构"></a>1. 分层结构</h4><p>分层结构将操作系统按功能划分为多个层次，每层只对上一层提供服务，并隐藏底层实现细节。</p>
 <ul>
 <li><strong>优点</strong>：结构清晰，便于调试和验证；每层可独立测试，便于移植；支持增量开发，可逐层实现。</li>
 <li><strong>缺点</strong>：层次划分会增加系统开销；每层之间存在严格接口约束，跨层访问受限；效率可能低于其他结构。</li>
@@ -613,48 +454,38 @@ alt="屏幕截图 2026-09-22 215252" /></p>
 <blockquote>
 <p>分层结构的核心思想是：每一层只做有限职责，通过接口向上提供服务。</p>
 </blockquote>
-<h4 id="2-模块化结构">2. 模块化结构</h4>
-<p>模块化是将操作系统功能划分为若干具有一定独立性的模块，每个模块负责某一方面的管理功能，并规定模块之间的接口，使模块能通过接口通信。</p>
-<p>例如：操作系统可划分为
-<strong>进程管理模块、存储器管理模块、文件管理模块</strong>
-等；每个模块内部还可进一步划分为若干子模块，如进程控制、进程调度、内存分配、内存保护、磁盘管理、目录管理等。</p>
+<h4 id="2-模块化结构"><a href="#2-模块化结构" class="headerlink" title="2. 模块化结构"></a>2. 模块化结构</h4><p>模块化是将操作系统功能划分为若干具有一定独立性的模块，每个模块负责某一方面的管理功能，并规定模块之间的接口，使模块能通过接口通信。</p>
+<p>例如：操作系统可划分为 <strong>进程管理模块、存储器管理模块、文件管理模块</strong> 等；每个模块内部还可进一步划分为若干子模块，如进程控制、进程调度、内存分配、内存保护、磁盘管理、目录管理等。</p>
 <ul>
 <li><strong>优点</strong>：模块独立性强，便于理解和维护；可单独开发、测试和替换模块；接口清晰，有利于多人协作开发。</li>
 <li><strong>缺点</strong>：模块之间可能存在复杂依赖；若接口设计不当，会影响系统效率；模块划分的粒度会直接影响系统结构的清晰度。</li>
 </ul>
 <blockquote>
-<p>这种设计方法称为
-<strong>模块-接口法</strong>，由模块、子模块和模块之间的接口共同组成模块化操作系统结构。</p>
+<p>这种设计方法称为 <strong>模块-接口法</strong>，由模块、子模块和模块之间的接口共同组成模块化操作系统结构。</p>
 </blockquote>
-<h4 id="3-宏内核大内核">3. 宏内核（大内核）</h4>
-<p>宏内核将操作系统的主要功能模块都集成在内核中，运行在核心态。</p>
+<h4 id="3-宏内核（大内核）"><a href="#3-宏内核（大内核）" class="headerlink" title="3. 宏内核（大内核）"></a>3. 宏内核（大内核）</h4><p>宏内核将操作系统的主要功能模块都集成在内核中，运行在核心态。</p>
 <ul>
 <li><strong>优点</strong>：性能高，模块间通信直接；功能完整，适合对效率要求较高的系统。</li>
 <li><strong>缺点</strong>：内核代码庞大，结构混乱，难以维护；一个模块出错可能影响整个内核。</li>
 </ul>
 <blockquote>
-<p>典型操作系统：<span class="math inline">\(Linux\)</span>、<span
-class="math inline">\(UNIX\)</span></p>
+<p>典型操作系统：$Linux$、$UNIX$</p>
 </blockquote>
-<h4 id="4-微内核">4. 微内核</h4>
-<p>微内核只把最基本的功能保留在内核中，如进程通信、内存管理、中断处理等，其他服务以用户态进程方式运行。</p>
+<h4 id="4-微内核"><a href="#4-微内核" class="headerlink" title="4. 微内核"></a>4. 微内核</h4><p>微内核只把最基本的功能保留在内核中，如进程通信、内存管理、中断处理等，其他服务以用户态进程方式运行。</p>
 <ul>
 <li><strong>优点</strong>：内核小，结构清晰；可靠性高，用户态服务出错不易影响整个系统；便于扩展和维护。</li>
 <li><strong>缺点</strong>：需要频繁在核心态和用户态之间切换，性能较低；用户态服务之间通信成本较高。</li>
 </ul>
 <blockquote>
-<p>典型操作系统：<span class="math inline">\(Windows\ NT\)</span></p>
+<p>典型操作系统：$Windows\ NT$</p>
 </blockquote>
-<h4 id="5-外核exokernel">5. 外核（<span
-class="math inline">\(exokernel\)</span>）</h4>
-<p>外核是一种更极端的内核结构，内核只负责保护和复用硬件资源，而资源管理策略更多地由用户级软件完成。</p>
+<h4 id="5-外核（-exokernel-）"><a href="#5-外核（-exokernel-）" class="headerlink" title="5. 外核（$exokernel$）"></a>5. 外核（$exokernel$）</h4><p>外核是一种更极端的内核结构，内核只负责保护和复用硬件资源，而资源管理策略更多地由用户级软件完成。</p>
 <ul>
 <li><strong>优点</strong>：减少了内核资源管理的负担，提高了系统的灵活性和并行度。</li>
 <li><strong>缺点</strong>：降低了系统的一致性，部分管理工作需要上层软件承担。</li>
 </ul>
-<hr />
-<h3 id="体系结构对比总结">体系结构对比总结</h3>
-<table>
+<hr>
+<h3 id="体系结构对比总结"><a href="#体系结构对比总结" class="headerlink" title="体系结构对比总结"></a>体系结构对比总结</h3><table>
 <thead>
 <tr>
 <th>体系结构</th>
@@ -663,8 +494,7 @@ class="math inline">\(exokernel\)</span>）</h4>
 <th>缺点</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>分层结构</td>
 <td>按层次组织，每层只通过接口向上层提供服务</td>
 <td>结构清晰，便于测试、调试和移植</td>
@@ -694,57 +524,22 @@ class="math inline">\(exokernel\)</span>）</h4>
 <td>灵活性高，并行度高</td>
 <td>一致性较低，上层负担较重</td>
 </tr>
-</tbody>
-</table>
-<h2 id="115操作系统引导">1.1.5操作系统引导</h2>
-<blockquote>
-<p>说明：这是<strong>传统 <span class="math inline">\(BIOS\)</span> +
-<span class="math inline">\(MBR\)</span>
-磁盘</strong>的开机引导流程（不是 <span
-class="math inline">\(UEFI\)</span>）</p>
+</tbody></table>
+<h2 id="1-1-5操作系统引导"><a href="#1-1-5操作系统引导" class="headerlink" title="1.1.5操作系统引导"></a>1.1.5操作系统引导</h2><blockquote>
+<p>说明：这是<strong>传统 $BIOS$ + $MBR$ 磁盘</strong>的开机引导流程（不是 $UEFI$）</p>
 </blockquote>
-<h3 id="整体流程梳理">整体流程梳理</h3>
-<ol type="1">
-<li><p><strong>① <span class="math inline">\(CPU\)</span> 上电，执行
-<span class="math inline">\(ROM\)</span>（<span
-class="math inline">\(BIOS\)</span>）里的引导程序</strong>
-计算机通电后，<span class="math inline">\(CPU\)</span>
-直接从固定的主存地址取指令，运行固化在 <span
-class="math inline">\(ROM\)</span> 中的 <span
-class="math inline">\(BIOS\)</span> 程序。 <span
-class="math inline">\(BIOS\)</span> 首先执行<strong>硬件自检 <span
-class="math inline">\(POST\)</span></strong>，检测 <span
-class="math inline">\(CPU\)</span>、内存、硬盘等基础硬件是否正常；自检通过后，<span
-class="math inline">\(BIOS\)</span>
-会按照启动顺序寻找可引导磁盘。</p></li>
-<li><p><strong>② <span class="math inline">\(BIOS\)</span>
-读取磁盘的主引导记录 <span class="math inline">\(MBR\)</span>，载入
-<span class="math inline">\(RAM\)</span> 执行</strong> <span
-class="math inline">\(BIOS\)</span> 找到启动硬盘，读取磁盘<strong>第
-<span class="math inline">\(0\)</span>
-扇区（第一块）</strong>，也就是**<span
-class="math inline">\(MBR\)</span> 主引导记录**，加载到内存。 <span
-class="math inline">\(MBR\)</span> 包含两部分：<strong>磁盘引导程序 +
-分区表</strong>。 执行 <span class="math inline">\(MBR\)</span>
-引导程序，扫描分区表，标记出<strong>活动分区（主分区，装系统的分区，如图里
-<span class="math inline">\(C\)</span> 盘）</strong>。</p></li>
-<li><p><strong>③ 读取活动分区内的分区引导记录 <span
-class="math inline">\(PBR\)</span>，载入 <span
-class="math inline">\(RAM\)</span> 执行</strong> <span
-class="math inline">\(MBR\)</span>
-的引导程序定位到活动分区，读取该分区第一个扇区——<strong><span
-class="math inline">\(PBR\)</span> 分区引导记录</strong>，调入内存运行。
-<span class="math inline">\(PBR\)</span>
-的任务：在当前分区的文件系统里，找到操作系统的<strong>启动管理器</strong>。</p></li>
-<li><p><strong>④ <span class="math inline">\(PBR\)</span>
-找到启动管理器，加载完整 <span class="math inline">\(OS\)</span>
-内核，完成开机</strong> <span class="math inline">\(PBR\)</span>
-在分区的<strong>根目录</strong>中定位到系统启动管理器，把它读入内存并执行；
-启动管理器再进一步加载操作系统内核、初始化系统，最终进入操作系统。</p></li>
+<h3 id="整体流程梳理"><a href="#整体流程梳理" class="headerlink" title="整体流程梳理"></a>整体流程梳理</h3><ol>
+<li><p><strong>① $CPU$ 上电，执行 $ROM$（$BIOS$）里的引导程序</strong><br> 计算机通电后，$CPU$ 直接从固定的主存地址取指令，运行固化在 $ROM$ 中的 $BIOS$ 程序。<br> $BIOS$ 首先执行<strong>硬件自检 $POST$</strong>，检测 $CPU$、内存、硬盘等基础硬件是否正常；自检通过后，$BIOS$ 会按照启动顺序寻找可引导磁盘。</p>
+</li>
+<li><p><strong>② $BIOS$ 读取磁盘的主引导记录 $MBR$，载入 $RAM$ 执行</strong><br> $BIOS$ 找到启动硬盘，读取磁盘<strong>第 $0$ 扇区（第一块）</strong>，也就是**$MBR$ 主引导记录**，加载到内存。<br> $MBR$ 包含两部分：<strong>磁盘引导程序 + 分区表</strong>。<br> 执行 $MBR$ 引导程序，扫描分区表，标记出<strong>活动分区（主分区，装系统的分区，如图里 $C$ 盘）</strong>。</p>
+</li>
+<li><p><strong>③ 读取活动分区内的分区引导记录 $PBR$，载入 $RAM$ 执行</strong><br> $MBR$ 的引导程序定位到活动分区，读取该分区第一个扇区——<strong>$PBR$ 分区引导记录</strong>，调入内存运行。<br> $PBR$ 的任务：在当前分区的文件系统里，找到操作系统的<strong>启动管理器</strong>。</p>
+</li>
+<li><p><strong>④ $PBR$ 找到启动管理器，加载完整 $OS$ 内核，完成开机</strong><br> $PBR$ 在分区的<strong>根目录</strong>中定位到系统启动管理器，把它读入内存并执行；<br> 启动管理器再进一步加载操作系统内核、初始化系统，最终进入操作系统。</p>
+</li>
 </ol>
-<hr />
-<h3 id="关键名词区分考试常考">关键名词区分（考试常考）</h3>
-<table>
+<hr>
+<h3 id="关键名词区分（考试常考）"><a href="#关键名词区分（考试常考）" class="headerlink" title="关键名词区分（考试常考）"></a>关键名词区分（考试常考）</h3><table>
 <thead>
 <tr>
 <th>名词</th>
@@ -752,154 +547,89 @@ class="math inline">\(PBR\)</span> 分区引导记录</strong>，调入内存运
 <th>核心作用</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td><span class="math inline">\(BIOS\)</span></td>
-<td>主板 <span class="math inline">\(ROM\)</span></td>
-<td>上电自检，找到硬盘，加载 <span
-class="math inline">\(MBR\)</span></td>
+<tbody><tr>
+<td>$BIOS$</td>
+<td>主板 $ROM$</td>
+<td>上电自检，找到硬盘，加载 $MBR$</td>
 </tr>
 <tr>
-<td><span class="math inline">\(MBR\)</span> 主引导记录</td>
-<td>硬盘 <span class="math inline">\(0\)</span>
-号扇区（不属于任何分区）</td>
+<td>$MBR$ 主引导记录</td>
+<td>硬盘 $0$ 号扇区（不属于任何分区）</td>
 <td>硬盘引导程序+整张磁盘的分区表，找到活动分区</td>
 </tr>
 <tr>
-<td><span class="math inline">\(PBR\)</span> 分区引导记录</td>
+<td>$PBR$ 分区引导记录</td>
 <td><strong>活动分区的第一个扇区</strong>（属于分区内部）</td>
 <td>在本分区文件系统里寻找系统启动文件</td>
 </tr>
-</tbody>
-</table>
-<h3 id="补充要点">补充要点</h3>
-<ol type="1">
-<li><span class="math inline">\(MBR\)</span>
-是<strong>整个硬盘的第一扇区</strong>，不属于 <span
-class="math inline">\(C\)</span>/<span
-class="math inline">\(D\)</span>/<span class="math inline">\(E\)</span>
-任何一个分区；<span class="math inline">\(PBR\)</span>
-属于单个分区。</li>
-<li>只有**标记为活动（可引导）**的分区，它里面的 <span
-class="math inline">\(PBR\)</span>
-才会被执行，一般操作系统就安装在活动分区。</li>
-<li>这套是老式 <span class="math inline">\(BIOS\)</span>
-启动；现在新电脑多用 <span class="math inline">\(UEFI\)</span>+<span
-class="math inline">\(GPT\)</span>，流程不一样，不要混淆。 <img
-src="/images/操作系统/1/操作系统引导.png"
-alt="image-20260922222818862" /></li>
+</tbody></table>
+<h3 id="补充要点"><a href="#补充要点" class="headerlink" title="补充要点"></a>补充要点</h3><ol>
+<li>$MBR$ 是<strong>整个硬盘的第一扇区</strong>，不属于 $C$&#x2F;$D$&#x2F;$E$ 任何一个分区；$PBR$ 属于单个分区。</li>
+<li>只有**标记为活动（可引导）**的分区，它里面的 $PBR$ 才会被执行，一般操作系统就安装在活动分区。</li>
+<li>这套是老式 $BIOS$ 启动；现在新电脑多用 $UEFI$+$GPT$，流程不一样，不要混淆。<br><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E5%AF%BC.png" alt="image-20260922222818862"></li>
 </ol>
-<h2 id="116虚拟机与-vmm虚拟机管理程序">1.1.6虚拟机与 <span
-class="math inline">\(VMM\)</span>（虚拟机管理程序）</h2>
-<p>虚拟机：使用虚拟化技术，将一台物理机器虚拟化为多台虚拟机（Virtual
-Machine, <span
-class="math inline">\(VM\)</span>），每个虚拟机都可以独立运行一个操作系统。</p>
-<p><strong>同义术语</strong>：<strong>虚拟机管理程序</strong> /
-虚拟机监控程序 / Virtual Machine Monitor / <span
-class="math inline">\(Hypervisor\)</span></p>
+<h2 id="1-1-6虚拟机与-VMM-（虚拟机管理程序）"><a href="#1-1-6虚拟机与-VMM-（虚拟机管理程序）" class="headerlink" title="1.1.6虚拟机与 $VMM$（虚拟机管理程序）"></a>1.1.6虚拟机与 $VMM$（虚拟机管理程序）</h2><p>虚拟机：使用虚拟化技术，将一台物理机器虚拟化为多台虚拟机（Virtual Machine, $VM$），每个虚拟机都可以独立运行一个操作系统。</p>
+<p><strong>同义术语</strong>：<strong>虚拟机管理程序</strong> &#x2F; 虚拟机监控程序 &#x2F; Virtual Machine Monitor &#x2F; $Hypervisor$</p>
 <blockquote>
-<p><span class="math inline">\(VMM\)</span> 全称 Virtual Machine
-Monitor，中文叫虚拟机管理程序（虚拟机监控程序、<span
-class="math inline">\(Hypervisor\)</span>），分为<strong>第一类 <span
-class="math inline">\(VMM\)</span></strong> 和<strong>第二类 <span
-class="math inline">\(VMM\)</span></strong>。</p>
+<p>$VMM$ 全称 Virtual Machine Monitor，中文叫虚拟机管理程序（虚拟机监控程序、$Hypervisor$），分为<strong>第一类 $VMM$</strong> 和<strong>第二类 $VMM$</strong>。</p>
 </blockquote>
-<h3 id="1-第一类-vmm">1. 第一类 <span
-class="math inline">\(VMM\)</span></h3>
-<p>直接运行在硬件之上，没有宿主操作系统。</p>
+<h3 id="1-第一类-VMM"><a href="#1-第一类-VMM" class="headerlink" title="1. 第一类 $VMM$"></a>1. 第一类 $VMM$</h3><p>直接运行在硬件之上，没有宿主操作系统。</p>
 <ul>
-<li>位置：硬件之上，直接接管硬件资源，运行在最高特权级（<span
-class="math inline">\(Ring\ 0\)</span>），可以执行最高特权的指令。</li>
-<li>实例：<span class="math inline">\(VMware\ ESXi\)</span>、<span
-class="math inline">\(Xen\)</span>、<span
-class="math inline">\(KVM\)</span>（裸金属部署场景）</li>
+<li>位置：硬件之上，直接接管硬件资源，运行在最高特权级（$Ring\ 0$），可以执行最高特权的指令。</li>
+<li>实例：$VMware\ ESXi$、$Xen$、$KVM$（裸金属部署场景）</li>
 </ul>
-<h3 id="2-第二类-vmm">2. 第二类 <span
-class="math inline">\(VMM\)</span></h3>
-<p>运行在**宿主操作系统（<span class="math inline">\(Host\
-OS\)</span>）**之上，属于宿主操作系统上的软件。</p>
+<h3 id="2-第二类-VMM"><a href="#2-第二类-VMM" class="headerlink" title="2. 第二类 $VMM$"></a>2. 第二类 $VMM$</h3><p>运行在**宿主操作系统（$Host\ OS$）**之上，属于宿主操作系统上的软件。</p>
 <ul>
-<li>位置：依赖 <span class="math inline">\(Host\ OS\)</span>
-获取硬件资源；部分运行在用户态、部分运行在内核态。客户操作系统（<span
-class="math inline">\(Guest\ OS\)</span>）发出的系统调用会被 <span
-class="math inline">\(VMM\)</span> 截获，并转化为 <span
-class="math inline">\(VMM\)</span> 对 <span class="math inline">\(Host\
-OS\)</span> 的系统调用。</li>
-<li>实例：<span class="math inline">\(VMware\
-Workstation\)</span>、VirtualBox</li>
+<li>位置：依赖 $Host\ OS$ 获取硬件资源；部分运行在用户态、部分运行在内核态。客户操作系统（$Guest\ OS$）发出的系统调用会被 $VMM$ 截获，并转化为 $VMM$ 对 $Host\ OS$ 的系统调用。</li>
+<li>实例：$VMware\ Workstation$、VirtualBox</li>
 </ul>
-<hr />
-<h3 id="两类虚拟机管理程序vmm的对比">两类虚拟机管理程序（<span
-class="math inline">\(VMM\)</span>）的对比</h3>
-<table>
+<hr>
+<h3 id="两类虚拟机管理程序（-VMM-）的对比"><a href="#两类虚拟机管理程序（-VMM-）的对比" class="headerlink" title="两类虚拟机管理程序（$VMM$）的对比"></a>两类虚拟机管理程序（$VMM$）的对比</h3><table>
 <thead>
 <tr>
 <th>对比维度</th>
-<th>第一类 <span class="math inline">\(VMM\)</span></th>
-<th>第二类 <span class="math inline">\(VMM\)</span></th>
+<th>第一类 $VMM$</th>
+<th>第二类 $VMM$</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>对物理资源的控制权</td>
 <td>直接运行在硬件之上，能直接控制和分配物理资源</td>
-<td>运行在 <span class="math inline">\(Host\ OS\)</span> 之上，依赖于
-<span class="math inline">\(Host\ OS\)</span> 为其分配物理资源</td>
+<td>运行在 $Host\ OS$ 之上，依赖于 $Host\ OS$ 为其分配物理资源</td>
 </tr>
 <tr>
 <td>资源分配方式</td>
-<td>在安装 <span class="math inline">\(Guest\ OS\)</span> 时，<span
-class="math inline">\(VMM\)</span>
-要在原本的硬盘上自行分配存储空间，类似于“外核”的分配方式，分配未经抽象的物理硬件</td>
-<td><span class="math inline">\(Guest\ OS\)</span>
-拥有自己的虚拟磁盘，该盘实际上是 <span class="math inline">\(Host\
-OS\)</span> 文件系统中的一个大文件。<span class="math inline">\(Guest\
-OS\)</span> 分配到的内存是虚拟内存</td>
+<td>在安装 $Guest\ OS$ 时，$VMM$ 要在原本的硬盘上自行分配存储空间，类似于“外核”的分配方式，分配未经抽象的物理硬件</td>
+<td>$Guest\ OS$ 拥有自己的虚拟磁盘，该盘实际上是 $Host\ OS$ 文件系统中的一个大文件。$Guest\ OS$ 分配到的内存是虚拟内存</td>
 </tr>
 <tr>
 <td>性能</td>
 <td>性能更好</td>
-<td>性能更差，需要 <span class="math inline">\(Host\ OS\)</span>
-作为“中介”</td>
+<td>性能更差，需要 $Host\ OS$ 作为“中介”</td>
 </tr>
 <tr>
 <td>可支持的虚拟机数量</td>
-<td>更多，不需要和 <span class="math inline">\(Host\ OS\)</span>
-竞争资源，相同的硬件资源可以支持更多的虚拟机</td>
-<td>更少，<span class="math inline">\(Host\ OS\)</span>
-本身需要使用物理资源，<span class="math inline">\(Host\ OS\)</span>
-上运行的其他进程也需要物理资源</td>
+<td>更多，不需要和 $Host\ OS$ 竞争资源，相同的硬件资源可以支持更多的虚拟机</td>
+<td>更少，$Host\ OS$ 本身需要使用物理资源，$Host\ OS$ 上运行的其他进程也需要物理资源</td>
 </tr>
 <tr>
 <td>虚拟机的可迁移性</td>
 <td>更差</td>
-<td>更好，只需导出虚拟机镜像文件即可迁移到另一台 <span
-class="math inline">\(Host\ OS\)</span> 上，商业化应用更广泛</td>
+<td>更好，只需导出虚拟机镜像文件即可迁移到另一台 $Host\ OS$ 上，商业化应用更广泛</td>
 </tr>
 <tr>
 <td>运行模式</td>
-<td>第一类 <span class="math inline">\(VMM\)</span>
-运行在最高特权级（<span class="math inline">\(Ring\
-0\)</span>），可以执行最高特权的指令。</td>
-<td>第二类 <span class="math inline">\(VMM\)</span>
-部分运行在用户态、部分运行在内核态。<span class="math inline">\(Guest\
-OS\)</span> 发出的系统调用会被 <span class="math inline">\(VMM\)</span>
-截获，并转化为 <span class="math inline">\(VMM\)</span> 对 <span
-class="math inline">\(Host\ OS\)</span> 的系统调用</td>
+<td>第一类 $VMM$ 运行在最高特权级（$Ring\ 0$），可以执行最高特权的指令。</td>
+<td>第二类 $VMM$ 部分运行在用户态、部分运行在内核态。$Guest\ OS$ 发出的系统调用会被 $VMM$ 截获，并转化为 $VMM$ 对 $Host\ OS$ 的系统调用</td>
 </tr>
-</tbody>
-</table>
-<p><img src="/images/操作系统/1/虚拟机.png"
-alt="屏幕截图 2026-09-22 223339" /></p>
+</tbody></table>
+<p><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1/%E8%99%9A%E6%8B%9F%E6%9C%BA.png" alt="屏幕截图 2026-09-22 223339"></p>
 <ul>
-<li><span class="math inline">\(Host\
-OS\)</span>：宿主操作系统，物理机上原本安装的操作系统（第二类虚拟化才有）</li>
-<li><span class="math inline">\(Guest\
-OS\)</span>：客户操作系统，跑在虚拟机内部的操作系统</li>
-<li><span class="math inline">\(VMM\)</span> / <span
-class="math inline">\(Hypervisor\)</span>：虚拟机管理程序，负责隔离、调度各个虚拟机，分配硬件资源</li>
+<li>$Host\ OS$：宿主操作系统，物理机上原本安装的操作系统（第二类虚拟化才有）</li>
+<li>$Guest\ OS$：客户操作系统，跑在虚拟机内部的操作系统</li>
+<li>$VMM$ &#x2F; $Hypervisor$：虚拟机管理程序，负责隔离、调度各个虚拟机，分配硬件资源</li>
 </ul>
-</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src="/./images/avator.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src="/./images/avator.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">4FGR</div><div class="post-copyright__author_desc">爱智慧(..＞◡＜..)</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://example.com/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%AA%E8%AE%BA/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://example.com/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%AA%E8%AE%BA/')">操作系统-绪论(1)</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="/%5Cimages%5Creward%5Cimage.jpg" target="_blank"><img class="post-qr-code-img" src="/%5Cimages%5Creward%5Cimage.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://ooo.0x0.ooo/2024/11/25/OH2LqP.jpg" target="_blank"><img class="post-qr-code-img" src="https://ooo.0x0.ooo/2024/11/25/OH2LqP.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li></ul></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://example.com/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%AA%E8%AE%BA/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=操作系统-绪论(1)&amp;url=http://example.com/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%AA%E8%AE%BA/&amp;pic=/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src="/./images/avator.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src="/./images/avator.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">4FGR</div><div class="post-copyright__author_desc">爱智慧(..＞◡＜..)</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://example.com/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%AA%E8%AE%BA/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://example.com/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%AA%E8%AE%BA/')">操作系统-绪论(1)</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="/%5Cimages%5Creward%5Cimage.jpg" target="_blank"><img class="post-qr-code-img" src="/%5Cimages%5Creward%5Cimage.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://ooo.0x0.ooo/2024/11/25/OH2LqP.jpg" target="_blank"><img class="post-qr-code-img" src="https://ooo.0x0.ooo/2024/11/25/OH2LqP.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li></ul></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://example.com/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%AA%E8%AE%BA/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=操作系统-绪论(1)&amp;url=http://example.com/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%AA%E8%AE%BA/&amp;pic=/images/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
   var currentPageUrl = window.location.href;
   var input = document.createElement("input");
   input.setAttribute("value", currentPageUrl);
@@ -908,8 +638,7 @@ class="math inline">\(Hypervisor\)</span>：虚拟机管理程序，负责隔离
   input.setSelectionRange(0, 99999);
   document.execCommand("copy");
   document.body.removeChild(input);
-}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">4FGR の Blog</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>操作系统<span class="tagsPageCount">5</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/10/04/408/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/7.%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%B3%BB%E7%BB%9F/"><img class="prev-cover" src="/images/covers/%E8%AE%A1%E7%BB%84.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">计组-输入/输出系统(7)</div></div></a></div><div class="next-post pull-right"><a href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/"><img class="next-cover" src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">操作系统-进程与线程(2)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/" title="操作系统-进程与线程(2)"><img class="cover" src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-10-14</div><div class="title">操作系统-进程与线程(2)</div></div></a></div><div><a href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" title="操作系统-文件管理(4)"><img class="cover" src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-10-14</div><div class="title">操作系统-文件管理(4)</div></div></a></div><div><a href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/3.%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" title="操作系统-内存管理(3)"><img class="cover" src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-10-14</div><div class="title">操作系统-内存管理(3)</div></div></a></div><div><a href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/" title="操作系统-设备管理(5)"><img class="cover" src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-10-14</div><div class="title">操作系统-设备管理(5)</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div><div class="comment-tips" id="comment-tips"><span>✅ 你无需删除空行，直接评论以获取最佳展示效果</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src="/./images/avator.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description">这是我的个人博客</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">4FGR</h1><div class="author-info__desc">爱智慧(..＞◡＜..)</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/4FGR" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/383167539?spm_id_from=333.1007.0.0" target="_blank" title="BiliBili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a></div></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来看我的博客鸭~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#11-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">1.1 操作系统的基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#111-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">1.1.1 操作系统的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#112-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E7%9B%AE%E6%A0%87"><span class="toc-number">1.2.</span> <span class="toc-text">1.1.2 操作系统的功能和目标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E7%9A%84%E7%AE%A1%E7%90%86%E8%80%85%E5%9B%9B%E5%A4%A7%E7%AE%A1%E7%90%86%E5%8A%9F%E8%83%BD"><span class="toc-number">1.2.1.</span> <span class="toc-text">资源的管理者（四大管理功能）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E4%B8%8A%E5%B1%82%E6%8F%90%E4%BE%9B%E6%9C%8D%E5%8A%A1%E6%8E%A5%E5%8F%A3%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.2.</span> <span class="toc-text">向上层提供服务（接口分类）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%99%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7%E4%BD%BF%E7%94%A8%E7%94%A8%E6%88%B7%E6%8E%A5%E5%8F%A3%E5%91%BD%E4%BB%A4%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">给普通用户使用：用户接口（命令接口）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%99%E8%BD%AF%E4%BB%B6%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BD%BF%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">给软件&#x2F;程序员使用：程序接口</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E7%A1%AC%E4%BB%B6%E6%9C%BA%E5%99%A8%E7%9A%84%E6%89%A9%E5%B1%95%E6%89%A9%E5%85%85%E6%9C%BA%E5%99%A8"><span class="toc-number">1.2.3.</span> <span class="toc-text">对硬件机器的扩展：扩充机器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#113-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%B9%E5%BE%81"><span class="toc-number">1.3.</span> <span class="toc-text">1.1.3 操作系统的特征</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91"><span class="toc-number">1.3.1.</span> <span class="toc-text">并发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B1%E4%BA%AB"><span class="toc-number">1.3.2.</span> <span class="toc-text">共享</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%85%B1%E4%BA%AB%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">并发与共享的关系</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F"><span class="toc-number">1.3.3.</span> <span class="toc-text">虚拟</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5"><span class="toc-number">1.3.4.</span> <span class="toc-text">异步</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8F%91%E5%B1%95%E4%B8%8E%E5%88%86%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">1.2操作系统发展与分类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E5%B7%A5%E6%93%8D%E4%BD%9C%E9%98%B6%E6%AE%B5"><span class="toc-number">2.1.</span> <span class="toc-text">手工操作阶段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%B9%E5%A4%84%E7%90%86%E9%98%B6%E6%AE%B5"><span class="toc-number">2.2.</span> <span class="toc-text">批处理阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%8D%95%E9%81%93%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.2.1.</span> <span class="toc-text">1. 单道批处理系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A4%9A%E9%81%93%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%AD%A3%E5%BC%8F%E8%AF%9E%E7%94%9F"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.
-多道批处理系统（操作系统正式诞生）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%97%B6%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.3.</span> <span class="toc-text">分时操作系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E6%97%B6%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.4.</span> <span class="toc-text">实时操作系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.5.</span> <span class="toc-text">其他操作系统</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83"><span class="toc-number">3.</span> <span class="toc-text">1.3操作系统运行环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#131%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6"><span class="toc-number">3.1.</span> <span class="toc-text">1.3.1运行机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E5%88%86%E7%B1%BB"><span class="toc-number">3.1.1.</span> <span class="toc-text">程序分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E6%8C%87%E4%BB%A4"><span class="toc-number">3.1.2.</span> <span class="toc-text">两种指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E5%A4%84%E7%90%86%E5%99%A8%E7%8A%B6%E6%80%81cpu-%E7%8A%B6%E6%80%81"><span class="toc-number">3.1.3.</span> <span class="toc-text">两种处理器状态（\(CPU\) 状态）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%E5%8F%98%E6%80%81"><span class="toc-number">3.1.3.1.</span> <span class="toc-text">状态转换（变态）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#132%E4%B8%AD%E6%96%AD%E5%92%8C%E5%BC%82%E5%B8%B8"><span class="toc-number">3.2.</span> <span class="toc-text">1.3.2中断和异常</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">3.2.1.</span> <span class="toc-text">中断的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E7%9A%84%E5%88%86%E7%B1%BB%E5%B9%BF%E4%B9%89%E4%B8%AD%E6%96%AD"><span class="toc-number">3.2.2.</span> <span class="toc-text">中断的分类（广义中断）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%86%85%E4%B8%AD%E6%96%AD%E5%BC%82%E5%B8%B8"><span class="toc-number">3.2.2.1.</span> <span class="toc-text">1. 内中断（异常）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%A4%96%E4%B8%AD%E6%96%AD%E7%8B%AD%E4%B9%89%E7%9A%84%E4%B8%AD%E6%96%AD"><span class="toc-number">3.2.2.2.</span> <span class="toc-text">2. 外中断（狭义的中断）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-number">3.2.3.</span> <span class="toc-text">中断机制的基本实现原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#133-%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="toc-number">3.3.</span> <span class="toc-text">1.3.3 系统调用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">3.3.1.</span> <span class="toc-text">系统调用的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E4%B8%8E%E5%BA%93%E5%87%BD%E6%95%B0"><span class="toc-number">3.3.2.</span> <span class="toc-text">系统调用与库函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BF%85%E9%A1%BB%E8%A6%81%E6%9C%89%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="toc-number">3.3.3.</span> <span class="toc-text">为什么必须要有系统调用？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">3.3.4.</span> <span class="toc-text">系统调用的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E7%9A%84%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B"><span class="toc-number">3.3.5.</span> <span class="toc-text">系统调用的处理过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="toc-number">3.4.</span> <span class="toc-text">1.4 操作系统体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%86%85%E6%A0%B8"><span class="toc-number">3.4.1.</span> <span class="toc-text">操作系统内核</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E6%A0%B8%E5%8C%85%E5%90%AB%E6%A8%A1%E5%9D%97"><span class="toc-number">3.4.1.1.</span> <span class="toc-text">内核包含模块</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%A4%E7%A7%8D%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="toc-number">3.4.2.</span> <span class="toc-text">操作系统的两种体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%A7%E5%86%85%E6%A0%B8"><span class="toc-number">3.4.2.1.</span> <span class="toc-text">大内核</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E5%86%85%E6%A0%B8"><span class="toc-number">3.4.2.2.</span> <span class="toc-text">微内核</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E5%86%85%E6%A0%B8%E4%B8%8E%E5%BE%AE%E5%86%85%E6%A0%B8%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-number">3.4.3.</span> <span class="toc-text">大内核与微内核的对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%A1%A5%E5%85%85"><span class="toc-number">3.4.4.</span> <span class="toc-text">操作系统的体系结构补充</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%88%86%E5%B1%82%E7%BB%93%E6%9E%84"><span class="toc-number">3.4.4.1.</span> <span class="toc-text">1. 分层结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BB%93%E6%9E%84"><span class="toc-number">3.4.4.2.</span> <span class="toc-text">2. 模块化结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%AE%8F%E5%86%85%E6%A0%B8%E5%A4%A7%E5%86%85%E6%A0%B8"><span class="toc-number">3.4.4.3.</span> <span class="toc-text">3. 宏内核（大内核）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%BE%AE%E5%86%85%E6%A0%B8"><span class="toc-number">3.4.4.4.</span> <span class="toc-text">4. 微内核</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%A4%96%E6%A0%B8exokernel"><span class="toc-number">3.4.4.5.</span> <span class="toc-text">5. 外核（\(exokernel\)）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93"><span class="toc-number">3.4.5.</span> <span class="toc-text">体系结构对比总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#115%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E5%AF%BC"><span class="toc-number">3.5.</span> <span class="toc-text">1.1.5操作系统引导</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B%E6%A2%B3%E7%90%86"><span class="toc-number">3.5.1.</span> <span class="toc-text">整体流程梳理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%90%8D%E8%AF%8D%E5%8C%BA%E5%88%86%E8%80%83%E8%AF%95%E5%B8%B8%E8%80%83"><span class="toc-number">3.5.2.</span> <span class="toc-text">关键名词区分（考试常考）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%E8%A6%81%E7%82%B9"><span class="toc-number">3.5.3.</span> <span class="toc-text">补充要点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#116%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E-vmm%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AE%A1%E7%90%86%E7%A8%8B%E5%BA%8F"><span class="toc-number">3.6.</span> <span class="toc-text">1.1.6虚拟机与 \(VMM\)（虚拟机管理程序）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%AC%AC%E4%B8%80%E7%B1%BB-vmm"><span class="toc-number">3.6.1.</span> <span class="toc-text">1. 第一类 \(VMM\)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%AC%AC%E4%BA%8C%E7%B1%BB-vmm"><span class="toc-number">3.6.2.</span> <span class="toc-text">2. 第二类 \(VMM\)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E7%B1%BB%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AE%A1%E7%90%86%E7%A8%8B%E5%BA%8Fvmm%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-number">3.6.3.</span> <span class="toc-text">两类虚拟机管理程序（\(VMM\)）的对比</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" title="操作系统-文件管理(4)"><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统-文件管理(4)"/></a><div class="content"><a class="title" href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" title="操作系统-文件管理(4)">操作系统-文件管理(4)</a><time datetime="2026-10-14T08:35:14.514Z" title="发表于 2026-10-14 16:35:14">2026-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/" title="操作系统-设备管理(5)"><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统-设备管理(5)"/></a><div class="content"><a class="title" href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/" title="操作系统-设备管理(5)">操作系统-设备管理(5)</a><time datetime="2026-10-14T08:35:14.509Z" title="发表于 2026-10-14 16:35:14">2026-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/3.%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" title="操作系统-内存管理(3)"><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统-内存管理(3)"/></a><div class="content"><a class="title" href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/3.%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" title="操作系统-内存管理(3)">操作系统-内存管理(3)</a><time datetime="2026-10-14T08:35:14.502Z" title="发表于 2026-10-14 16:35:14">2026-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/" title="操作系统-进程与线程(2)"><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统-进程与线程(2)"/></a><div class="content"><a class="title" href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/" title="操作系统-进程与线程(2)">操作系统-进程与线程(2)</a><time datetime="2026-10-14T08:35:14.498Z" title="发表于 2026-10-14 16:35:14">2026-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%AA%E8%AE%BA/" title="操作系统-绪论(1)"><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统-绪论(1)"/></a><div class="content"><a class="title" href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%AA%E8%AE%BA/" title="操作系统-绪论(1)">操作系统-绪论(1)</a><time datetime="2026-10-14T08:35:14.491Z" title="发表于 2026-10-14 16:35:14">2026-10-14</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2024 - 2026 By <a class="footer-bar-link" href="/" title="4FGR" target="_blank">4FGR</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">58</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">42</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">11</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://bolg.4fgr.top/" title="博客"><img class="back-menu-item-icon" src="/img/baka.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/OJ/" style="font-size: 0.88rem;">OJ<sup>1</sup></a><a href="/tags/ST%E8%A1%A8/" style="font-size: 0.88rem;">ST表<sup>1</sup></a><a href="/tags/bfs/" style="font-size: 0.88rem;">bfs<sup>1</sup></a><a href="/tags/c/" style="font-size: 0.88rem;">c++<sup>1</sup></a><a href="/tags/codeforces/" style="font-size: 0.88rem;">codeforces<sup>4</sup></a><a href="/tags/csp/" style="font-size: 0.88rem;">csp<sup>1</sup></a><a href="/tags/css/" style="font-size: 0.88rem;">css<sup>1</sup></a><a href="/tags/dfs/" style="font-size: 0.88rem;">dfs<sup>1</sup></a><a href="/tags/hash/" style="font-size: 0.88rem;">hash<sup>1</sup></a><a href="/tags/html/" style="font-size: 0.88rem;">html<sup>1</sup></a><a href="/tags/%E2%80%98%E6%A0%91%E5%BD%A2%E6%95%B0%E7%BB%84%E2%80%99/" style="font-size: 0.88rem;">‘树形数组’<sup>1</sup></a><a href="/tags/%E5%80%8D%E5%A2%9E/" style="font-size: 0.88rem;">倍增<sup>2</sup></a><a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 0.88rem;">分享<sup>5</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 0.88rem;">前端<sup>1</sup></a><a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 0.88rem;">前缀和<sup>1</sup></a><a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 0.88rem;">动态规划<sup>5</sup></a><a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 0.88rem;">图论<sup>1</sup></a><a href="/tags/%E5%B7%AE%E5%88%86/" style="font-size: 0.88rem;">差分<sup>1</sup></a><a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 0.88rem;">并查集<sup>1</sup></a><a href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" style="font-size: 0.88rem;">归并排序<sup>1</sup></a><a href="/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/" style="font-size: 0.88rem;">快速幂<sup>1</sup></a><a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 0.88rem;">排序<sup>1</sup></a><a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 0.88rem;">操作系统<sup>5</sup></a><a href="/tags/%E6%95%A3%E5%88%97/" style="font-size: 0.88rem;">散列<sup>1</sup></a><a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 0.88rem;">数学<sup>2</sup></a><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 0.88rem;">数据结构<sup>18</sup></a><a href="/tags/%E6%96%90%E6%B3%A2%E6%8B%89%E5%A5%91/" style="font-size: 0.88rem;">斐波拉契<sup>1</sup></a><a href="/tags/%E6%A0%88/" style="font-size: 0.88rem;">栈<sup>2</sup></a><a href="/tags/%E6%A0%91%E5%BD%A2DP/" style="font-size: 0.88rem;">树形DP<sup>1</sup></a><a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 0.88rem;">游戏<sup>1</sup></a><a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96/" style="font-size: 0.88rem;">离散化<sup>1</sup></a><a href="/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/" style="font-size: 0.88rem;">线性表<sup>1</sup></a><a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 0.88rem;">线段树<sup>1</sup></a><a href="/tags/%E8%83%8C%E5%8C%85DP/" style="font-size: 0.88rem;">背包DP<sup>1</sup></a><a href="/tags/%E8%A7%86%E8%A7%89%E5%B0%8F%E8%AF%B4/" style="font-size: 0.88rem;">视觉小说<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8F%B2/" style="font-size: 0.88rem;">计算机史<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 0.88rem;">计算机网络<sup>5</sup></a><a href="/tags/%E8%AE%A1%E7%BB%84/" style="font-size: 0.88rem;">计组<sup>7</sup></a><a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 0.88rem;">链表<sup>2</sup></a><a href="/tags/%E9%98%9F%E5%88%97/" style="font-size: 0.88rem;">队列<sup>1</sup></a></div></div><hr/></div></div><div id="keyboard-tips"><div class="keyboardTitle">博客快捷键</div><div class="keybordList"><div class="keybordItem"><div class="keyGroup"><div class="key">shift K</div></div><div class="keyContent"><div class="content">关闭快捷键功能</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift A</div></div><div class="keyContent"><div class="content">打开/关闭中控台</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift M</div></div><div class="keyContent"><div class="content">播放/暂停音乐</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift D</div></div><div class="keyContent"><div class="content">深色/浅色显示模式</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift S</div></div><div class="keyContent"><div class="content">站内搜索</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift R</div></div><div class="keyContent"><div class="content">随机访问</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift H</div></div><div class="keyContent"><div class="content">返回首页</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift F</div></div><div class="keyContent"><div class="content">友链鱼塘</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift L</div></div><div class="keyContent"><div class="content">友链页面</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift P</div></div><div class="keyContent"><div class="content">关于本站</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift I</div></div><div class="keyContent"><div class="content">原版/本站右键菜单</div></div></div></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="12887774607" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">4FGR の Blog</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>操作系统<span class="tagsPageCount">5</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="/images/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/10/04/408/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/7.%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%B3%BB%E7%BB%9F/"><img class="prev-cover" src="/images/covers/%E8%AE%A1%E7%BB%84.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">计组-输入/输出系统(7)</div></div></a></div><div class="next-post pull-right"><a href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/"><img class="next-cover" src="/images/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">操作系统-进程与线程(2)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/" title="操作系统-进程与线程(2)"><img class="cover" src="/images/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-10-14</div><div class="title">操作系统-进程与线程(2)</div></div></a></div><div><a href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" title="操作系统-文件管理(4)"><img class="cover" src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-10-14</div><div class="title">操作系统-文件管理(4)</div></div></a></div><div><a href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/3.%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" title="操作系统-内存管理(3)"><img class="cover" src="/images/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-10-14</div><div class="title">操作系统-内存管理(3)</div></div></a></div><div><a href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/" title="操作系统-设备管理(5)"><img class="cover" src="/images/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-10-14</div><div class="title">操作系统-设备管理(5)</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div><div class="comment-tips" id="comment-tips"><span>✅ 你无需删除空行，直接评论以获取最佳展示效果</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src="/./images/avator.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description">这是我的个人博客</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">4FGR</h1><div class="author-info__desc">爱智慧(..＞◡＜..)</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/4FGR" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/383167539?spm_id_from=333.1007.0.0" target="_blank" title="BiliBili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a></div></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来看我的博客鸭~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-1-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">1.1 操作系统的基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-1-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">1.1.1 操作系统的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-2-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E7%9B%AE%E6%A0%87"><span class="toc-number">1.2.</span> <span class="toc-text">1.1.2 操作系统的功能和目标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E7%9A%84%E7%AE%A1%E7%90%86%E8%80%85%EF%BC%88%E5%9B%9B%E5%A4%A7%E7%AE%A1%E7%90%86%E5%8A%9F%E8%83%BD%EF%BC%89"><span class="toc-number">1.2.1.</span> <span class="toc-text">资源的管理者（四大管理功能）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E4%B8%8A%E5%B1%82%E6%8F%90%E4%BE%9B%E6%9C%8D%E5%8A%A1%EF%BC%88%E6%8E%A5%E5%8F%A3%E5%88%86%E7%B1%BB%EF%BC%89"><span class="toc-number">1.2.2.</span> <span class="toc-text">向上层提供服务（接口分类）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%99%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7%E4%BD%BF%E7%94%A8%EF%BC%9A%E7%94%A8%E6%88%B7%E6%8E%A5%E5%8F%A3%EF%BC%88%E5%91%BD%E4%BB%A4%E6%8E%A5%E5%8F%A3%EF%BC%89"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">给普通用户使用：用户接口（命令接口）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%99%E8%BD%AF%E4%BB%B6-%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BD%BF%E7%94%A8%EF%BC%9A%E7%A8%8B%E5%BA%8F%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">给软件&#x2F;程序员使用：程序接口</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E7%A1%AC%E4%BB%B6%E6%9C%BA%E5%99%A8%E7%9A%84%E6%89%A9%E5%B1%95%EF%BC%9A%E6%89%A9%E5%85%85%E6%9C%BA%E5%99%A8"><span class="toc-number">1.2.3.</span> <span class="toc-text">对硬件机器的扩展：扩充机器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-3-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%B9%E5%BE%81"><span class="toc-number">1.3.</span> <span class="toc-text">1.1.3 操作系统的特征</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91"><span class="toc-number">1.3.1.</span> <span class="toc-text">并发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B1%E4%BA%AB"><span class="toc-number">1.3.2.</span> <span class="toc-text">共享</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%85%B1%E4%BA%AB%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">并发与共享的关系</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F"><span class="toc-number">1.3.3.</span> <span class="toc-text">虚拟</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5"><span class="toc-number">1.3.4.</span> <span class="toc-text">异步</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-2%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8F%91%E5%B1%95%E4%B8%8E%E5%88%86%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">1.2操作系统发展与分类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E5%B7%A5%E6%93%8D%E4%BD%9C%E9%98%B6%E6%AE%B5"><span class="toc-number">2.1.</span> <span class="toc-text">手工操作阶段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%B9%E5%A4%84%E7%90%86%E9%98%B6%E6%AE%B5"><span class="toc-number">2.2.</span> <span class="toc-text">批处理阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%8D%95%E9%81%93%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.2.1.</span> <span class="toc-text">1. 单道批处理系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A4%9A%E9%81%93%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%88%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%AD%A3%E5%BC%8F%E8%AF%9E%E7%94%9F%EF%BC%89"><span class="toc-number">2.2.2.</span> <span class="toc-text">2. 多道批处理系统（操作系统正式诞生）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%97%B6%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.3.</span> <span class="toc-text">分时操作系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E6%97%B6%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.4.</span> <span class="toc-text">实时操作系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.5.</span> <span class="toc-text">其他操作系统</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83"><span class="toc-number">3.</span> <span class="toc-text">1.3操作系统运行环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-1%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6"><span class="toc-number">3.1.</span> <span class="toc-text">1.3.1运行机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E5%88%86%E7%B1%BB"><span class="toc-number">3.1.1.</span> <span class="toc-text">程序分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E6%8C%87%E4%BB%A4"><span class="toc-number">3.1.2.</span> <span class="toc-text">两种指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E5%A4%84%E7%90%86%E5%99%A8%E7%8A%B6%E6%80%81%EF%BC%88-CPU-%E7%8A%B6%E6%80%81%EF%BC%89"><span class="toc-number">3.1.3.</span> <span class="toc-text">两种处理器状态（$CPU$ 状态）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%EF%BC%88%E5%8F%98%E6%80%81%EF%BC%89"><span class="toc-number">3.1.3.1.</span> <span class="toc-text">状态转换（变态）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-2%E4%B8%AD%E6%96%AD%E5%92%8C%E5%BC%82%E5%B8%B8"><span class="toc-number">3.2.</span> <span class="toc-text">1.3.2中断和异常</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">3.2.1.</span> <span class="toc-text">中断的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E7%9A%84%E5%88%86%E7%B1%BB%EF%BC%88%E5%B9%BF%E4%B9%89%E4%B8%AD%E6%96%AD%EF%BC%89"><span class="toc-number">3.2.2.</span> <span class="toc-text">中断的分类（广义中断）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%86%85%E4%B8%AD%E6%96%AD%EF%BC%88%E5%BC%82%E5%B8%B8%EF%BC%89"><span class="toc-number">3.2.2.1.</span> <span class="toc-text">1. 内中断（异常）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%A4%96%E4%B8%AD%E6%96%AD%EF%BC%88%E7%8B%AD%E4%B9%89%E7%9A%84%E4%B8%AD%E6%96%AD%EF%BC%89"><span class="toc-number">3.2.2.2.</span> <span class="toc-text">2. 外中断（狭义的中断）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-number">3.2.3.</span> <span class="toc-text">中断机制的基本实现原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-3-%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="toc-number">3.3.</span> <span class="toc-text">1.3.3 系统调用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">3.3.1.</span> <span class="toc-text">系统调用的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E4%B8%8E%E5%BA%93%E5%87%BD%E6%95%B0"><span class="toc-number">3.3.2.</span> <span class="toc-text">系统调用与库函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BF%85%E9%A1%BB%E8%A6%81%E6%9C%89%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%EF%BC%9F"><span class="toc-number">3.3.3.</span> <span class="toc-text">为什么必须要有系统调用？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">3.3.4.</span> <span class="toc-text">系统调用的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E7%9A%84%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B"><span class="toc-number">3.3.5.</span> <span class="toc-text">系统调用的处理过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="toc-number">3.4.</span> <span class="toc-text">1.4 操作系统体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%86%85%E6%A0%B8"><span class="toc-number">3.4.1.</span> <span class="toc-text">操作系统内核</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E6%A0%B8%E5%8C%85%E5%90%AB%E6%A8%A1%E5%9D%97"><span class="toc-number">3.4.1.1.</span> <span class="toc-text">内核包含模块</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%A4%E7%A7%8D%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="toc-number">3.4.2.</span> <span class="toc-text">操作系统的两种体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%A7%E5%86%85%E6%A0%B8"><span class="toc-number">3.4.2.1.</span> <span class="toc-text">大内核</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E5%86%85%E6%A0%B8"><span class="toc-number">3.4.2.2.</span> <span class="toc-text">微内核</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E5%86%85%E6%A0%B8%E4%B8%8E%E5%BE%AE%E5%86%85%E6%A0%B8%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-number">3.4.3.</span> <span class="toc-text">大内核与微内核的对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%A1%A5%E5%85%85"><span class="toc-number">3.4.4.</span> <span class="toc-text">操作系统的体系结构补充</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%88%86%E5%B1%82%E7%BB%93%E6%9E%84"><span class="toc-number">3.4.4.1.</span> <span class="toc-text">1. 分层结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BB%93%E6%9E%84"><span class="toc-number">3.4.4.2.</span> <span class="toc-text">2. 模块化结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%AE%8F%E5%86%85%E6%A0%B8%EF%BC%88%E5%A4%A7%E5%86%85%E6%A0%B8%EF%BC%89"><span class="toc-number">3.4.4.3.</span> <span class="toc-text">3. 宏内核（大内核）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%BE%AE%E5%86%85%E6%A0%B8"><span class="toc-number">3.4.4.4.</span> <span class="toc-text">4. 微内核</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%A4%96%E6%A0%B8%EF%BC%88-exokernel-%EF%BC%89"><span class="toc-number">3.4.4.5.</span> <span class="toc-text">5. 外核（$exokernel$）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93"><span class="toc-number">3.4.5.</span> <span class="toc-text">体系结构对比总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-5%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E5%AF%BC"><span class="toc-number">3.5.</span> <span class="toc-text">1.1.5操作系统引导</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B%E6%A2%B3%E7%90%86"><span class="toc-number">3.5.1.</span> <span class="toc-text">整体流程梳理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%90%8D%E8%AF%8D%E5%8C%BA%E5%88%86%EF%BC%88%E8%80%83%E8%AF%95%E5%B8%B8%E8%80%83%EF%BC%89"><span class="toc-number">3.5.2.</span> <span class="toc-text">关键名词区分（考试常考）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%E8%A6%81%E7%82%B9"><span class="toc-number">3.5.3.</span> <span class="toc-text">补充要点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-6%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E-VMM-%EF%BC%88%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AE%A1%E7%90%86%E7%A8%8B%E5%BA%8F%EF%BC%89"><span class="toc-number">3.6.</span> <span class="toc-text">1.1.6虚拟机与 $VMM$（虚拟机管理程序）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%AC%AC%E4%B8%80%E7%B1%BB-VMM"><span class="toc-number">3.6.1.</span> <span class="toc-text">1. 第一类 $VMM$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%AC%AC%E4%BA%8C%E7%B1%BB-VMM"><span class="toc-number">3.6.2.</span> <span class="toc-text">2. 第二类 $VMM$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E7%B1%BB%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AE%A1%E7%90%86%E7%A8%8B%E5%BA%8F%EF%BC%88-VMM-%EF%BC%89%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-number">3.6.3.</span> <span class="toc-text">两类虚拟机管理程序（$VMM$）的对比</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/" title="操作系统-设备管理(5)"><img src="/images/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统-设备管理(5)"/></a><div class="content"><a class="title" href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/" title="操作系统-设备管理(5)">操作系统-设备管理(5)</a><time datetime="2026-10-14T09:10:33.264Z" title="发表于 2026-10-14 17:10:33">2026-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" title="操作系统-文件管理(4)"><img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统-文件管理(4)"/></a><div class="content"><a class="title" href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" title="操作系统-文件管理(4)">操作系统-文件管理(4)</a><time datetime="2026-10-14T08:35:14.514Z" title="发表于 2026-10-14 16:35:14">2026-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/3.%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" title="操作系统-内存管理(3)"><img src="/images/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统-内存管理(3)"/></a><div class="content"><a class="title" href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/3.%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" title="操作系统-内存管理(3)">操作系统-内存管理(3)</a><time datetime="2026-10-14T08:35:14.502Z" title="发表于 2026-10-14 16:35:14">2026-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/" title="操作系统-进程与线程(2)"><img src="/images/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统-进程与线程(2)"/></a><div class="content"><a class="title" href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/" title="操作系统-进程与线程(2)">操作系统-进程与线程(2)</a><time datetime="2026-10-14T08:35:14.498Z" title="发表于 2026-10-14 16:35:14">2026-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%AA%E8%AE%BA/" title="操作系统-绪论(1)"><img src="/images/covers/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统-绪论(1)"/></a><div class="content"><a class="title" href="/2026/10/14/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%AA%E8%AE%BA/" title="操作系统-绪论(1)">操作系统-绪论(1)</a><time datetime="2026-10-14T08:35:14.491Z" title="发表于 2026-10-14 16:35:14">2026-10-14</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2024 - 2026 By <a class="footer-bar-link" href="/" title="4FGR" target="_blank">4FGR</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">58</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">42</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">11</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://bolg.4fgr.top/" title="博客"><img class="back-menu-item-icon" src="/img/baka.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/OJ/" style="font-size: 0.88rem;">OJ<sup>1</sup></a><a href="/tags/ST%E8%A1%A8/" style="font-size: 0.88rem;">ST表<sup>1</sup></a><a href="/tags/bfs/" style="font-size: 0.88rem;">bfs<sup>1</sup></a><a href="/tags/c/" style="font-size: 0.88rem;">c++<sup>1</sup></a><a href="/tags/codeforces/" style="font-size: 0.88rem;">codeforces<sup>4</sup></a><a href="/tags/csp/" style="font-size: 0.88rem;">csp<sup>1</sup></a><a href="/tags/css/" style="font-size: 0.88rem;">css<sup>1</sup></a><a href="/tags/dfs/" style="font-size: 0.88rem;">dfs<sup>1</sup></a><a href="/tags/hash/" style="font-size: 0.88rem;">hash<sup>1</sup></a><a href="/tags/html/" style="font-size: 0.88rem;">html<sup>1</sup></a><a href="/tags/%E2%80%98%E6%A0%91%E5%BD%A2%E6%95%B0%E7%BB%84%E2%80%99/" style="font-size: 0.88rem;">‘树形数组’<sup>1</sup></a><a href="/tags/%E5%80%8D%E5%A2%9E/" style="font-size: 0.88rem;">倍增<sup>2</sup></a><a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 0.88rem;">分享<sup>5</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 0.88rem;">前端<sup>1</sup></a><a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 0.88rem;">前缀和<sup>1</sup></a><a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 0.88rem;">动态规划<sup>5</sup></a><a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 0.88rem;">图论<sup>1</sup></a><a href="/tags/%E5%B7%AE%E5%88%86/" style="font-size: 0.88rem;">差分<sup>1</sup></a><a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 0.88rem;">并查集<sup>1</sup></a><a href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" style="font-size: 0.88rem;">归并排序<sup>1</sup></a><a href="/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/" style="font-size: 0.88rem;">快速幂<sup>1</sup></a><a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 0.88rem;">排序<sup>1</sup></a><a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 0.88rem;">操作系统<sup>5</sup></a><a href="/tags/%E6%95%A3%E5%88%97/" style="font-size: 0.88rem;">散列<sup>1</sup></a><a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 0.88rem;">数学<sup>2</sup></a><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 0.88rem;">数据结构<sup>18</sup></a><a href="/tags/%E6%96%90%E6%B3%A2%E6%8B%89%E5%A5%91/" style="font-size: 0.88rem;">斐波拉契<sup>1</sup></a><a href="/tags/%E6%A0%88/" style="font-size: 0.88rem;">栈<sup>2</sup></a><a href="/tags/%E6%A0%91%E5%BD%A2DP/" style="font-size: 0.88rem;">树形DP<sup>1</sup></a><a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 0.88rem;">游戏<sup>1</sup></a><a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96/" style="font-size: 0.88rem;">离散化<sup>1</sup></a><a href="/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/" style="font-size: 0.88rem;">线性表<sup>1</sup></a><a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 0.88rem;">线段树<sup>1</sup></a><a href="/tags/%E8%83%8C%E5%8C%85DP/" style="font-size: 0.88rem;">背包DP<sup>1</sup></a><a href="/tags/%E8%A7%86%E8%A7%89%E5%B0%8F%E8%AF%B4/" style="font-size: 0.88rem;">视觉小说<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8F%B2/" style="font-size: 0.88rem;">计算机史<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 0.88rem;">计算机网络<sup>5</sup></a><a href="/tags/%E8%AE%A1%E7%BB%84/" style="font-size: 0.88rem;">计组<sup>7</sup></a><a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 0.88rem;">链表<sup>2</sup></a><a href="/tags/%E9%98%9F%E5%88%97/" style="font-size: 0.88rem;">队列<sup>1</sup></a></div></div><hr/></div></div><div id="keyboard-tips"><div class="keyboardTitle">博客快捷键</div><div class="keybordList"><div class="keybordItem"><div class="keyGroup"><div class="key">shift K</div></div><div class="keyContent"><div class="content">关闭快捷键功能</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift A</div></div><div class="keyContent"><div class="content">打开/关闭中控台</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift M</div></div><div class="keyContent"><div class="content">播放/暂停音乐</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift D</div></div><div class="keyContent"><div class="content">深色/浅色显示模式</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift S</div></div><div class="keyContent"><div class="content">站内搜索</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift R</div></div><div class="keyContent"><div class="content">随机访问</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift H</div></div><div class="keyContent"><div class="content">返回首页</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift F</div></div><div class="keyContent"><div class="content">友链鱼塘</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift L</div></div><div class="keyContent"><div class="content">友链页面</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift P</div></div><div class="keyContent"><div class="content">关于本站</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift I</div></div><div class="keyContent"><div class="content">原版/本站右键菜单</div></div></div></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="12887774607" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
 var HoldLog = console.log;
 console.log = function () {};
 let now1 = new Date();
